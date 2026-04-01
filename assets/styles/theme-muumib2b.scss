@@ -1,0 +1,67 @@
+@import "themes/includes";
+
+$color-muumi-yellow: #FEE100;
+$color-muumi-orange: #FBA200;
+$color-muumi-light-pink: #F7A39F;
+$color-muumi-pink: #F390B1;
+$color-muumi-magenta: #BF52AF;
+$color-muumi-red: #FF5853;
+$color-muumi-blue: #3776C3;
+$color-muumi-bluegray: #D6DFF3;
+$color-muumi-lightgreen: #CACF84;
+$color-muumi-green: #17876E;
+$color-muumi-gray: #57585B;
+$color-muumi-black: #131313;
+
+$primary: $color-white;
+$primary-invert: $color-muumi-black;
+$primary-light: $color-white;
+$primary-light-invert: $color-muumi-black;
+$primary-dark: $color-white;
+$primary-dark-invert: $color-muumi-black;
+$fly-out-nav-trigger-icon: $color-muumi-black;
+$fly-out-nav-trigger-icon-hover: $color-muumi-black;
+
+$secondary: $color-white;
+$secondary-invert: $color-muumi-black;
+$secondary-light: $color-white;
+$secondary-light-invert: $color-muumi-black;
+$secondary-dark: $color-white;
+$secondary-dark-invert: $color-muumi-black;
+
+$light: $primary-light;
+$light-invert: $primary-light-invert;
+$dark: $primary-dark;
+$dark-invert: $primary-dark-invert;
+$divider: $color-vaalean-harmaa;
+$divider-invert: $color-tumma-harmaa;
+
+$text: $black;
+$link: $primary-dark;
+
+$accent: $primary-dark;
+$accent-light: #f2ac58;
+
+$colors-palette-primary: ($primary, $primary-invert, $primary-dark, $primary-light);
+$colors-palette-secondary: ($secondary, $secondary-invert, $secondary-dark, $secondary-light);
+
+$colors: (
+    "primary": $colors-palette-primary,
+    "secondary": $colors-palette-secondary,
+    "white": ($color-white, $color-black),
+    "black": ($color-black, $color-white),
+    "accent": ($primary, $primary-invert),
+);
+
+$button-colors: (
+    "primary": ($primary, $primary-invert, $primary, $primary-invert),
+    "secondary": ($secondary, $secondary-invert, $secondary, $secondary-invert),
+);
+
+$navbar-colors: (
+    "primary": $colors-palette-primary
+);
+
+$color-background-primary-light--opaque-light: $secondary;
+
+@import "main";

@@ -1,0 +1,106 @@
+.has-background-cover {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.has-background-transparent {
+    background-color: transparent !important; // sass-lint:disable-line no-important
+}
+
+.has-background-secondary {
+    &--opaque {
+        background-color: rgba($secondary, .5) !important;
+    }
+}
+
+.has-background-gray {
+    background-color: $color-muumi-gray;
+    color: $color-white;
+
+    .button {
+        background-color: $color-muumi-black;
+        border-color: $color-muumi-black;
+        color: $color-white;
+    }
+}
+
+.has-background-blue {
+    background-color: $color-muumi-blue;
+    color: $color-white;
+
+    .button {
+        background-color: $color-muumi-black;
+        border-color: $color-muumi-black;
+        color: $color-white;
+    }
+}
+
+.has-background-bluegray {
+    background-color: $color-muumi-bluegray;
+    color: $color-white;
+
+    .button {
+        background-color: $color-muumi-black;
+        border-color: $color-muumi-black;
+        color: $color-white;
+    }
+}
+
+.has-background-magenta {
+    background-color: $color-muumi-magenta;
+    color: $color-white;
+
+    .button {
+        background-color: $color-muumi-black;
+        border-color: $color-muumi-black;
+        color: $color-white;
+    }
+}
+
+.has-background-yellow {
+    background-color: $color-muumi-yellow;
+
+    .button {
+        background-color: $color-muumi-black;
+        border-color: $color-muumi-black;
+        color: $color-white;
+    }
+}
+
+.has-background-orange {
+    background-color: $color-muumi-orange;
+
+    .button {
+        background-color: $color-white;
+        border-color: $color-white;
+        color: $color-muumi-black;
+    }
+}
+
+.has-background-pink {
+    background-color: $color-muumi-pink;
+
+    .button {
+        background-color: $color-muumi-black;
+        border-color: $color-muumi-black;
+        color: $color-white;
+    }
+}
+
+.has-background-light-pink {
+    background-color: $color-muumi-light-pink;
+
+    .button {
+        background-color: $color-muumi-black;
+        border-color: $color-muumi-black;
+        color: $color-white;
+    }
+}
+
+$color-background-primary-light--opaque-light: rgba($primary-light, .05) !default;
+.has-background-primary-light {
+    &--opaque-light {
+        background-color: $color-background-primary-light--opaque-light !important;
+    }
+}

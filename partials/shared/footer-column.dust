@@ -1,0 +1,18 @@
+<div class="column {column_class|attr}">
+    {?column_title}
+        <h2 class="h4 mt-4 mb-4">
+            {column_title|html}
+        </h2>
+    {/column_title}
+
+    <ul class="is-unstyled {Footer.typography.column|attr}">
+        {#link_column}
+            <li class="mb-4">
+                <a href="{link.url|url}" target="{link.target|attr}"
+                   class="site-footer__link is-flex is-align-items-center {Footer.colors.link|attr}">
+                    <span>{link.title|html}</span>
+                </a>
+            </li>
+        {/link_column}
+    </ul>
+</div>

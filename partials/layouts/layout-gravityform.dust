@@ -1,0 +1,26 @@
+{?gravityform}
+    <section class="gravityform section {common_background_color|attr} {common_shape_bottom|attr} {common_shape_top|attr}" {?anchor}id="{anchor|attr}"{/anchor}>
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    {?heading}
+                        <h2 class="h2 mb-6 mt-6">
+                            {heading|html}
+                        </h2>
+                    {/heading}
+
+                    {?text}
+                        <div class="mb-6">
+                            {text|kses}
+                        </div>
+                    {/text}
+                </div>
+                <div class="column">
+
+                {gravityform|s}
+
+                </div>
+            </div>
+        </div>
+    </section>
+{/gravityform}

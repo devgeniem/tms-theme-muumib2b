@@ -1,0 +1,7 @@
+<div {?anchor}id="{anchor|attr}"{/anchor} class="section layout-image-banner p-0">
+    <div class="columns">
+        <div class="column">
+            {>"blocks/block-image-banner" /}
+        </div>
+    </div>
+</div>

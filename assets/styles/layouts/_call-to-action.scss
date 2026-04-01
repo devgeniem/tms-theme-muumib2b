@@ -1,0 +1,45 @@
+/*
+ * Specific styles if CTA is below hero
+ */
+.hero + .call-to-action {
+    margin-top: $theme-spacing-two;
+    padding-top: 0;
+
+    &::before {
+        top: 0;
+        height: 16rem;
+    }
+
+    &.has-background-blue {
+        .call-to-action__layout-title {
+            color: $color-muumi-blue;
+        }
+    }
+}
+
+// Hard-stop gradient bleed: paints the hero's background color over the
+// first 12rem of the call-to-action, then falls through to the CTA's own
+// background-color. Generated per color class since CSS variables cannot
+// cross from a sibling element.
+$_hero-bleed-colors: (
+    "white": $color-white,
+    "black": $color-muumi-black,
+    "gray": $color-muumi-gray,
+    "blue": $color-muumi-blue,
+    "bluegray": $color-muumi-bluegray,
+    "magenta": $color-muumi-magenta,
+    "yellow": $color-muumi-yellow,
+    "orange": $color-muumi-orange,
+    "pink": $color-muumi-pink,
+    "light-pink": $color-muumi-light-pink,
+);
+
+@each $name, $color in $_hero-bleed-colors {
+    .hero.has-background-#{$name} + .call-to-action {
+        background-image: linear-gradient(
+            to bottom,
+            #{$color} 16rem,
+            transparent 16rem
+        );
+    }
+}

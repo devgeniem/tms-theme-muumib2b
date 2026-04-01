@@ -1,0 +1,45 @@
+/*!
+ *  Copyright (c) 2021. Geniem Oy
+ */
+
+$footer-copy-link-border-color: $primary-invert !default;
+
+.site-footer {
+    margin-top: 3rem;
+
+    &__link {
+        font-weight: 900;
+
+        .icon {
+            transition: transform $easing $speed;
+        }
+
+        &:hover {
+            .icon {
+                transform: translateX(.118rem);
+            }
+        }
+    }
+
+    .footer-title {
+        font-size: $body-font-size !important;
+    }
+
+    .brand-logo {
+        width: 50%;
+        height: 2.5rem;
+        object-fit: contain;
+
+        @include from($desktop) {
+            height: auto;
+        }
+    }
+
+    &__tampere-vaakuna {
+        gap: 1rem;
+        &:focus {
+            outline-style: solid;
+            outline-color: $primary-invert;
+        }
+    }
+}

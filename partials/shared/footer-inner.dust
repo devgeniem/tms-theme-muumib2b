@@ -1,0 +1,89 @@
+{#Footer}
+    <footer class="site-footer section {Footer.colors.container|attr}">
+        <div class="container is-relative {^logo}pt-9{/logo}">
+            <div class="columns is-multiline">
+                {?contact_info}
+                    <div class="column {column_class|attr} has-text-small">
+                        {?contact_info.title}
+                            <h2 class="footer-title mt-0 mb-3">
+                                {contact_info.title|html}
+                            </h2>
+                        {/contact_info.title}
+
+                        {?contact_info.address}
+                            <div class="mt-4 mb-4 keep-vertical-spacing">
+                                {contact_info.address|kses}
+                            </div>
+                        {/contact_info.address}
+
+                        {?contact_info.email}
+                            <a href="mailto:{contact_info.email|attr}"
+                               class="is-flex is-align-items-center mb-2 {Footer.colors.link|attr}">
+                                {>"ui/icon" icon="email" class="icon--large {Footer.colors.link_icon|attr} mr-2" /}
+                                <span>{contact_info.email|kses}</span>
+                            </a>
+                        {/contact_info.email}
+
+                        {?contact_info.phone_title}
+                            <h2 class="footer-title mt-5 mb-3">
+                                {contact_info.phone_title|html}
+                            </h2>
+                        {/contact_info.phone_title}
+
+                        {?contact_info.phone}
+                            <a href="tel:{contact_info.phone|attr}"
+                               class="is-flex is-align-items-center {Footer.colors.link|attr}">
+                                <span>{contact_info.phone|kses}</span>
+                            </a>
+                        {/contact_info.phone}
+
+                        <ul class="site-footer__copy-links is-unstyled mt-5">
+                            {#privacy_links}
+                                <li>
+                                    <a href="{privacy_link.url|url}" target="{privacy_link.target|attr}"
+                                    class="{Footer.colors.link|attr}">
+                                        {privacy_link.title|html}
+                                    </a>
+                                </li>
+                            {/privacy_links}
+                        </ul>
+
+                        {?hero_credits}
+                            <p>
+                                {hero_credits|html}
+                            </p>
+                        {/hero_credits}
+                    </div>
+                {/contact_info}
+
+                {#link_columns}
+                    {>"shared/footer-column" /}
+                {/link_columns}
+
+                {?logo}
+                    <div class="column is-flex is-justify-content-end">
+                        {@image id=logo class="site-footer__logo" size="large" /}
+                    </div>
+                {/logo}
+            </div>
+
+            <div class="columns is-multiline is-vcentered mt-4 mt-0-desktop">
+                <div class="column is-8-desktop">
+                    <div class="site-footer__copy-links is-unstyled has-text-small">
+                        <p class="site-footer__copy-text is-relative pr-3 mb-0 mt-0">
+                            {copyright|html}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="column is-12 is-4-desktop mt-6 mt-0-desktop has-text-centered has-text-right-desktop">
+                    <a href="{brand_logo_url|url}" class="site-footer__tampere-vaakuna is-flex">
+                        <span class="is-sr-only">{Strings.s.footer.to_main_site|html}</span>
+                        {@image id=bottom_logo class="brand-logo" size="large" /}
+                        {@image id=bottom_second_logo class="brand-logo" size="large" /}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+{/Footer}
