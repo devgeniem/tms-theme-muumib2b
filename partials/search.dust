@@ -1,0 +1,33 @@
+{>"shared/base" /}
+
+{<content}
+    <main class="main-content" id="main-content">
+        {#Search}
+            {?page_title}
+                <div class="section pb-0">
+                    <div class="container">
+                        <div class="columns">
+                            <div class="column is-10 is-offset-1 has-text-centered">
+                                <h1>
+                                    {page_title|s}
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {/page_title}
+
+            {>"views/search/form" /}
+
+            <section class="section pt-4 pb-4">
+                <div class="container">
+                    <div class="columns">
+                        <div class="column is-10 is-offset-1">
+                            {>"views/search/results" /}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        {/Search}
+    </main>
+{/content}

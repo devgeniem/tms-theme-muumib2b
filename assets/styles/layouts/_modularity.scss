@@ -1,0 +1,48 @@
+$wave-height: 15rem;
+$wave-bottom-fill-height: 15rem;
+$wave-shape-total-height: $wave-height + $wave-bottom-fill-height;
+$wave-svg-with-bottom-fill: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 200' preserveAspectRatio='none'%3E%3Cpath d='M0,120 C70,102 230,64 420,60 C560,58 700,66 900,60 C1030,56 1120,42 1200,24 L1200,120 L0,120 Z' fill='%23000'/%3E%3Crect x='0' y='120' width='1200' height='80' fill='%23000'/%3E%3C/svg%3E");
+
+.layout-modularity {
+    &__inner {
+        margin-bottom: $theme-spacing-six;
+    }
+
+    &__items {
+        padding: $theme-spacing-two;
+        border-radius: 40px;
+        gap: $theme-spacing;
+    }
+
+    &__buttons {
+        align-items: start;
+
+        @media (max-width: 768px) {
+            align-items: center;
+        }
+
+        .modularity-button {
+            background-color: $color-muumi-blue;
+            border-color: $color-muumi-blue;
+            color: $color-white;
+            min-width: 150px;
+        }
+    }
+
+    &.border-shape {
+        &--wave-bottom {
+            &::after {
+                bottom: 0;
+                height: $wave-shape-total-height;
+                background-color: var(--shape-next-bg, inherit);
+                pointer-events: none;
+                transform-origin: center;
+                mask-image: $wave-svg-with-bottom-fill;
+                mask-repeat: no-repeat;
+                mask-position: center bottom;
+                mask-size: 100% 100%;
+                z-index: -1;
+            }
+        }
+    }
+}

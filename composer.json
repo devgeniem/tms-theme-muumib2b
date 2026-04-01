@@ -1,0 +1,45 @@
+{
+    "name": "devgeniem/tms-theme-muumib2b",
+    "type": "wordpress-theme",
+    "description": "Tampere Multisite MuumiB2B Theme",
+    "authors": [
+        {
+            "name": "Erik Vänttinen",
+            "email": "erik.vanttinen@hiondigital.com",
+            "homepage": "https://hiondigital.com/",
+            "role": "Developer"
+        }
+    ],
+    "keywords": [
+        "wordpress",
+        "dustpress",
+        "theme"
+    ],
+    "license": "GPL-3.0-or-later",
+    "minimum-stability": "stable",
+    "scripts": {
+        "lint": "vendor/bin/phpcs --standard=phpcs.xml ./lib/ ./models/ -s --warning-severity=0 --ignore=node_modules/ --runtime-set minimum_supported_wp_version 6.0",
+        "lint-all": "vendor/bin/phpcs --standard=phpcs.xml ./lib/ ./models/ --ignore=node_modules/ --runtime-set minimum_supported_wp_version 6.0",
+        "lint-fix": "vendor/bin/phpcbf --standard=phpcs.xml --basepath=. ./lib/ ./models/ --ignore=node_modules/ --runtime-set minimum_supported_wp_version 6.0"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/installers": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "koodimonni/composer-dropin-installer": true,
+            "johnpbloch/wordpress-core-installer": true,
+            "ergebnis/composer-normalize": true
+        }
+    },
+    "require": {
+        "php": "^8.1",
+        "devgeniem/dustpress": ">=1.33.0",
+        "composer/installers": "^1.0.12"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest",
+        "devgeniem/geniem-rules-codesniffer": "^1.0.7",
+        "devgeniem/acf-codifier": "*"
+    }
+}

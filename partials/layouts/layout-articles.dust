@@ -1,0 +1,3 @@
+<section {?anchor}id="{anchor|attr}"{/anchor} class="section layout-articles {accent_color|attr}">
+    {>"layouts/layout-articles-inner" /}
+</section>

@@ -1,0 +1,34 @@
+<div class="site-header__logo is-relative">
+    <div class="site-header__logo-image">
+        {?Header.logo}
+            <div class="is-hidden-mobile">
+                {?Header.home_url}
+                    <a href="{Header.home_url|url}" class="is-block">
+                        {@image id=Header.logo size="medium" /}
+                        <span class="is-sr-only">{Strings.s.header.home|html}</span>
+                    </a>
+                {:else}
+                    {@image id=Header.logo size="large" /}
+                {/Header.home_url}
+            </div>
+        {/Header.logo}
+        {?Header.mobile_logo}
+            <div class="is-hidden-tablet">
+                {?Header.home_url}
+                    <a href="{Header.home_url|url}" class="is-block">
+                        {@image id=Header.mobile_logo size="medium" /}
+                        <span class="is-sr-only">{Strings.s.header.home|html}</span>
+                    </a>
+                {:else}
+                    {@image id=Header.mobile_logo size="large" /}
+                {/Header.home_url}
+            </div>
+        {/Header.mobile_logo}
+    </div>
+
+    {?Header.tagline}
+        <div class="site-header__tagline is-hidden-mobile mt-3 is-family-secondary is-size-7">
+            {Header.tagline|s}
+        </div>
+    {/Header.tagline}
+</div>

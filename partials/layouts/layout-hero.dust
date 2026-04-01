@@ -1,0 +1,53 @@
+{?full_size_image}
+<section {?anchor}id="{anchor|attr}"{/anchor}
+    class="hero page-component is-relative has-background-cover has-full-bg {common_background_color|attr} {common_next_background_color|attr} {common_shape_bottom|attr} {container_class|attr}" {@inlinebg id=full_size_image size="fullhd" /}>
+{:else}
+<section {?anchor}id="{anchor|attr}"{/anchor}
+    class="hero page-component is-relative {common_background_color|attr} {common_next_background_color|attr} {common_shape_bottom|attr} {container_class|attr}">
+{/full_size_image}
+
+    <div class="hero__inner pb-5 mr-auto ml-auto">
+        <div class="columns">
+            {^full_size_image}
+                <div class="column pl-0 {hero_img_position|attr}">
+                    {?image}
+                        {@image id=image size="fullhd" /}
+                    {/image}
+                </div>
+            {/full_size_image}
+            <div class="column {?full_size_image}is-6-widescreen is-8{/full_size_image} is-flex is-align-items-center">
+                <div class="hero__box is-relative {^full_size_image}p-6{/full_size_image} {box_classes|attr}">
+                    {?subtitle}
+                        <p class="mt-0 mb-5 h5 has-text-weight-bold no-hyphens is-uppercase">
+                            {subtitle|html}
+                        </p>
+                    {/subtitle}
+                    {?title}
+                        <h1 class="h1 mt-0 no-hyphens">
+                            {title|html}
+                        </h1>
+                    {/title}
+
+                    {description|kses}
+
+                    {?use_button_icon}
+                        {?link.url}
+                            {?link.title}
+                                <a href="{link.url|url}" {?link.target}target="{link.target|attr}"{/link.target} class="button mt-5 {?button_icon}button--icon{/button_icon} {classes|attr}">
+                                    {?button_icon}
+                                        {@image id=button_icon size="medium" class="button-icon mr-3" aria-hidden="true" /}
+                                    {/button_icon}
+                                    <span class="has-width-100">
+                                        {link.title|html}
+                                    </span>
+                                </a>
+                            {/link.title}
+                        {/link.url}
+                    {:else}
+                        {>"ui/button-link" link=link classes=button_classes /}
+                    {/use_button_icon}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

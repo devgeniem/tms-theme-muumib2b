@@ -1,0 +1,55 @@
+<div {?anchor}id="{anchor|attr}"{/anchor} class="section page-component call-to-action {accent_color|attr} {common_background_color|attr} {common_shape_top|attr} {common_shape_bottom|attr}">
+    <div class="container keep-vertical-spacing">
+        {>"shared/layout-before-main-content" /}
+
+        {?layout_title}
+            <h2 class="call-to-action__layout-title h1 has-text-weight-bold mt-0 mb-6">
+                {layout_title|html}
+            </h2>
+        {/layout_title}
+
+        <div class="call-to-action__item pt-6 pb-6 columns is-variable {container_class|attr}">
+            {#rows}
+                <div class="column">
+                    {?image}
+                        <div class="image is-3by4 mb-6 {image_class|attr}">
+                            {@image id=image.id size="large" class="objectfit-image" /}
+                        </div>
+                    {/image}
+
+                    {?subtitle}
+                        <h2 class="call-to-action__subtitle h5 has-text-weight-bold mb-4 is-uppercase">
+                            {subtitle|html}
+                        </h2>
+                    {/subtitle}
+
+                    {?title}
+                        <h2 class="call-to-action__title h3 mt-0 mb-4">
+                            {title|html}
+                        </h2>
+                    {/title}
+
+                    {?description}
+                        <div class="call-to-action__description mb-4">
+                            {description|kses}
+                        </div>
+                    {/description}
+
+                    {?link}
+                        <div class="w-100">
+                            {>"ui/button-link" classes="" /}
+                        </div>
+                    {/link}
+
+                    {?link_second}
+                        <div class="w-100 mt-4">
+                            {>"ui/button-link" classes="" link=link_second /}
+                        </div>
+                    {/link_second}
+                </div>
+            {/rows}
+        </div>
+
+        {>"shared/layout-after-main-content" /}
+    </div>
+</div>

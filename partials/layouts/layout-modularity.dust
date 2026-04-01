@@ -1,0 +1,41 @@
+<section {?anchor}id="{anchor|attr}"{/anchor}
+    class="section layout-modularity border-shape border-shape--wave-bottom {common_next_background_color|attr}">
+    <div class="container">
+        <div class="layout-modularity__inner">
+            {?title}
+                <h2 class="layout-modularity__title h1 has-text-weight-bold mt-0 mb-6">
+                    {title|html}
+                </h2>
+            {/title}
+
+            {?text}
+                <p class="layout-modularity__text">
+                    {text|html}
+                </p>
+            {/text}
+        </div>
+
+        {?repeater}
+            <div class="layout-modularity__items columns has-background-bluegray">
+                <div class="layout-modularity__buttons column is-4 is-flex is-flex-direction-column">
+                    {#repeater}
+                        {?button_text}
+                            <button class="button modularity-button mb-4" data-target="{unique_id|attr}">
+                                {button_text|html}
+                            </button>
+                        {/button_text}
+                    {/repeater}
+                </div>
+                <div class="column">
+                    {#repeater}
+                        <div class="modularity-image {is_hidden|attr}" data-id="{unique_id|attr}">
+                            {?image}
+                                {@image id=image size="medium" class="objectfit-image" /}
+                            {/image}
+                        </div>
+                    {/repeater}
+                </div>
+            </div>
+        {/repeater}
+    </div>
+</section>

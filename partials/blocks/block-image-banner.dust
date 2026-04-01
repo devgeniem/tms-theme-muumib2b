@@ -1,0 +1,13 @@
+{?image}
+    <div {?anchor}id="{anchor|attr}"{/anchor}
+         class="image-banner is-relative is-align-full has-background-cover"
+         style="background-image: url({image.sizes.large|url})">
+        {>"shared/layout-before-main-content" /}
+
+        <div class="image is-hidden-mobile">
+            {@image id=image.id size="large" class="objectfit-image" /}
+        </div>
+
+        {>"shared/layout-after-main-content" /}
+    </div>
+{/image}

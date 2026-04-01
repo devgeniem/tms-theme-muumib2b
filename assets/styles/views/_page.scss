@@ -1,0 +1,38 @@
+.page {
+    &__hero {
+        height: 18rem;
+
+        @include from($tablet) {
+            height: 32rem;
+        }
+    }
+
+    &__hero-password {
+        background-color: $color-muumi-magenta;
+        color: $white;
+
+        input[type="password"] {
+            border-radius: 20px;
+            font-size: $body-font-size;
+        }
+
+        input[type="submit"] {
+            padding-right: 5.5rem;
+            text-align: left;
+            background-image: url('../images/password-submit-icon.svg');
+            background-repeat: no-repeat;
+            background-size: 4rem 100%;
+            background-position: right 1rem center;
+        }
+    }
+
+    .entry {
+        &__content {
+            > p {
+                > a {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
