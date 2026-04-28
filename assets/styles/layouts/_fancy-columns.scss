@@ -1,0 +1,257 @@
+.fancy-columns {
+    position: relative;
+
+    &__item {
+        @include until($desktop) {
+            display: block !important;
+
+            > .column {
+                width: 100%;
+                flex: none;
+            }
+        }
+    }
+
+    @include from($desktop) {
+        &:has(+ .layout-image-banner) {
+            margin-bottom: -25%;
+        }
+    }
+
+    @include until($desktop) {
+        padding-bottom: 0;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: -1px;
+        left: 0;
+        background-color: var(--shape-before-bg);
+        height: 64%;
+        width: 100%;
+        z-index: 1;
+
+        @include until($desktop) {
+            height: 100%;
+        }
+    }
+
+    &__text {
+        position: relative;
+        color: $color-muumi-black;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        // Responsive insets keep copy inside the blob across mobile and wide screens.
+        padding: clamp(2.5rem, 6vw, 8rem) clamp(1.25rem, 4vw, 5rem);
+        margin-right: 0;
+        // aspect-ratio matches the text SVG's native dimensions so it scales like __image.
+        aspect-ratio: 716 / 802;
+        z-index: 4;
+
+        @media (min-width: 1024px) {
+            margin-right: -3rem;
+        }
+
+        @media (max-width: 1024px) and (min-width: 769px) {
+            margin-right: -20vw;
+            padding: clamp(2.5rem, 6vw, 8rem) clamp(1.25rem, 6vw, 5rem);
+        }
+
+        // Shaped background layer — mask is on ::before so the text itself is never clipped.
+        &::before {
+            content: '';
+            position: absolute;
+            inset: -5%;
+            width: 110%;
+            height: 110%;
+            background-color: $color-muumi-bluegray;
+            -webkit-mask-image: url('../images/fancy-columns-text-vector.svg');
+            mask-image: url('../images/fancy-columns-text-vector.svg');
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            mask-position: center;
+            -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+            z-index: 0;
+        }
+
+        // Keep all direct children above the ::before background layer.
+        > * {
+            position: relative;
+            z-index: 5;
+            width: 100%;
+        }
+
+        .text-content-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .fancy-columns__description {
+            margin-left: auto;
+            margin-right: auto;
+            overflow-wrap: anywhere;
+        }
+
+        .fancy-columns__button {
+            display: inline-flex;
+            justify-content: center;
+            background-color: $color-muumi-black;
+            border-color: $color-muumi-black;
+            color: $color-white;
+        }
+
+        @media screen and (min-width: 1800px) {
+            .fancy-columns__title {
+                font-size: clamp(2.1rem, 1.2rem + 1.05vw, 3rem);
+            }
+
+            .fancy-columns__description {
+                font-size: clamp(1.0625rem, 0.95rem + 0.28vw, 1.25rem);
+            }
+
+            .fancy-columns__button {
+                font-size: clamp(1rem, 0.92rem + 0.2vw, 1.125rem);
+            }
+        }
+
+        // White border overlay — fill=none so only the 4px stroke renders on top.
+        &::after {
+            content: '';
+            position: absolute;
+            inset: -5%;
+            width: 110%;
+            height: 110%;
+            background-image: url("data:image/svg+xml,<svg width='716' height='802' viewBox='0 0 716 802' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M696.916 295.328C657.317 40.7903 612.507 2.0282 425.38 2.0282C31.0281 2.0282 52.0182 243.645 7.89362 472.341C-36.231 701.037 174.21 797.943 450.271 799.235C726.333 800.527 736.515 549.865 696.916 295.328Z' fill='none' stroke='white' stroke-width='4'/></svg>");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        @include until($desktop) {
+            &::after,
+            &::before {
+                inset: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    &__image {
+        position: relative;
+        z-index: 3;
+
+        // Keep mask and white stroke on the real media wrapper rendered by the image helper.
+        .objectfit-image-wrapper,
+        .objectfit-image-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 327 / 310;
+        }
+
+        .objectfit-image-wrapper {
+            overflow: hidden;
+            -webkit-mask-image: url('../images/fancy-columns-img-vector.svg');
+            mask-image: url('../images/fancy-columns-img-vector.svg');
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            mask-position: center;
+            -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+
+            &::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background-image: url("data:image/svg+xml,<svg width='327' height='310' viewBox='0 0 327 310' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M135.929 1.5C165.638 1.698 197.279 5.45 228.404 10.564C249.964 14.107 272.747 17.212 292.295 26.837C311.396 35.753 320.373 55.115 323.09 74.766C325.318 91.967 324.223 110.07 324.483 127.672C324.348 153.231 325.024 178.78 323.085 204.274C320.382 231.416 316.486 259.92 301.307 282.329C286.015 304.605 256.581 309.331 231.037 308.258C200.979 306.74 104.669 300.225 79.7155 298.592C19.9095 294.678 10.3605 274.727 10.2145 219.693C9.84347 197.144 8.39347 173.966 5.60347 151.837C1.69147 121.773 -1.37853 90.624 5.93947 61.075C10.6975 42.62 20.7935 24.313 38.2595 15.62C54.9935 7.135 76.6675 5.29 97.1945 3.407C109.933 2.36 123.151 1.508 135.759 1.5H135.928H135.929Z' fill='none' stroke='white' stroke-width='4'/></svg>");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 100% 100%;
+                pointer-events: none;
+                z-index: 2;
+            }
+        }
+
+        .objectfit-image-container {
+            position: absolute;
+            inset: 0;
+        }
+
+        .objectfit-image,
+        > img {
+            width: 100% !important; // sass-lint:disable-line no-important
+            height: 100% !important; // sass-lint:disable-line no-important
+            object-fit: cover !important; // sass-lint:disable-line no-important
+            object-position: center center !important; // sass-lint:disable-line no-important
+        }
+
+        @include until($desktop) {
+            padding-bottom: 0;
+
+            &::after {
+                content: '';
+                position: absolute;
+                right: 0;
+                bottom: -10%;
+                width: 40%;
+                height: 50%;
+                background-image: url('../images/fancy-columns-right-vector.svg');
+                background-position: right;
+                background-repeat: no-repeat;
+                background-size: contain;
+                z-index: -1;
+            }
+        }
+    }
+
+    // Decorative shapes on the sides
+    &__decorative-column-shape-left,
+    &__decorative-column-shape-right {
+        z-index: 2;
+        position: absolute;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    &__decorative-column-shape-left {
+        left: 0;
+        background-image: url('../images/fancy-columns-left-vector.svg');
+        background-position: left;
+        width: 30%;
+        height: 40%;
+
+        @include until($desktop) {
+            width: 75%;
+            height: 30%;
+            bottom: -7%;
+            transform: rotate(25deg);
+        }
+    }
+
+    &__decorative-column-shape-right {
+        right: 0;
+        bottom: 5rem;
+        background-image: url('../images/fancy-columns-right-vector.svg');
+        background-position: right;
+        width: 15%;
+        height: 35%;
+
+        @include until($desktop) {
+            width: 45%;
+            height: 25%;
+            top: -6rem;
+        }
+    }
+}

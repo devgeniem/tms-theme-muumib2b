@@ -12,6 +12,12 @@ $wave-svg-with-bottom-fill: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.
         padding: $theme-spacing-two;
         border-radius: 40px;
         gap: $theme-spacing;
+
+        @media (max-width: 768px) {
+            display: flex;
+            flex-direction: column;
+            padding: $theme-spacing;
+        }
     }
 
     &__buttons {
@@ -19,13 +25,21 @@ $wave-svg-with-bottom-fill: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.
 
         @media (max-width: 768px) {
             align-items: center;
+            order: 2;
+            flex-direction: row !important;
+            flex-wrap: wrap;
+            gap: $theme-spacing-half;
+
+            .modularity-button-container {
+                width: calc(50% - $theme-spacing-quarter);
+            }
         }
 
         .modularity-button {
             background-color: $color-muumi-blue;
             border-color: $color-muumi-blue;
             color: $color-white;
-            min-width: 150px;
+            width: min(150px, 100%);
         }
     }
 

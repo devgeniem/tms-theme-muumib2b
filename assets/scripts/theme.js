@@ -30,6 +30,8 @@ import Countdown from './countdown';
 import SearchFilters from './search-filters';
 import FocusOnSearch from './focus-on-search';
 import ModularityLayout from './modularity-layout';
+import RollingText from './rolling-text';
+import VideoBgMirror from './video-bg-mirror';
 
 const globalControllers = {
     Common,
@@ -59,6 +61,8 @@ const globalControllers = {
     SearchFilters,
     FocusOnSearch,
     ModularityLayout,
+    RollingText,
+    VideoBgMirror,
 };
 
 const templateControllers = {

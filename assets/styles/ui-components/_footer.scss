@@ -42,4 +42,23 @@ $footer-copy-link-border-color: $primary-invert !default;
             outline-color: $primary-invert;
         }
     }
+
+    @include until($widescreen) {
+        &__logo-container {
+            justify-content: center !important;
+        }
+    }
+
+    @media (max-width: 768px) {
+        margin-top: 0;
+
+        &__columns {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__logo-container {
+            order: -1;
+        }
+    }
 }

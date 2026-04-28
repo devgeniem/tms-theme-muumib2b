@@ -1,0 +1,49 @@
+<div {?anchor}id="{anchor|attr}"{/anchor} class="section page-component linked-pages  {common_background_color|attr}">
+    <div class="container is-flex-widescreen">
+        {>"shared/layout-before-main-content" /}
+
+        {?layout_title}
+            <h2 class="linked-pages__layout-title h1 has-text-weight-bold mt-5 mb-5">
+                {layout_title|html}
+            </h2>
+        {/layout_title}
+
+        <div class="linked-pages__item pt-0 pb-6 columns is-variable is-flex-wrap-wrap is-align-items-start">
+            {#rows}
+                <div class="column is-6 pb-5">
+                    {?image}
+                        <div class="image is-1by1 mb-6">
+                            {@image id=image.id size="large" class="objectfit-image" /}
+                        </div>
+                    {/image}
+
+                    {?subtitle}
+                        <h2 class="linked-pages__subtitle h5 has-text-weight-bold mb-4 is-uppercase">
+                            {subtitle|html}
+                        </h2>
+                    {/subtitle}
+
+                    {?title}
+                        <h2 class="linked-pages__title h3 mt-0 mb-4">
+                            {title|html}
+                        </h2>
+                    {/title}
+
+                    {?description}
+                        <div class="linked-pages__description mb-4">
+                            {description|kses}
+                        </div>
+                    {/description}
+
+                    {?link}
+                        <div class="w-100">
+                            {>"ui/button-link" classes="" /}
+                        </div>
+                    {/link}
+                </div>
+            {/rows}
+        </div>
+
+        {>"shared/layout-after-main-content" /}
+    </div>
+</div>

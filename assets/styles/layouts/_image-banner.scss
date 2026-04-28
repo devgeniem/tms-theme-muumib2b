@@ -1,5 +1,17 @@
-.image-banner {
-    @include tablet-only {
-        min-height: 380px;
+.layout-image-banner {
+    display: flex;
+    justify-content: center;
+
+    @include from($tablet) {
+        &.has-width-60 {
+            .image-banner {
+                width: 60%;
+            }
+        }
+        &.has-width-85 {
+            .image-banner {
+                width: 85%;
+            }
+        }
     }
 }

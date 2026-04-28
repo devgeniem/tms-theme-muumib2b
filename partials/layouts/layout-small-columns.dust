@@ -1,0 +1,45 @@
+<div {?anchor}id="{anchor|attr}"{/anchor} class="section page-component small-columns {common_background_color|attr}">
+    <div class="container is-flex-widescreen">
+        {>"shared/layout-before-main-content" /}
+
+        <div class="small-columns__items pt-0 pb-6 columns is-variable is-flex-wrap-wrap is-align-items-start">
+            <div class="column is-6-tablet is-4-widescreen">
+                {?layout_title}
+                    <h2 class="small-columns__layout-title h1 has-text-weight-bold mt-5 mb-5">
+                        {layout_title|html}
+                    </h2>
+                {/layout_title}
+
+                {?layout_description}
+                    <div class="small-columns__layout-description mb-4">
+                        {layout_description|kses}
+                    </div>
+                {/layout_description}
+            </div>
+
+            {#rows}
+                <div class="column is-6-tablet is-4-widescreen pb-5">
+                    {?image}
+                        <div class="image is-1by1 mb-6">
+                            {@image id=image.id size="large" class="objectfit-image" /}
+                        </div>
+                    {/image}
+
+                    {?title}
+                        <h2 class="small-columns__title h3 mt-0 mb-4 has-text-centered">
+                            {title|html}
+                        </h2>
+                    {/title}
+
+                    {?description}
+                        <div class="small-columns__description mb-4 has-text-centered">
+                            {description|kses}
+                        </div>
+                    {/description}
+                </div>
+            {/rows}
+        </div>
+
+        {>"shared/layout-after-main-content" /}
+    </div>
+</div>

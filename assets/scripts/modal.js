@@ -85,7 +85,16 @@ export default class Modal {
 
         this.$modalButtons.forEach( ( button ) => {
 
-            const modal = document.getElementById( button.getAttribute( 'aria-controls' ) );
+            const modalId = button.getAttribute( 'aria-controls' );
+            if ( ! modalId ) {
+                return;
+            }
+
+            const modal = document.getElementById( modalId );
+            if ( ! modal ) {
+                return;
+            }
+
             modal.isOpened = 0;
             modal.gallery = false;
 

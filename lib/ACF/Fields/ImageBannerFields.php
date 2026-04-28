@@ -1,7 +1,5 @@
 <?php
-/**
- * Copyright (c) 2021. Geniem Oy
- */
+
 
 namespace TMS\Theme\MuumiB2B\ACF\Fields;
 
@@ -45,6 +43,10 @@ class ImageBannerFields extends \Geniem\ACF\Field\Group {
                 'label'        => 'Kuva',
                 'instructions' => '',
             ],
+            'width' => [
+                'label'        => 'Leveys',
+                'instructions' => '',
+            ],
         ];
 
         $key = $this->get_key();
@@ -56,8 +58,20 @@ class ImageBannerFields extends \Geniem\ACF\Field\Group {
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['image']['instructions'] );
 
+        $width_field = ( new Field\Radio( $strings['width']['label'] ) )
+            ->set_key( "{$key}_width" )
+            ->set_name( 'width' )
+            ->set_choices( [
+                'has-width-100' => '100%',
+                'has-width-85'  => '85%',
+                'has-width-60'  => '60%',
+            ] )
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['width']['instructions'] );
+
         return [
             $image_field,
+            $width_field,
         ];
     }
 }

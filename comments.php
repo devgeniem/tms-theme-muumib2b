@@ -1,7 +1,5 @@
 <?php
-/**
- * Copyright (c) 2021. Geniem Oy
- */
+
 
 use \TMS\Theme\MuumiB2B\Comments;
 ?>

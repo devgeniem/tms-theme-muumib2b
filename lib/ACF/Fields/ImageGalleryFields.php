@@ -1,7 +1,5 @@
 <?php
-/**
- * Copyright (c) 2021. Geniem Oy
- */
+
 
 namespace TMS\Theme\MuumiB2B\ACF\Fields;
 
@@ -63,10 +61,7 @@ class ImageGalleryFields extends Field\Group {
             ->set_button_label( $strings['rows']['button'] )
             ->set_instructions( $strings['rows']['instructions'] );
 
-        $image_field = ( new ImageFields( $strings['image']['label'] ) )
-            ->set_key( "{$key}_image" )
-            ->set_name( 'image' )
-            ->set_instructions( $strings['image']['instructions'] );
+        $image_field = ( new ImageFields( $strings['image']['label'], "{$key}_image", 'image' ) );
 
         $rows_field->add_fields( $image_field->get_fields() );
 

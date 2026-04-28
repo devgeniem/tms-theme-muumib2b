@@ -1,9 +1,26 @@
-/*!
- *  Copyright (c) 2021. Geniem Oy
- */
+.layout-textblock {
+    &.is-content-center {
+        display: flex;
+        justify-content: center;
 
-.textblock {
-    &__inner {
+        .textblock__inner {
+            text-align: center;
+        }
+    }
+
+    .textblock__inner {
         word-break: break-word;
+
+        &.is-align-wide {
+            @include from($tablet) {
+                width: 75%;
+            }
+        }
+
+        &.is-align-half {
+            @include from($tablet) {
+                width: 50%;
+            }
+        }
     }
 }

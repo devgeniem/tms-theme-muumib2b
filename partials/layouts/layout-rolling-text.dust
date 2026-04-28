@@ -1,0 +1,21 @@
+<div {?anchor}id="{anchor|attr}"{/anchor} class="section rolling-text {common_background_color|attr}">
+    {?rows_right}
+        <div class="rolling-text__row rolling-text__row--right">
+            {#rows_right}
+                <div class="rolling-text__item">
+                    <p class="mt-0 mb-0">{text|html}</p>
+                </div>
+            {/rows_right}
+        </div>
+    {/rows_right}
+
+    {?rows_left}
+        <div class="rolling-text__row rolling-text__row--left">
+            {#rows_left}
+                <div class="rolling-text__item">
+                    <p class="mt-0 mb-0">{text|html}</p>
+                </div>
+            {/rows_left}
+        </div>
+    {/rows_left}
+</div>

@@ -1,7 +1,5 @@
 <?php
-/**
- * Copyright (c) 2021. Geniem Oy
- */
+
 
 namespace TMS\Theme\MuumiB2B\ACF\Fields;
 

@@ -9,7 +9,7 @@
     <div class="hero__inner pb-5 mr-auto ml-auto">
         <div class="columns">
             {^full_size_image}
-                <div class="column pl-0 {hero_img_position|attr}">
+                <div class="column pl-0 {hero_img_position|attr} {?hero_img_shape}hero-image--rounded{/hero_img_shape}">
                     {?image}
                         {@image id=image size="fullhd" /}
                     {/image}
@@ -23,7 +23,7 @@
                         </p>
                     {/subtitle}
                     {?title}
-                        <h1 class="h1 mt-0 no-hyphens">
+                        <h1 class="h1 font-tove-sans mt-0 no-hyphens">
                             {title|html}
                         </h1>
                     {/title}

@@ -1,7 +1,3 @@
-/**
- * Copyright (c) 2021. Geniem Oy
- */
-
 import '@accessible360/accessible-slick';
 import Common from './common';
 import { LEFT, RIGHT } from '@wordpress/keycodes';
@@ -65,10 +61,11 @@ export default class ImageCarousel {
                 const srLabel = `<span class="is-sr-only">${ translations.goto } ${ i + 1 }</span>`;
                 return $( Common.makeButton( dotIcon + srLabel ) );
             },
-            centerMode: true,
-            centerPadding: '1rem',
-            slidesToShow: 3,
-            variableWidth: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            fade: true,
+            autoplay: true,
+            autoplaySpeed: 7000,
             arrowsPlacement: 'afterSlides',
         };
 

@@ -14,8 +14,8 @@ form {
     textarea {
         line-height: 1;
         padding: $theme-spacing-half;
-        border: 1px solid $color-black;
-        border-radius: $theme-spacing-quarter;
+        border: none;
+        border-radius: 0;
 
         &::placeholder {
             color: lighten($black, 10%);
@@ -69,6 +69,11 @@ form {
 
     .gform_wrapper {
         padding: 0 !important;
+        margin: 0 !important;
+
+        .gform_title {
+            margin-top: $theme-spacing-two;
+        }
     }
 }
 

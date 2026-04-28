@@ -79,7 +79,11 @@ a {
 }
 
 .has-text-weight-extra-bold {
-    font-weight: 800;
+    font-weight: 800 !important;
+}
+
+.has-text-weight-black {
+    font-weight: 900 !important;
 }
 
 .has-line-height-tight {

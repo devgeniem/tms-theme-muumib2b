@@ -25,6 +25,11 @@ class ImageGalleryFormatter implements \TMS\Theme\MuumiB2B\Interfaces\Formatter 
             'tms/acf/block/image_gallery/data',
             [ $this, 'format' ]
         );
+
+        add_filter(
+            'tms/acf/layout/image_gallery/data',
+            [ $this, 'format' ]
+        );
     }
 
     /**

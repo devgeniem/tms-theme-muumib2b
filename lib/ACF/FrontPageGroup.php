@@ -1,7 +1,5 @@
 <?php
-/**
- * Copyright (c) 2021. Geniem Oy
- */
+
 
 namespace TMS\Theme\MuumiB2B\ACF;
 
@@ -94,7 +92,7 @@ class PageFrontPageGroup {
         ];
 
         $components_field = ( new Field\FlexibleContent( $strings['components']['title'] ) )
-            ->set_key( "${key}_components" )
+            ->set_key( "{$key}_components" )
             ->set_name( 'components' )
             ->set_instructions( $strings['components']['instructions'] );
 
@@ -104,7 +102,9 @@ class PageFrontPageGroup {
                 Layouts\HeroLayout::class,
                 Layouts\IconLinksLayout::class,
                 Layouts\CallToActionLayout::class,
+                Layouts\LinkedPagesLayout::class,
                 Layouts\ContentColumnsLayout::class,
+                Layouts\FancyColumnsLayout::class,
                 Layouts\ImageBannerLayout::class,
                 Layouts\MapLayout::class,
                 Layouts\LogoWallLayout::class,
@@ -113,6 +113,7 @@ class PageFrontPageGroup {
                 Layouts\ArticlesLayout::class,
                 Layouts\NoticeBannerLayout::class,
                 Layouts\ImageCarouselLayout::class,
+                Layouts\ImageGalleryLayout::class,
                 Layouts\GravityFormLayout::class,
                 Layouts\SubpageLayout::class,
                 Layouts\SocialMediaLayout::class,
@@ -121,6 +122,7 @@ class PageFrontPageGroup {
                 Layouts\CountdownLayout::class,
                 Layouts\VideoLayout::class,
                 Layouts\SomeLinkListLayout::class,
+                Layouts\RollingTextLayout::class,
             ],
             $key
         );

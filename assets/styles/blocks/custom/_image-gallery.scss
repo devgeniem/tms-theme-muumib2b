@@ -3,8 +3,12 @@
  */
 
 .image-gallery {
+    gap: 0;
+
     &__image {
         overflow: hidden;
+        flex: 1 1 auto;
+        padding-top: 80vh !important;
 
         &:focus {
             outline: .125rem solid $color-black;

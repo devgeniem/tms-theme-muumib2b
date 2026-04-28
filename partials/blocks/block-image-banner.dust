@@ -4,7 +4,7 @@
          style="background-image: url({image.sizes.large|url})">
         {>"shared/layout-before-main-content" /}
 
-        <div class="image is-hidden-mobile">
+        <div class="image">
             {@image id=image.id size="large" class="objectfit-image" /}
         </div>
 

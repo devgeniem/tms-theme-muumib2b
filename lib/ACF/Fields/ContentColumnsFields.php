@@ -1,8 +1,4 @@
 <?php
-/**
- * Copyright (c) 2021. Geniem Oy
- */
-
 namespace TMS\Theme\MuumiB2B\ACF\Fields;
 
 use Geniem\ACF\Exception;
@@ -59,12 +55,24 @@ class ContentColumnsFields extends Field\Group {
                 'label'        => 'Kuva',
                 'instructions' => '',
             ],
+            'image_shape'    => [
+                'label'        => 'Kuvan muoto',
+                'instructions' => '',
+            ],
+            'quotation_mark' => [
+                'label'        => 'Lisää lainausmerkki',
+                'instructions' => 'Lisää otsikon ylle lainausmerkki.',
+            ],
             'title'          => [
                 'label'        => 'Otsikko',
                 'instructions' => '',
             ],
             'description'    => [
                 'label'        => 'Teksti',
+                'instructions' => '',
+            ],
+            'button'         => [
+                'label'        => 'Linkkipainike',
                 'instructions' => '',
             ],
             'display_artist' => [
@@ -92,6 +100,13 @@ class ContentColumnsFields extends Field\Group {
             ->set_button_label( $strings['rows']['button'] )
             ->set_instructions( $strings['rows']['instructions'] );
 
+        $quotation_mark_field = ( new Field\TrueFalse( $strings['quotation_mark']['label'] ) )
+            ->set_key( "{$key}_quotation_mark" )
+            ->set_name( 'quotation_mark' )
+            ->set_wrapper_width( 100 )
+            ->use_ui()
+            ->set_instructions( $strings['quotation_mark']['instructions'] );
+
         $title_field = ( new Field\Text( $strings['title']['label'] ) )
             ->set_key( "{$key}_title" )
             ->set_name( 'title' )
@@ -102,7 +117,27 @@ class ContentColumnsFields extends Field\Group {
         $image_field = ( new Field\Image( $strings['image']['label'] ) )
             ->set_key( "{$key}_image" )
             ->set_name( 'image' )
-            ->set_wrapper_width( 45 )
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['image']['instructions'] );
+
+        $image_shape_field = ( new Field\Select( $strings['image_shape']['label'] ) )
+            ->set_key( "{$key}_image_shape" )
+            ->set_name( 'image_shape' )
+            ->set_choices( [
+                'image-shape--none'         => 'Ei muotoa',
+                'image-shape--wavy'         => 'Aaltoileva',
+                'image-shape--wavy-reverse' => 'Aaltoileva käännettynä',
+                'image-shape--rounded'      => 'Pyöristetyt kulmat',
+                'image-shape--gentle'       => 'Kuvaputki TV-muodossa',
+            ] )
+            ->set_default_value( 'image-shape--none' )
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['image_shape']['instructions'] );
+
+        $image_field = ( new Field\Image( $strings['image']['label'] ) )
+            ->set_key( "{$key}_image" )
+            ->set_name( 'image' )
+            ->set_wrapper_width( 50 )
             ->set_instructions( $strings['image']['instructions'] );
 
         $description_field = ( new Field\Wysiwyg( $strings['description']['label'] ) )
@@ -110,9 +145,15 @@ class ContentColumnsFields extends Field\Group {
             ->set_name( 'description' )
             ->set_toolbar( [ 'bold', 'italic' ] )
             ->disable_media_upload()
-            ->set_wrapper_width( 55 )
+            ->set_wrapper_width( 100 )
             ->redipress_include_search()
             ->set_instructions( $strings['description']['instructions'] );
+
+        $link_field = ( new Field\Link( $strings['button']['label'] ) )
+            ->set_key( "{$key}_link" )
+            ->set_name( 'link' )
+            ->set_wrapper_width( 100 )
+            ->set_instructions( $strings['button']['instructions'] );
 
         $layout_field = ( new Field\Radio( $strings['layout']['label'] ) )
             ->set_key( "{$key}_layout" )
@@ -154,9 +195,12 @@ class ContentColumnsFields extends Field\Group {
             ->set_instructions( $strings['display_caption']['instructions'] );
 
         $rows_field->add_fields( [
+            $quotation_mark_field,
             $title_field,
             $image_field,
+            $image_shape_field,
             $description_field,
+            $link_field,
             $layout_field,
             $aspect_ratio_field,
             $display_artist_field,

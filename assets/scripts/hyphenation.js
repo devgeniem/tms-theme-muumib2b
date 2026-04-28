@@ -1,7 +1,5 @@
 /**
  * A global hyphenation controller using the Hyphenopoly library.
- *
- * Copyright (c) 2021. Geniem Oy
  */
 
 // Require Hyphenopoly

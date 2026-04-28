@@ -1,7 +1,5 @@
 <?php
-/**
- * Copyright (c) 2021. Geniem Oy
- */
+
 
 namespace TMS\Theme\MuumiB2B\ACF\Fields;
 
@@ -59,6 +57,10 @@ class TextBlockFields extends Field\Group {
                 'label'        => 'Leveys',
                 'instructions' => '',
             ],
+            'align' => [
+                'label'        => 'Tasaus',
+                'instructions' => '',
+            ],
         ];
 
         $key = $this->get_key();
@@ -88,6 +90,7 @@ class TextBlockFields extends Field\Group {
             ->set_key( "{$key}_width" )
             ->set_name( 'width' )
             ->set_layout( 'horizontal' )
+            ->set_wrapper_width( 50 )
             ->set_choices( [
                 'is-align-full' => '100%',
                 'is-align-wide' => '75%',
@@ -95,11 +98,23 @@ class TextBlockFields extends Field\Group {
             ] )
             ->set_instructions( $strings['width']['instructions'] );
 
+        $align_field = ( new Field\Radio( $strings['align']['label'] ) )
+            ->set_key( "{$key}_align" )
+            ->set_name( 'align' )
+            ->set_layout( 'horizontal' )
+            ->set_wrapper_width( 50 )
+            ->set_choices( [
+                'is-content-left'   => 'Vasen',
+                'is-content-center' => 'Keskitetty',
+            ] )
+            ->set_instructions( $strings['align']['instructions'] );
+
         return [
             $title_field,
             $link_field,
             $text_field,
             $width_field,
+            $align_field,
         ];
     }
 }

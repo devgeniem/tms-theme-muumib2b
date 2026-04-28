@@ -1,7 +1,5 @@
 <?php
-/**
- * Copyright (c) 2021. Geniem Oy
- */
+
 
 namespace TMS\Theme\MuumiB2B;
 
@@ -55,6 +53,11 @@ class DustPressController implements Interfaces\Controller {
         // Disable pagination hellip_end if link to last page is already present.
         if ( ! empty( $data->pages ) && $data->last_page === end( $data->pages )->page ) {
             $data->hellip_end = false;
+        }
+
+        // Remove next_page if already on the last page.
+        if ( ! empty( $data->on_last_page ) ) {
+            $data->next_page = null;
         }
 
         $data->S->page_aria_label = _x( 'Go to Page', 'pagination', 'tms-theme-muumib2b' ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase

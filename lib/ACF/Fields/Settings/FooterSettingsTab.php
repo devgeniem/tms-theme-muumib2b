@@ -1,7 +1,5 @@
 <?php
-/**
- * Copyright (c) 2021. Geniem Oy
- */
+
 
 namespace TMS\Theme\MuumiB2B\ACF\Fields\Settings;
 
@@ -173,7 +171,7 @@ class FooterSettingsTab extends Tab {
                 ->set_key( "{$key}_link_columns" )
                 ->set_name( 'link_columns' )
                 ->set_layout( 'block' )
-                ->set_max( 3 )
+                ->set_max( 1 )
                 ->set_button_label( $strings['link_columns']['button_label'] )
                 ->set_instructions( $strings['link_columns']['instructions'] );
 
@@ -291,6 +289,7 @@ class FooterSettingsTab extends Tab {
                 $phone_title_field,
                 $phone_field,
                 $link_columns_field,
+                $some_link_columns_field,
                 $logo_field,
                 $privacy_links_field,
                 $hero_credits_field,

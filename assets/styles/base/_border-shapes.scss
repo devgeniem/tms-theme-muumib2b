@@ -1,0 +1,310 @@
+// Generic shape system for all sections using dedicated top/bottom shape slots.
+// This file intentionally keeps logic separate from _shapes.scss as a safe backup.
+
+$wave-height: 12rem;
+$wave-height-mobile: 8rem;
+$wave-overlap-offset: 11.9rem;
+
+$wave-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,120 C70,102 230,64 420,60 C560,58 700,66 900,60 C1030,56 1120,42 1200,24 L1200,120 L0,120 Z' fill='%23000'/%3E%3C/svg%3E");
+$wave-svg-reverse: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,24 C80,42 170,56 300,60 C500,66 640,58 780,60 C970,64 1130,102 1200,108 L1200,120 L0,120 Z' fill='%23000'/%3E%3C/svg%3E");
+$wave-character-image: url('../images/character.png');
+$sea-waves: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1728 73' preserveAspectRatio='none' fill='none'%3E%3Cpath d='M157 48.5001C79 83.0001 -7.5 62.0001 -21 62.0001V85.5001L1738 93.5001L1748 20.5001C1693.33 30.5001 1574.1 50.4001 1534.5 50.0001C1494.9 49.6001 1462.67 22.1667 1451.5 8.50008C1391.5 19.5001 1302.5 58.5001 1196 63.0001C1110.8 66.6001 1083.5 51.8334 1080.5 44.0001C1021.83 50.1668 888.9 61.7001 826.5 58.5001C764.1 55.3001 743.167 38.5001 740.5 30.5001C704.5 26.5001 599.5 48.5001 547.5 58.5001C495.5 68.5001 417.782 57.8202 384 44.0001C351 30.5001 356 0 356 0C300.5 0 235 14.0001 157 48.5001Z' fill='white'/%3E%3C/svg%3E");
+
+.next-has-background-white {
+	--shape-next-bg: #{$color-white};
+}
+
+.next-has-background-yellow {
+	--shape-next-bg: #{$color-muumi-yellow};
+}
+
+.next-has-background-magenta {
+	--shape-next-bg: #{$color-muumi-magenta};
+}
+
+.next-has-background-pink {
+	--shape-next-bg: #{$color-muumi-pink};
+}
+
+.next-has-background-light-pink {
+	--shape-next-bg: #{$color-muumi-light-pink};
+}
+
+.next-has-background-orange {
+	--shape-next-bg: #{$color-muumi-orange};
+}
+
+.next-has-background-blue {
+	--shape-next-bg: #{$color-muumi-blue};
+}
+
+.next-has-background-bluegray {
+	--shape-next-bg: #{$color-muumi-bluegray};
+}
+
+.next-has-background-gray {
+	--shape-next-bg: #{$color-muumi-gray};
+}
+
+.before-has-background-white {
+	--shape-before-bg: #{$color-white};
+}
+
+.before-has-background-yellow {
+	--shape-before-bg: #{$color-muumi-yellow};
+}
+
+.before-has-background-magenta {
+	--shape-before-bg: #{$color-muumi-magenta};
+}
+
+.before-has-background-pink {
+	--shape-before-bg: #{$color-muumi-pink};
+}
+
+.before-has-background-light-pink {
+	--shape-before-bg: #{$color-muumi-light-pink};
+}
+
+.before-has-background-orange {
+	--shape-before-bg: #{$color-muumi-orange};
+}
+
+.before-has-background-blue {
+	--shape-before-bg: #{$color-muumi-blue};
+}
+
+.before-has-background-bluegray {
+	--shape-before-bg: #{$color-muumi-bluegray};
+}
+
+.before-has-background-gray {
+	--shape-before-bg: #{$color-muumi-gray};
+}
+
+.shape-section {
+	position: relative;
+	// padding-top: 0;
+	// padding-bottom: 0;
+	--shape-current-bg: transparent;
+
+	&.has-background-white {
+		--shape-current-bg: #{$color-white};
+	}
+
+	&.has-background-yellow {
+		--shape-current-bg: #{$color-muumi-yellow};
+	}
+
+	&.has-background-magenta {
+		--shape-current-bg: #{$color-muumi-magenta};
+	}
+
+	&.has-background-pink {
+		--shape-current-bg: #{$color-muumi-pink};
+	}
+
+	&.has-background-light-pink {
+		--shape-current-bg: #{$color-muumi-light-pink};
+	}
+
+	&.has-background-orange {
+		--shape-current-bg: #{$color-muumi-orange};
+	}
+
+	&.has-background-blue {
+		--shape-current-bg: #{$color-muumi-blue};
+	}
+
+	&.has-background-bluegray {
+		--shape-current-bg: #{$color-muumi-bluegray};
+	}
+
+	&.has-background-gray {
+		--shape-current-bg: #{$color-muumi-gray};
+	}
+
+	&:has(> .shape-slot--top:not(.shape-none)) {
+		padding-top: $wave-height;
+
+		@include until($tablet) {
+			padding-top: $wave-height-mobile;
+		}
+	}
+
+	&:has(> .shape-slot--bottom:not(.shape-none)) {
+		padding-bottom: $wave-height;
+
+		@include until($tablet) {
+			padding-bottom: $wave-height-mobile;
+		}
+	}
+
+	&:has(> .shape-slot--bottom.border-shape--sea-waves-bottom:not(.shape-none)),
+	&:has(> .shape-slot--bottom.border-shape--sea-waves-bottom-reverse:not(.shape-none)),
+	&:has(> .shape-slot--bottom.border-shape--sea-waves:not(.shape-none)),
+	&:has(> .shape-slot--bottom.border-shape--sea-waves-reverse:not(.shape-none)) {
+		padding-bottom: 4.6rem;
+
+		@include from($widescreen) {
+			padding-bottom: 6rem;
+		}
+	}
+
+	> .container,
+	> .shape-content {
+		position: relative;
+		z-index: 2;
+	}
+
+	.shape-slot {
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: $wave-height;
+
+		@include until($tablet) {
+			height: $wave-height-mobile;
+		}
+
+		pointer-events: none;
+		z-index: 1;
+
+		&.shape-none {
+			display: none;
+		}
+
+		// Prevent legacy border-shape utility offsets if those classes are reused.
+		&.border-shape,
+		&.border-shape--wave-top,
+		&.border-shape--wave-top-reverse,
+		&.border-shape--wave-top-character-reverse,
+		&.border-shape--wave-bottom,
+		&.border-shape--wave-bottom-reverse,
+		&.border-shape--sea-waves,
+		&.border-shape--sea-waves-bottom,
+		&.border-shape--sea-waves-reverse,
+		&.border-shape--sea-waves-bottom-reverse {
+			margin-top: 0;
+			padding-bottom: 0 !important;
+			overflow: visible;
+		}
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			mask-size: 100% 100%;
+			mask-repeat: no-repeat;
+			pointer-events: none;
+		}
+	}
+
+	.shape-slot--top {
+		top: 0;
+
+		// Paint the previous section color first, then cut the wave with current color.
+		&::after {
+			background-color: var(--shape-before-bg, var(--shape-current-bg, transparent));
+			background-image: var(--shape-top-decoration-image, none);
+			background-repeat: no-repeat;
+			background-size: var(--shape-top-decoration-size, auto);
+			background-position: var(--shape-top-decoration-position, center top);
+            z-index: -1;
+		}
+
+		&::before {
+			background-color: var(--shape-current-bg, transparent);
+			mask-position: center top;
+		}
+
+		&.border-shape--wave-top::before {
+			-webkit-mask-image: $wave-svg;
+			mask-image: $wave-svg;
+
+			@include until($tablet) {
+				mask-size: 100% 80%;
+				mask-position: center bottom;
+			}
+		}
+
+		&.border-shape--wave-top-reverse::before,
+		&.border-shape--wave-top-character-reverse::before {
+			-webkit-mask-image: $wave-svg-reverse;
+			mask-image: $wave-svg-reverse;
+
+			@include until($tablet) {
+				mask-size: 100% 80%;
+				mask-position: center bottom;
+			}
+		}
+
+		&.border-shape--wave-top-character-reverse {
+			--shape-top-decoration-image: #{$wave-character-image};
+			--shape-top-decoration-size: clamp(5.5rem, 10vw, 8rem) auto;
+		}
+
+		&.border-shape--wave-top-character-reverse {
+			--shape-top-decoration-position: right 0 bottom 0;
+		}
+	}
+
+	.shape-slot--bottom {
+		bottom: 0;
+
+		&::before {
+            background-color: var(--shape-current-bg, transparent);
+		}
+
+		&::after {
+			background-color: var(--shape-next-bg, var(--shape-current-bg, transparent));
+			mask-position: center bottom;
+		}
+
+		&.border-shape--wave-bottom::after {
+			-webkit-mask-image: $wave-svg;
+			mask-image: $wave-svg;
+
+			@include until($tablet) {
+				mask-size: 100% 80%;
+				mask-position: center bottom;
+			}
+		}
+
+		&.border-shape--wave-bottom-reverse::after {
+			-webkit-mask-image: $wave-svg-reverse;
+			mask-image: $wave-svg-reverse;
+
+			@include until($tablet) {
+				mask-size: 100% 80%;
+				mask-position: center bottom;
+			}
+		}
+
+		&.border-shape--sea-waves-bottom,
+		&.border-shape--sea-waves-bottom-reverse,
+		&.border-shape--sea-waves,
+		&.border-shape--sea-waves-reverse {
+			height: 4.6rem;
+
+			@include from($widescreen) {
+				height: 6rem;
+			}
+		}
+
+		&.border-shape--sea-waves-bottom::after,
+		&.border-shape--sea-waves-bottom-reverse::after,
+		&.border-shape--sea-waves::after,
+		&.border-shape--sea-waves-reverse::after {
+			-webkit-mask-image: $sea-waves;
+			mask-image: $sea-waves;
+		}
+
+		&.border-shape--sea-waves-bottom-reverse::after,
+		&.border-shape--sea-waves-reverse::after {
+			transform: scaleX(-1);
+			transform-origin: center;
+		}
+	}
+}

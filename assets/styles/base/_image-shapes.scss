@@ -1,0 +1,25 @@
+.image-shape {
+    &--wavy,
+    &--wavy-reverse,
+    &--gentle {
+        mask-repeat: no-repeat;
+        mask-size: contain;
+        mask-position: center;
+    }
+
+    &--wavy {
+        mask-image: url('../images/vector-image-horizontal.svg');
+    }
+
+    &--wavy-reverse {
+        mask-image: url('../images/vector-image-horizontal-reverse.svg');
+    }
+
+    &--gentle {
+        mask-image: url('../images/vector-image-gentle.svg');
+    }
+
+    &--rounded {
+        border-radius: rem(30px);
+    }
+}

@@ -1,7 +1,5 @@
 <?php
-/**
- * Copyright (c) 2021. Geniem Oy
- */
+
 
 namespace TMS\Theme\MuumiB2B\ACF\Layouts;
 
@@ -48,9 +46,11 @@ class ImageBannerLayout extends BaseLayout {
             $this->get_name()
         );
 
+        $layout_fields = $this->with_common_fields( $fields->get_fields(), self::KEY );
+
         try {
             $this->add_fields(
-                $this->filter_layout_fields( $fields->get_fields(), $this->get_key(), self::KEY )
+                $this->filter_layout_fields( $layout_fields, $this->get_key(), self::KEY )
             );
         }
         catch ( Exception $e ) {

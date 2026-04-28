@@ -1,9 +1,10 @@
-<div {?anchor}id="{anchor|attr}"{/anchor} class="section page-component call-to-action {accent_color|attr} {common_background_color|attr} {common_shape_top|attr} {common_shape_bottom|attr}">
+<div {?anchor}id="{anchor|attr}"{/anchor} class="section page-component call-to-action {accent_color|attr} shape-section {common_background_color|attr} {common_before_background_color|attr} {common_next_background_color|attr}">
+    <div class="shape-slot shape-slot--top {common_shape_top|attr}" aria-hidden="true"></div>
     <div class="container keep-vertical-spacing">
         {>"shared/layout-before-main-content" /}
 
         {?layout_title}
-            <h2 class="call-to-action__layout-title h1 has-text-weight-bold mt-0 mb-6">
+            <h2 class="call-to-action__layout-title font-tove-sans h1 has-text-weight-bold mt-0 mb-6">
                 {layout_title|html}
             </h2>
         {/layout_title}
@@ -52,4 +53,5 @@
 
         {>"shared/layout-after-main-content" /}
     </div>
+    <div class="shape-slot shape-slot--bottom {common_shape_bottom|attr}" aria-hidden="true"></div>
 </div>

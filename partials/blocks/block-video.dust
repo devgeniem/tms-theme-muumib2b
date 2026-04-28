@@ -4,7 +4,7 @@
     {>"shared/layout-before-main-content" /}
 
     {?alt_text}
-        <span class="is-sr-only">{alt_text|html}</span>
+        <span id="video-caption" class="is-sr-only">{alt_text|html}</span>
     {/alt_text}
 
     {! Skip embed !}
@@ -18,9 +18,24 @@
         </div>
     {/video}
 
+    {?video_media}
+        <div class="image is-16by9 is-embed-container">
+            <video src="{video_media.url|url}" class="video-embed"
+                controls
+                {?description}aria-describedby="video-caption"{/description}>
+            </video>
+        </div>
+    {/video_media}
+
     {?video_iframe}
         {video_iframe|s}
     {/video_iframe}
+
+    {?description}
+        <div class="video__description mt-4 has-text-weight-black">
+            {description|kses}
+        </div>
+    {/description}
 
     {! Skip embed target !}
     <div id="{id|attr}"></div>

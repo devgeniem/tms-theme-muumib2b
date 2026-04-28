@@ -1,0 +1,3 @@
+<div {?anchor}id="{anchor|attr}"{/anchor} class="section layout-image-gallery p-0">
+    {>"blocks/block-image-gallery" /}
+</div>

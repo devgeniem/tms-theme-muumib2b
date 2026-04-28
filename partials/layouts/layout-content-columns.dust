@@ -1,11 +1,12 @@
-<div {?anchor}id="{anchor|attr}"{/anchor} class="section content-columns">
+<div {?anchor}id="{anchor|attr}"{/anchor} class="section content-columns shape-section {common_background_color|attr} {common_before_background_color|attr} {common_next_background_color|attr}">
+    <div class="shape-slot shape-slot--top {common_shape_top|attr}" aria-hidden="true"></div>
     <div class="container keep-vertical-spacing">
         {#rows}
             <div class="content-columns__item mt-6 mb-6 columns is-vcentered {item_class|attr}">
                 {?image}
                     <div class="column {img_col_class|attr}">
-                        <div class="image is-5by3">
-                            {@image id=image.id size="large" class="objectfit-image" /}
+                        <div class="image">
+                            {@image id=image.id size="large" class="objectfit-image {image_shape|attr}" /}
                         </div>
 
                         {@isset key1=display_caption key2=image.caption method="AND" }
@@ -19,8 +20,12 @@
                 {/image}
 
                 <div class="column {text_col_class|attr}">
+                    {?quotation_mark}
+                        <span class="h1 quotation-mark" aria-hidden="true">”</span>
+                    {/quotation_mark}
+
                     {?title}
-                        <h2 class="content-columns__title h4 mt-0-desktop">
+                        <h2 class="content-columns__title h4 font-tove-sans mt-0-desktop">
                             {title|html}
                         </h2>
                     {/title}
@@ -30,8 +35,13 @@
                             {description|kses}
                         </div>
                     {/description}
+
+                    {?link}
+                        <a href="{link.url|url}" target="{link.target|attr}" class="button is-primary-invert ml-0 mt-6">{link.title|html}</a>
+                    {/link}
                 </div>
             </div>
         {/rows}
     </div>
+    <div class="shape-slot shape-slot--bottom {common_shape_bottom|attr}" aria-hidden="true"></div>
 </div>

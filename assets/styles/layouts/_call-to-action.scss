@@ -1,13 +1,41 @@
+.call-to-action {
+    .column {
+        &:nth-child(odd),
+        &:nth-child(even) {
+            img {
+                mask-repeat: no-repeat;
+                mask-size: contain;
+                mask-position: center;
+            }
+        }
+
+        &:nth-child(odd) {
+            img {
+                mask-image: url('../images/vector-image-vertical.svg');
+            }
+        }
+
+        &:nth-child(even) {
+            img {
+                mask-image: url('../images/vector-image-vertical-reverse.svg');
+            }
+        }
+    }
+}
+
 /*
  * Specific styles if CTA is below hero
  */
 .hero + .call-to-action {
     margin-top: $theme-spacing-two;
-    padding-top: 0;
+    padding-top: 0 !important;
 
-    &::before {
-        top: 0;
-        height: 16rem;
+    .shape-slot--top {
+        &::before,
+        &::after {
+            top: 1px;
+            height: 16rem;
+        }
     }
 
     &.has-background-blue {

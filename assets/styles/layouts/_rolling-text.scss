@@ -1,0 +1,42 @@
+.rolling-text {
+	overflow: hidden;
+
+    &__row {
+        overflow: visible;
+        white-space: nowrap;
+
+        &--right {
+            padding-bottom: $theme-spacing-two;
+        }
+    }
+
+    &__track {
+        display: inline-flex;
+        flex-wrap: nowrap;
+        will-change: transform;
+    }
+
+    &__sequence {
+        display: inline-flex;
+        flex-wrap: nowrap;
+        gap: $theme-spacing-two;
+        padding-right: $theme-spacing-two;
+    }
+
+    &__item {
+        flex: 0 0 auto;
+
+        p {
+            font-size: $size-6;
+            font-weight: $weight-bold;
+
+            @include from($tablet) {
+                font-size: $size-4;
+            }
+
+            @include from($fullhd) {
+                font-size: $size-3;
+            }
+        }
+    }
+}

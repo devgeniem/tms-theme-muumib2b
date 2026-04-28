@@ -15,8 +15,14 @@
     display: flex;
     align-items: center;
 
+    .h1 {
+        font-size: 5rem !important;
+        margin-bottom: 2rem !important;
+    }
+
     p {
         font-weight: $weight-semibold;
+        font-size: 1.165rem;
     }
 
     .button {
@@ -34,12 +40,43 @@
     }
 
     &.has-background-white {
-        color: $color-muumi-blue;
+        color: $color-muumi-blue !important;
 
         .button {
-            background-color: $color-muumi-bluegray;
-            border-color: $color-muumi-bluegray;
+            background-color: $color-muumi-bluegray !important;
+            border-color: $color-muumi-bluegray !important;
+            color: $color-muumi-black !important;
         }
+    }
+
+    &.has-background-yellow {
+        .button {
+            background-color: transparent !important;
+            border-color: $color-muumi-black !important;
+            color: $color-muumi-black !important;
+        }
+    }
+
+    &__inner {
+        width: 100%;
+
+        img {
+            max-height: 900px;
+            object-fit: cover;
+            object-position: bottom center;
+        }
+
+        .hero-image--rounded img {
+            mask-image: url('../images/vector-image-gentle.svg');
+            mask-repeat: no-repeat;
+            mask-size: 150%;
+            mask-position: 100% 150%;
+            width: 100%;
+        }
+    }
+
+    &__box {
+        max-width: 1000px;
     }
 
     &.has-full-bg {
@@ -86,6 +123,14 @@
         .hero__inner {
             position: relative;
             z-index: 1;
+        }
+    }
+}
+
+.page-template-page-front-page {
+    .hero {
+        .h1 {
+            font-size: 7rem !important;
         }
     }
 }

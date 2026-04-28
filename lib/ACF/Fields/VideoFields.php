@@ -1,7 +1,5 @@
 <?php
-/**
- * Copyright (c) 2021. Geniem Oy
- */
+
 
 namespace TMS\Theme\MuumiB2B\ACF\Fields;
 
@@ -41,11 +39,11 @@ class VideoFields extends \Geniem\ACF\Field\Group {
      */
     protected function sub_fields() : array {
         $strings = [
-            'video'    => [
+            'video'        => [
                 'label'        => 'Video',
                 'instructions' => '',
             ],
-            'alt_text' => [
+            'alt_text'     => [
                 'label'        => 'Alt-teksti ruudunlukijoille',
                 'instructions' => '',
             ],
@@ -53,8 +51,12 @@ class VideoFields extends \Geniem\ACF\Field\Group {
                 'label'        => 'Videon upotuskoodi',
                 'instructions' => 'Lisää tähän videon upotuskoodi, jos videota ei voi käyttää pelkän urlin kautta (esim. Quickchannel).',
             ],
-            'align'    => [
+            'align'        => [
                 'label'        => 'Asemointi',
+                'instructions' => '',
+            ],
+            'description'  => [
+                'label'        => 'Kuvaus',
                 'instructions' => '',
             ],
         ];
@@ -67,10 +69,17 @@ class VideoFields extends \Geniem\ACF\Field\Group {
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['video']['instructions'] );
 
+        $video_media_field = ( new Field\File( $strings['video']['label'] ) )
+            ->set_key( "{$key}_video_media" )
+            ->set_name( 'video_media' )
+            ->set_wrapper_width( 50 )
+            ->set_allowed_file_extensions( [ 'mp4', 'webm', 'ogg' ] )
+            ->set_instructions( $strings['video']['instructions'] );
+
         $alt_text_field = ( new Field\Textarea( $strings['alt_text']['label'] ) )
             ->set_key( "{$key}_alt_text" )
             ->set_name( 'alt_text' )
-            ->set_wrapper_width( 50 )
+            ->set_wrapper_width( 100 )
             ->set_instructions( $strings['alt_text']['instructions'] );
 
         $video_iframe_field = ( new Field\Textarea( $strings['video_iframe']['label'] ) )
@@ -90,11 +99,19 @@ class VideoFields extends \Geniem\ACF\Field\Group {
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['align']['instructions'] );
 
+        $description_field = ( new Field\Textarea( $strings['description']['label'] ) )
+            ->set_key( "{$key}_description" )
+            ->set_name( 'description' )
+            ->set_wrapper_width( 100 )
+            ->set_instructions( $strings['description']['instructions'] );
+
         return [
+            $video_media_field,
             $video_field,
             $alt_text_field,
             $video_iframe_field,
             $align_field,
+            $description_field,
         ];
     }
 }

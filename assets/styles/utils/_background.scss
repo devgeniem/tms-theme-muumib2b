@@ -14,14 +14,30 @@
     }
 }
 
+.has-background-white {
+    .button {
+        &,
+        &:hover,
+        &:focus {
+            background-color: $color-muumi-black !important;
+            border-color: $color-muumi-black !important;
+            color: $color-white !important;
+        }
+    }
+}
+
 .has-background-gray {
     background-color: $color-muumi-gray;
     color: $color-white;
 
     .button {
-        background-color: $color-muumi-black;
-        border-color: $color-muumi-black;
-        color: $color-white;
+        &,
+        &:hover,
+        &:focus {
+            background-color: $color-muumi-black !important;
+            border-color: $color-muumi-black !important;
+            color: $color-white !important;
+        }
     }
 }
 
@@ -30,20 +46,43 @@
     color: $color-white;
 
     .button {
-        background-color: $color-muumi-black;
-        border-color: $color-muumi-black;
-        color: $color-white;
+        &,
+        &:hover,
+        &:focus {
+            background-color: $color-muumi-black !important;
+            border-color: $color-muumi-black !important;
+            color: $color-white !important;
+        }
     }
 }
 
 .has-background-bluegray {
     background-color: $color-muumi-bluegray;
+    color: $color-muumi-black;
+
+    .button {
+        &,
+        &:hover,
+        &:focus {
+            background-color: $color-muumi-black !important;
+            border-color: $color-muumi-black !important;
+            color: $color-white !important;
+        }
+    }
+}
+
+.has-background-gray {
+    background-color: $color-muumi-gray;
     color: $color-white;
 
     .button {
-        background-color: $color-muumi-black;
-        border-color: $color-muumi-black;
-        color: $color-white;
+        &,
+        &:hover,
+        &:focus {
+            background-color: $color-muumi-black !important;
+            border-color: $color-muumi-black !important;
+            color: $color-white !important;
+        }
     }
 }
 
@@ -52,9 +91,43 @@
     color: $color-white;
 
     .button {
-        background-color: $color-muumi-black;
-        border-color: $color-muumi-black;
-        color: $color-white;
+        &,
+        &:hover,
+        &:focus {
+            background-color: $color-muumi-black !important;
+            border-color: $color-muumi-black !important;
+            color: $color-white !important;
+        }
+    }
+}
+
+.has-background-pink {
+    background-color: $color-muumi-pink;
+    color: $color-black;
+
+    .button {
+        &,
+        &:hover,
+        &:focus {
+            background-color: $color-muumi-black !important;
+            border-color: $color-muumi-black !important;
+            color: $color-white !important;
+        }
+    }
+}
+
+.has-background-light-pink {
+    background-color: $color-muumi-light-pink;
+    color: $color-black;
+
+    .button {
+        &,
+        &:hover,
+        &:focus {
+            background-color: $color-muumi-black !important;
+            border-color: $color-muumi-black !important;
+            color: $color-white !important;
+        }
     }
 }
 
@@ -62,9 +135,13 @@
     background-color: $color-muumi-yellow;
 
     .button {
-        background-color: $color-muumi-black;
-        border-color: $color-muumi-black;
-        color: $color-white;
+        &,
+        &:hover,
+        &:focus {
+            background-color: $color-muumi-black !important;
+            border-color: $color-muumi-black !important;
+            color: $color-white !important;
+        }
     }
 }
 
@@ -72,9 +149,13 @@
     background-color: $color-muumi-orange;
 
     .button {
-        background-color: $color-white;
-        border-color: $color-white;
-        color: $color-muumi-black;
+        &,
+        &:hover,
+        &:focus {
+            background-color: $color-white !important;
+            border-color: $color-white !important;
+            color: $color-muumi-black !important;
+        }
     }
 }
 
@@ -82,9 +163,13 @@
     background-color: $color-muumi-pink;
 
     .button {
-        background-color: $color-muumi-black;
-        border-color: $color-muumi-black;
-        color: $color-white;
+        &,
+        &:hover,
+        &:focus {
+            background-color: $color-muumi-black !important;
+            border-color: $color-muumi-black !important;
+            color: $color-white !important;
+        }
     }
 }
 
@@ -92,9 +177,13 @@
     background-color: $color-muumi-light-pink;
 
     .button {
-        background-color: $color-muumi-black;
-        border-color: $color-muumi-black;
-        color: $color-white;
+        &,
+        &:hover,
+        &:focus {
+            background-color: $color-muumi-black !important;
+            border-color: $color-muumi-black !important;
+            color: $color-white !important;
+        }
     }
 }
 

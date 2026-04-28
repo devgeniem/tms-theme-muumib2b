@@ -1,7 +1,5 @@
 <?php
-/**
- * Copyright (c) 2021. Geniem Oy
- */
+
 
 namespace TMS\Theme\MuumiB2B\ACF\Fields;
 
@@ -52,7 +50,7 @@ class ImageCarouselFields extends Field\Group {
             ],
             'rows'        => [
                 'label'        => 'Kuvakaruselli',
-                'instructions' => 'Lisää vähintään 4 kuvaa (muuten kuvakarusellia ei näytetä).',
+                'instructions' => 'Kuvakaruselli, jossa näytetään yksi kuva kerrallaan.',
                 'button'       => 'Lisää rivi',
             ],
             'image'       => [
@@ -92,7 +90,7 @@ class ImageCarouselFields extends Field\Group {
         $rows_field = ( new Field\Repeater( $strings['rows']['label'] ) )
             ->set_key( "{$key}_rows" )
             ->set_name( 'rows' )
-            ->set_min( 4 )
+            ->set_min( 2 )
             ->set_max( 20 )
             ->set_layout( 'block' )
             ->set_button_label( $strings['rows']['button'] )

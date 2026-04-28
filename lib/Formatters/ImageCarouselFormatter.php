@@ -39,7 +39,7 @@ class ImageCarouselFormatter implements \TMS\Theme\MuumiB2B\Interfaces\Formatter
      * @return array
      */
     public function format( array $data ) : array {
-        if ( ! is_array( $data['rows'] ) || count( $data['rows'] ) < 4 ) {
+        if ( empty( $data['rows'] ) || ! is_array( $data['rows'] ) || count( $data['rows'] ) < 2 ) {
             $data['rows'] = [];
             return $data;
         }

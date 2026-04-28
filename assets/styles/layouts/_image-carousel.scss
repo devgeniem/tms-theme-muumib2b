@@ -1,10 +1,17 @@
-/*!*
- * Copyright (c) 2021. Geniem Oy
- */
-
 .image-carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     &__inner {
         position: relative;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &__item {
+        height: 100%;
     }
 
     &__items {
@@ -14,6 +21,33 @@
             @include from($desktop) {
                 max-width: $desktop;
             }
+        }
+
+        .image {
+            height: 100%;
+            width: 100%;
+        }
+
+        .slick-list,
+        .slick-track,
+        .slick-slide,
+        .slick-slide > div {
+            height: 100%;
+        }
+
+        .slick-list {
+            height: 80vh;
+            max-height: 900px;
+        }
+
+        .slick-slide img {
+            height: 100% !important;
+            max-height: 100% !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            object-fit: cover;
+            object-position: center;
+            display: block;
         }
     }
 

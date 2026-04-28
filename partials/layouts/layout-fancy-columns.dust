@@ -1,0 +1,39 @@
+<div {?anchor}id="{anchor|attr}"{/anchor} class="section fancy-columns is-relative pr-0 pl-0 {common_before_background_color|attr}">
+    <div class="keep-vertical-spacing">
+        <div class="fancy-columns__item mt-6 mb-6 columns is-vcentered {item_class|attr}">
+            <div class="fancy-columns__decorative-column-shape-left"></div>
+            <div class="column is-5-widescreen is-offset-1-widescreen fancy-columns__text">
+                <div class="text-content-wrapper">
+                    {?title}
+                        <h2 class="fancy-columns__title font-tove-sans h1 mt-0">
+                            {title|html}
+                        </h2>
+                    {/title}
+
+                    {?description}
+                        <div class="fancy-columns__description mt-4 keep-vertical-spacing">
+                            {description|kses}
+                        </div>
+                    {/description}
+
+                    {?button}
+                        <a href="{button.url|url}" target="{button.target|attr}" class="fancy-columns__button button mt-6 keep-vertical-spacing">
+                            {button.title|kses}
+                        </a>
+                    {/button}
+                </div>
+            </div>
+
+            {?image}
+                <div class="column is-5-widescreen fancy-columns__image">
+                    <div class="objectfit-image-wrapper">
+                        <div class="objectfit-image-container">
+                            {@image id=image.id size="large" class="objectfit-image" /}
+                        </div>
+                    </div>
+                </div>
+            {/image}
+            <div class="fancy-columns__decorative-column-shape-right"></div>
+        </div>
+    </div>
+</div>

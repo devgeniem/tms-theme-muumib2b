@@ -1,10 +1,12 @@
 {?gravityform}
-    <section class="gravityform section {common_background_color|attr} {common_shape_bottom|attr} {common_shape_top|attr}" {?anchor}id="{anchor|attr}"{/anchor}>
+    <section class="gravityform section shape-section {common_background_color|attr} {common_before_background_color|attr} {common_next_background_color|attr}" {?anchor}id="{anchor|attr}"{/anchor}>
+        <div class="shape-slot shape-slot--top {common_shape_top|attr}" aria-hidden="true"></div>
+
         <div class="container">
             <div class="columns">
                 <div class="column">
                     {?heading}
-                        <h2 class="h2 mb-6 mt-6">
+                        <h2 class="h2 font-tove-sans mb-6 mt-6">
                             {heading|html}
                         </h2>
                     {/heading}
@@ -22,5 +24,7 @@
                 </div>
             </div>
         </div>
+
+        <div class="shape-slot shape-slot--bottom {common_shape_bottom|attr}" aria-hidden="true"></div>
     </section>
 {/gravityform}
