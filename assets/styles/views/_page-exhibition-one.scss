@@ -1,0 +1,86 @@
+$wave-svg-reverse: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,24 C80,42 170,56 300,60 C500,66 640,58 780,60 C970,64 1130,102 1200,108 L1200,120 L0,120 Z' fill='%23000'/%3E%3C/svg%3E");
+
+.page-template-page-exhibition-one {
+    .hero {
+        &::before {
+            display: none !important;
+        }
+    }
+
+    .content-columns {
+        &.has-background-white {
+            .button {
+                &,
+                &:hover,
+                &:focus {
+                    background-color: $color-muumi-hot-pink !important;
+                    border-color: $color-muumi-hot-pink !important;
+                    color: $color-white !important;
+                }
+            }
+        }
+
+        &.has-background-pink {
+            margin-top: -8rem;
+            // background-color gradient with the first 8rem transparent and rest pink
+            background: linear-gradient(
+                to bottom,
+                transparent 0%,
+                transparent 8rem,
+                $color-muumi-pink 8rem,
+                $color-muumi-pink 100%
+            );
+
+            .container {
+                z-index: 4;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('../images/image-stairs.png');
+                background-repeat: no-repeat;
+                background-position: bottom right;
+                background-size: contain;
+                z-index: 2;
+
+                mask-image:
+                    linear-gradient(#000 0 0),
+                    $wave-svg-reverse;
+                mask-size:
+                    100% calc(100% - 8rem),
+                    100% 8rem;
+                mask-position:
+                    bottom left,
+                    top center;
+                mask-repeat:
+                    no-repeat,
+                    no-repeat;
+
+                @include until($tablet) {
+                    display: none;
+                }
+            }
+
+            .shape-slot--top {
+                z-index: auto;
+
+                &::after {
+                    background-color: transparent;
+                }
+            }
+
+            .shape-slot--bottom {
+                z-index: auto;
+
+                &::after {
+                    z-index: 3;
+                }
+            }
+        }
+    }
+}

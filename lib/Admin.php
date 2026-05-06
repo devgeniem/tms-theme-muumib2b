@@ -1,7 +1,5 @@
 <?php
-/**
- * Copyright (c) 2021. Geniem Oy
- */
+
 
 namespace TMS\Theme\MuumiB2B;
 
@@ -104,7 +102,20 @@ class Admin implements Interfaces\Controller {
         \array_walk( $formats, function ( $key, $val ) use ( &$block_formats ) {
             $block_formats .= esc_attr( $key ) . '=' . esc_attr( $val ) . ';';
         }, $block_formats = '' );
-        $tags['block_formats'] = $block_formats;
+        $tags['block_formats']       = $block_formats;
+        $tags['style_formats_merge'] = false;
+        $tags['style_formats']       = \wp_json_encode( [
+            [
+                'title' => __( 'Painikkeet' ),
+                'items' => [
+                    [
+                        'title'    => __( 'Painike' ),
+                        'selector' => 'a',
+                        'classes'  => 'button',
+                    ],
+                ],
+            ],
+        ] );
 
         return $tags;
     }
@@ -122,6 +133,7 @@ class Admin implements Interfaces\Controller {
             [
                 1 => [ // Must start with 1
                     'formatselect',
+                    'styleselect',
                     'bold',
                     'italic',
                     'bullist',
@@ -244,6 +256,8 @@ window.onload = function() {
         $excludes_templates = apply_filters(
             'tms/theme/gutenberg/excluded_templates',
             [
+                \PageExhibitionOne::TEMPLATE,
+                \PageExhibitionTwo::TEMPLATE,
                 \PageOnepager::TEMPLATE,
                 \PageFrontPage::TEMPLATE,
             ]

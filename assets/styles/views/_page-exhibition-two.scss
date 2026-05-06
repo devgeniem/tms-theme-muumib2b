@@ -1,0 +1,15 @@
+$wave-svg-reverse: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,24 C80,42 170,56 300,60 C500,66 640,58 780,60 C970,64 1130,102 1200,108 L1200,120 L0,120 Z' fill='%23000'/%3E%3C/svg%3E");
+
+.page-template-page-exhibition-two {
+    .hero:has( + .layout-textblock ) {
+        .shape-slot--bottom {
+            &::after {
+                background-color: #e9e8e6 !important;
+            }
+        }
+    }
+
+    .hero + .layout-textblock {
+        background-color: #e9e8e6 !important;
+    }
+}
