@@ -1,7 +1,5 @@
 <?php
-/**
- * Copyright (c) 2021. Geniem Oy
- */
+
 
 namespace TMS\Theme\MuumiB2B\ACF;
 
@@ -67,6 +65,16 @@ class PageGroup {
                         'param'    => 'page_template',
                         'operator' => '!=',
                         'value'    => \PageOnepager::TEMPLATE,
+                    ],
+                    [
+                        'param'    => 'page_template',
+                        'operator' => '!=',
+                        'value'    => \PageExhibitionOne::TEMPLATE,
+                    ],
+                    [
+                        'param'    => 'page_template',
+                        'operator' => '!=',
+                        'value'    => \PageExhibitionTwo::TEMPLATE,
                     ],
                     [
                         'param'    => 'page_type',
@@ -149,6 +157,16 @@ class PageGroup {
                         'value'    => \PageOnepager::TEMPLATE,
                     ],
                     [
+                        'param'    => 'page_template',
+                        'operator' => '!=',
+                        'value'    => \PageExhibitionOne::TEMPLATE,
+                    ],
+                    [
+                        'param'    => 'page_template',
+                        'operator' => '!=',
+                        'value'    => \PageExhibitionTwo::TEMPLATE,
+                    ],
+                    [
                         'param'    => 'page_type',
                         'operator' => '!=',
                         'value'    => 'posts_page',
@@ -209,25 +227,31 @@ class PageGroup {
                 Layouts\HeroLayout::class,
                 Layouts\ImageBannerLayout::class,
                 Layouts\CallToActionLayout::class,
+                Layouts\LinkedPagesLayout::class,
                 Layouts\ContentColumnsLayout::class,
-                Layouts\LogoWallLayout::class,
-                Layouts\MapLayout::class,
-                Layouts\IconLinksLayout::class,
-                Layouts\SocialMediaLayout::class,
+                Layouts\SmallColumnsLayout::class,
+                Layouts\FancyColumnsLayout::class,
                 Layouts\ImageCarouselLayout::class,
-                Layouts\SubpageLayout::class,
+                Layouts\ImageGalleryLayout::class,
                 Layouts\TextBlockLayout::class,
-                Layouts\GridLayout::class,
-                Layouts\ArticlesLayout::class,
-                Layouts\SitemapLayout::class,
-                Layouts\NoticeBannerLayout::class,
                 Layouts\GravityFormLayout::class,
-                Layouts\AccessibilityIconLinksLayout::class,
-                Layouts\ShareLinksLayout::class,
-                Layouts\CountdownLayout::class,
                 Layouts\VideoLayout::class,
-                Layouts\SomeLinkListLayout::class,
                 Layouts\ModularityLayout::class,
+                Layouts\RollingTextLayout::class,
+                // Layouts\LogoWallLayout::class,
+                // Layouts\MapLayout::class,
+                // Layouts\IconLinksLayout::class,
+                // Layouts\SocialMediaLayout::class,
+                // Layouts\SomeLinkListLayout::class,
+                // Layouts\AccessibilityIconLinksLayout::class,
+                // Layouts\ShareLinksLayout::class,
+                // Layouts\CountdownLayout::class,
+                // Layouts\GridLayout::class,
+                // Layouts\ArticlesLayout::class,
+                // Layouts\SitemapLayout::class,
+                // Layouts\NoticeBannerLayout::class,
+                // Layouts\SubpageLayout::class,
+
             ],
             $key
         );

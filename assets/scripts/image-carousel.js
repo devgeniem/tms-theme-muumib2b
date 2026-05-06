@@ -64,8 +64,9 @@ export default class ImageCarousel {
             slidesToShow: 1,
             slidesToScroll: 1,
             fade: true,
-            autoplay: true,
+            autoplay: false,
             autoplaySpeed: 7000,
+            useAutoplayToggleButton: false,
             arrowsPlacement: 'afterSlides',
         };
 
