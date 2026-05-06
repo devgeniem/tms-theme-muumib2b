@@ -1,0 +1,224 @@
+.hero-and-image-carousel {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+
+    .h1 {
+        font-size: clamp(3rem, 7vw, 8rem) !important;
+        margin-bottom: 1.25rem !important;
+        padding: 1rem;
+        line-height: 1;
+        max-width: 800px;
+    }
+
+    p {
+        font-weight: $weight-semibold;
+        text-align: center;
+        font-size: 1rem;
+
+        @include from($tablet) {
+            font-size: 1.165rem;
+        }
+
+        @media (min-width: 1800px) {
+            font-size: 1.5rem;
+        }
+
+        @media (min-width: 2500px) {
+            font-size: 2rem;
+        }
+    }
+
+    &.has-background-white {
+        color: $color-muumi-blue !important;
+
+        .button {
+            background-color: $color-muumi-bluegray !important;
+            border-color: $color-muumi-bluegray !important;
+            color: $color-muumi-black !important;
+        }
+    }
+
+    &__canvas {
+        position: relative;
+        width: 100vw;
+        aspect-ratio: 3 / 5;
+
+        @include from($tablet) {
+            aspect-ratio: 7 / 6;
+        }
+    }
+
+    &__media {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+
+        @include until($tablet) {
+            padding-top: 1rem;
+        }
+    }
+
+    &__media-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+
+        // Hotspot defaults for mobile layout.
+        --hero-hotspot-title-x: auto;
+        --hero-hotspot-title-y: 0%;
+        --hero-hotspot-title-width: 100%;
+        --hero-hotspot-description-x: 0%;
+        --hero-hotspot-description-y: 52%;
+        --hero-hotspot-description-width: 100%;
+
+        @include from($tablet) {
+            --hero-hotspot-title-x: 0%;
+            --hero-hotspot-title-y: 5%;
+            --hero-hotspot-title-width: 38%;
+            --hero-hotspot-description-x: 7.5%;
+            --hero-hotspot-description-y: 50%;
+            --hero-hotspot-description-width: 85%;
+        }
+
+        @include from($desktop) {
+            --hero-hotspot-title-x: 5%;
+            --hero-hotspot-title-y: 5%;
+            --hero-hotspot-title-width: 35%;
+            --hero-hotspot-description-x: 11.5%;
+            --hero-hotspot-description-y: 50%;
+            --hero-hotspot-description-width: 77%;
+        }
+    }
+
+    &__hotspot {
+        position: absolute;
+        z-index: 2;
+
+        &--title {
+            top: var(--hero-hotspot-title-y);
+            right: var(--hero-hotspot-title-x);
+            width: var(--hero-hotspot-title-width);
+        }
+
+        &--description {
+            top: var(--hero-hotspot-description-y);
+            left: var(--hero-hotspot-description-x);
+            width: var(--hero-hotspot-description-width);
+            background-color: $color-white;
+            padding: $theme-spacing;
+        }
+    }
+
+    &.has-full-bg {
+        position: relative;
+
+        &::before {
+            display: none;
+        }
+    }
+
+    @include until($tablet) {
+        .h5 {
+            margin-bottom: 1rem !important;
+        }
+    }
+
+    &__carousel {
+        position: relative;
+        margin-top: -8rem;
+        padding-top: 10rem;
+        padding-bottom: 10rem;
+        background: linear-gradient(
+            to bottom,
+            transparent 0%,
+            transparent 8rem,
+            $color-muumi-green 8rem,
+            $color-muumi-green 100%
+        );
+
+        @include from($tablet) {
+            background: linear-gradient(
+                to bottom,
+                transparent 0%,
+                transparent 8rem,
+                $color-muumi-green 8rem,
+                $color-muumi-green 100%
+            );
+        }
+
+        .container {
+            max-width: 80% !important;
+        }
+
+        .image-carousel__inner {
+            @include from($desktop) {
+                left: -5rem;
+            }
+        }
+
+        .shape-slot {
+            &--top {
+                &::after {
+                    display: none;
+                }
+            }
+
+            &--bottom {
+                &::before {
+                    display: none;
+                }
+                &::after {
+                    background-color: $color-muumi-pink;
+                }
+            }
+        }
+
+        .slick-list {
+            mask-image: url('../images/vector-image-horizontal-reverse.svg') !important;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 4rem;
+            right: $theme-spacing-two;
+            width: 30%;
+            height: calc(100% - 18rem);
+            pointer-events: none;
+            background-image: url('../images/castle-vector.svg');
+            background-repeat: no-repeat;
+            background-position: right center;
+            background-size: contain;
+        }
+
+        .vector-flowers {
+            position: absolute;
+            bottom: -2rem;
+            left: 0;
+            width: 60%;
+            height: 40%;
+            background-image: url('../images/vector-flowers.svg');
+            background-repeat: no-repeat;
+            background-position: bottom left;
+            background-size: contain;
+
+            @include until($tablet) {
+                bottom: 1rem;
+            }
+        }
+    }
+}

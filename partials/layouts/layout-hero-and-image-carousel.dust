@@ -1,0 +1,93 @@
+{?hero.full_size_image}
+    <section {?hero.anchor}id="{hero.anchor|attr}"{/hero.anchor}
+            class="hero-and-image-carousel page-component is-relative has-full-bg">
+        <div class="hero-and-image-carousel__canvas">
+            <div class="hero-and-image-carousel__media" aria-hidden="true">
+                {@image id=hero.full_size_image alt="" size="fullhd" class="hero-and-image-carousel__media-image" loading="eager" /}
+            </div>
+
+            <div class="hero-and-image-carousel__overlay">
+                <div class="hero-and-image-carousel__hotspot hero-and-image-carousel__hotspot--title">
+                    {?hero.title}
+                        <h1 class="h1 font-tove-sans mt-0 no-hyphens">
+                            {hero.title|html}
+                        </h1>
+                    {/hero.title}
+                </div>
+
+                <div class="hero-and-image-carousel__hotspot hero-and-image-carousel__hotspot--description {hero.box_classes|attr}">
+                    {hero.description|kses}
+                </div>
+            </div>
+        </div>
+    </section>
+{/hero.full_size_image}
+
+{?image_carousel.rows}
+    <div class="hero-and-image-carousel__carousel image-carousel has-background-green shape-section">
+        <div class="shape-slot shape-slot--top border-shape--wave-top-reverse" aria-hidden="true"></div>
+        <div class="container keep-vertical-spacing">
+            <div class="columns is-multiline">
+
+                {?image_carousel.title}
+                    <h3 id="{image_carousel.carousel_id|attr}-title"
+                        class="image-carousel__title column is-block is-half is-offset-one-quarter has-text-centered mt-0 mb-3 {carousel_title_class|s}">
+                        {image_carousel.title|html}
+                    </h3>
+                {/image_carousel.title}
+
+                {?image_carousel.description}
+                    <div class="image-carousel__description column is-half is-offset-one-quarter has-text-lead has-text-centered mt-0 mb-6">
+                        {image_carousel.description|kses}
+                    </div>
+                {/image_carousel.description}
+
+                <div class="image-carousel__inner column is-full ">
+                    <button class="button button--icon is-primary slick-prev slick-arrow" type="button">
+                        {>"ui/icon" icon="chevron-left" /}
+                        <span class="is-sr-only">{image_carousel.translations.previous|html}</span>
+                    </button>
+
+                    <div class="image-carousel__items image-carousel__items--primary"
+                            id="{image_carousel.carousel_id|attr}" data-slider-for="{image_carousel.carousel_id|attr}-modal-carousel">
+                        {#image_carousel.rows}
+                            <div class="image-carousel__item" id="{id|attr}">
+                                <div class="image">
+                                    {@image id=image.id alt=image.alt title=image.alt size="medium_vertical" class="objectfit-image" width="{image.sizes.medium_vertical-width}" loading="" /}
+                                </div>
+                            </div>
+                        {/image_carousel.rows}
+                    </div>
+
+                    <button class="button button--icon is-primary slick-next slick-arrow" type="button">
+                        {>"ui/icon" icon="chevron-right" /}
+                        <span class="is-sr-only">{image_carousel.translations.next|html}</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="{image_carousel.carousel_id|attr}-modal" class="modal modal--large modal--slider" role="dialog" aria-modal="true" aria-labelledby="{image_carousel.carousel_id|attr}" hidden>
+            <div class="modal-background"></div>
+
+            <button
+                class="button button--icon modal-close-button is-white is-outlined is-flex is-align-self-flex-end image-carousel__modal-control">
+                <span class="modal-close-button__text">{image_carousel.translations.close|html}</span>
+                {>"ui/icon" icon="close" class="icon--medium" /}
+            </button>
+            <div class="modal-content">
+                <div class="image-carousel__items image-carousel__items--modal column is-full" id="{image_carousel.carousel_id|attr}-modal-carousel" data-slider-for="{image_carousel.carousel_id|attr}">
+                    {#image_carousel.rows}
+                        <div class="image-carousel__item" id="{id|attr}-modal">
+                            {@image id=image.id alt=image.alt title=image.description size="fullhd" width="{image.sizes.fullhd-width}" height="{image.sizes.fullhd-height}" loading="" /}
+
+                            {>"ui/image/image-block__meta" /}
+                        </div>
+                    {/image_carousel.rows}
+                </div>
+            </div>
+        </div>
+        <div class="vector-flowers" aria-hidden="true"></div>
+        <!--<div class="shape-slot shape-slot--bottom border-shape--wave-bottom-reverse" aria-hidden="true"></div>-->
+    </div>
+{/image_carousel.rows}
