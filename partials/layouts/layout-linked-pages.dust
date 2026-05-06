@@ -3,7 +3,7 @@
         {>"shared/layout-before-main-content" /}
 
         {?layout_title}
-            <h2 class="linked-pages__layout-title h1 has-text-weight-bold mt-5 mb-5">
+            <h2 class="linked-pages__layout-title h1 font-tove-sans mt-5 mb-5 column is-3-desktop">
                 {layout_title|html}
             </h2>
         {/layout_title}

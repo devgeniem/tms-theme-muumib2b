@@ -1,13 +1,11 @@
 {?image}
     <div {?anchor}id="{anchor|attr}"{/anchor}
-         class="image-banner is-relative is-align-full has-background-cover"
-         style="background-image: url({image.sizes.large|url})">
-        {>"shared/layout-before-main-content" /}
+         class="image-banner is-relative is-align-full has-background-cover shape-section {common_next_background_color|attr}">
 
         <div class="image">
             {@image id=image.id size="large" class="objectfit-image" /}
         </div>
 
-        {>"shared/layout-after-main-content" /}
+        <div class="shape-slot shape-slot--bottom {common_shape_bottom|attr}" aria-hidden="true"></div>
     </div>
 {/image}

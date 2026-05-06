@@ -2,6 +2,8 @@
     position: relative;
 
     &__item {
+        max-width: 100vw;
+
         @include until($desktop) {
             display: block !important;
 
@@ -65,9 +67,9 @@
         &::before {
             content: '';
             position: absolute;
-            inset: -5%;
-            width: 110%;
-            height: 110%;
+            inset: -10%;
+            width: 120%;
+            height: 120%;
             background-color: $color-muumi-bluegray;
             -webkit-mask-image: url('../images/fancy-columns-text-vector.svg');
             mask-image: url('../images/fancy-columns-text-vector.svg');
@@ -127,9 +129,9 @@
         &::after {
             content: '';
             position: absolute;
-            inset: -5%;
-            width: 110%;
-            height: 110%;
+            inset: -10%;
+            width: 120%;
+            height: 120%;
             background-image: url("data:image/svg+xml,<svg width='716' height='802' viewBox='0 0 716 802' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M696.916 295.328C657.317 40.7903 612.507 2.0282 425.38 2.0282C31.0281 2.0282 52.0182 243.645 7.89362 472.341C-36.231 701.037 174.21 797.943 450.271 799.235C726.333 800.527 736.515 549.865 696.916 295.328Z' fill='none' stroke='white' stroke-width='4'/></svg>");
             background-repeat: no-repeat;
             background-position: center;
@@ -138,12 +140,54 @@
             z-index: 2;
         }
 
-        @include until($desktop) {
+        @media (max-width: 1024px) and (min-width: 769px) {
             &::after,
             &::before {
-                inset: 0;
+                inset: 0%;
                 width: 100%;
                 height: 100%;
+            }
+        }
+
+        @include until($desktop) {
+            overflow-x: clip;
+
+            &::after,
+            &::before {
+                // inset: -10%;
+                // width: 120%;
+                // height: 120%;
+            }
+        }
+
+        @media (max-width: 768px) and (min-width: 500px) {
+            &::after,
+            &::before {
+                inset: -5%;
+                width: 110%;
+                height: 110%;
+            }
+        }
+
+        @media (max-width: 500px) and (min-width: 400px) {
+            &::after,
+            &::before {
+                inset: -20%;
+                width: 140%;
+                height: 140%;
+                mask-size: 120% 100%;
+                background-size: 120% 100%;
+            }
+        }
+
+        @media (max-width: 400px) {
+            &::after,
+            &::before {
+                inset: -25% !important;
+                width: 150% !important;
+                height: 150% !important;
+                mask-size: 140% 100% !important;
+                background-size: 140% 100% !important;
             }
         }
     }

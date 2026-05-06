@@ -1,15 +1,15 @@
 {?full_size_image}
 <section {?anchor}id="{anchor|attr}"{/anchor}
-    class="hero page-component is-relative has-background-cover has-full-bg {common_background_color|attr} {common_next_background_color|attr} {common_shape_bottom|attr} {container_class|attr}" {@inlinebg id=full_size_image size="fullhd" /}>
+    class="hero page-component is-relative has-background-cover has-full-bg shape-section {common_background_color|attr} {common_next_background_color|attr} {common_shape_bottom|attr} {container_class|attr}" {@inlinebg id=full_size_image size="fullhd" /}>
 {:else}
 <section {?anchor}id="{anchor|attr}"{/anchor}
-    class="hero page-component is-relative {common_background_color|attr} {common_next_background_color|attr} {common_shape_bottom|attr} {container_class|attr}">
+    class="hero page-component is-relative shape-section {common_background_color|attr} {common_next_background_color|attr} {common_shape_bottom|attr} {container_class|attr}">
 {/full_size_image}
 
     <div class="hero__inner pb-5 mr-auto ml-auto">
         <div class="columns">
             {^full_size_image}
-                <div class="column pl-0 {hero_img_position|attr} {?hero_img_shape}hero-image--rounded{/hero_img_shape}">
+                <div class="column pl-0 {hero_img_position|attr} {hero_img_shape|attr}">
                     {?image}
                         {@image id=image size="fullhd" /}
                     {/image}
@@ -50,4 +50,5 @@
             </div>
         </div>
     </div>
+    <div class="shape-slot shape-slot--bottom {common_shape_bottom|attr}" aria-hidden="true"></div>
 </section>

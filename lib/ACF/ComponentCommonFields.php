@@ -75,6 +75,8 @@ class ComponentCommonFields {
             ->set_choices( [
                 'has-background-white'      => 'Valkoinen',
                 'has-background-yellow'     => 'Keltainen',
+                'has-background-green'      => 'Vihreä',
+                'has-background-lightgreen' => 'Vaaleanvihreä',
                 'has-background-magenta'    => 'Magenta',
                 'has-background-pink'       => 'Pinkki',
                 'has-background-light-pink' => 'Vaaleanpunainen',
@@ -92,6 +94,8 @@ class ComponentCommonFields {
             ->set_choices( [
                 'before-has-background-white'      => 'Valkoinen',
                 'before-has-background-yellow'     => 'Keltainen',
+                'before-has-background-green'      => 'Vihreä',
+                'before-has-background-lightgreen' => 'Vaaleanvihreä',
                 'before-has-background-magenta'    => 'Magenta',
                 'before-has-background-pink'       => 'Pinkki',
                 'before-has-background-light-pink' => 'Vaaleanpunainen',
@@ -109,6 +113,8 @@ class ComponentCommonFields {
             ->set_choices( [
                 'next-has-background-white'      => 'Valkoinen',
                 'next-has-background-yellow'     => 'Keltainen',
+                'next-has-background-green'      => 'Vihreä',
+                'next-has-background-lightgreen' => 'Vaaleanvihreä',
                 'next-has-background-magenta'    => 'Magenta',
                 'next-has-background-pink'       => 'Pinkki',
                 'next-has-background-light-pink' => 'Vaaleanpunainen',

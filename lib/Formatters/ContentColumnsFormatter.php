@@ -37,16 +37,16 @@ class ContentColumnsFormatter implements \TMS\Theme\MuumiB2B\Interfaces\Formatte
     public function format( array $layout ) : array {
         $aspect_ratios = [
             '50-50' => [
-                'is-5-desktop',
-                'is-5-desktop',
+                'is-6-desktop',
+                'is-6-desktop',
             ],
             '70-30' => [
-                'is-7-desktop',
-                'is-3-desktop',
+                'is-8-desktop',
+                'is-4-desktop',
             ],
             '30-70' => [
-                'is-3-desktop',
-                'is-7-desktop',
+                'is-4-desktop',
+                'is-8-desktop',
             ],
         ];
 
@@ -66,10 +66,10 @@ class ContentColumnsFormatter implements \TMS\Theme\MuumiB2B\Interfaces\Formatte
 
             if ( $item['layout'] === 'is-text-first' ) {
                 $item['item_class']       = 'is-reversed-tablet is-justify-content-flex-end';
-                $item['text_col_class'][] = 'is-offset-1-desktop';
+                // $item['text_col_class'][] = 'is-offset-1-desktop';
             }
             else {
-                $item['img_col_class'][] = 'is-offset-1-desktop';
+                // $item['img_col_class'][] = 'is-offset-1-desktop';
             }
 
             $item['text_col_class'] = implode( ' ', $item['text_col_class'] );

@@ -1,7 +1,7 @@
 // Generic shape system for all sections using dedicated top/bottom shape slots.
 // This file intentionally keeps logic separate from _shapes.scss as a safe backup.
 
-$wave-height: 12rem;
+$wave-height: 8rem;
 $wave-height-mobile: 8rem;
 $wave-overlap-offset: 11.9rem;
 
@@ -16,6 +16,14 @@ $sea-waves: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vi
 
 .next-has-background-yellow {
 	--shape-next-bg: #{$color-muumi-yellow};
+}
+
+.next-has-background-green {
+	--shape-next-bg: #{$color-muumi-green};
+}
+
+.next-has-background-lightgreen {
+	--shape-next-bg: #{$color-muumi-lightgreen};
 }
 
 .next-has-background-magenta {
@@ -52,6 +60,14 @@ $sea-waves: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vi
 
 .before-has-background-yellow {
 	--shape-before-bg: #{$color-muumi-yellow};
+}
+
+.before-has-background-green {
+	--shape-before-bg: #{$color-muumi-green};
+}
+
+.before-has-background-lightgreen {
+	--shape-before-bg: #{$color-muumi-lightgreen};
 }
 
 .before-has-background-magenta {
@@ -94,6 +110,14 @@ $sea-waves: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vi
 
 	&.has-background-yellow {
 		--shape-current-bg: #{$color-muumi-yellow};
+	}
+
+	&.has-background-green {
+		--shape-current-bg: #{$color-muumi-green};
+	}
+
+	&.has-background-lightgreen {
+		--shape-current-bg: #{$color-muumi-lightgreen};
 	}
 
 	&.has-background-magenta {
@@ -194,7 +218,7 @@ $sea-waves: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vi
 		&::after {
 			content: '';
 			position: absolute;
-			inset: 0;
+			inset: -1px;
 			mask-size: 100% 100%;
 			mask-repeat: no-repeat;
 			pointer-events: none;
@@ -202,15 +226,11 @@ $sea-waves: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vi
 	}
 
 	.shape-slot--top {
-		top: 0;
+		top: 1px;
 
 		// Paint the previous section color first, then cut the wave with current color.
 		&::after {
 			background-color: var(--shape-before-bg, var(--shape-current-bg, transparent));
-			background-image: var(--shape-top-decoration-image, none);
-			background-repeat: no-repeat;
-			background-size: var(--shape-top-decoration-size, auto);
-			background-position: var(--shape-top-decoration-position, center top);
             z-index: -1;
 		}
 
@@ -243,6 +263,13 @@ $sea-waves: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vi
 		&.border-shape--wave-top-character-reverse {
 			--shape-top-decoration-image: #{$wave-character-image};
 			--shape-top-decoration-size: clamp(5.5rem, 10vw, 8rem) auto;
+
+			&::after {
+				background-image: var(--shape-top-decoration-image, none);
+				background-repeat: no-repeat;
+				background-size: var(--shape-top-decoration-size, auto);
+				background-position: var(--shape-top-decoration-position, center top);
+			}
 		}
 
 		&.border-shape--wave-top-character-reverse {
@@ -251,7 +278,7 @@ $sea-waves: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vi
 	}
 
 	.shape-slot--bottom {
-		bottom: 0;
+		bottom: -1px;
 
 		&::before {
             background-color: var(--shape-current-bg, transparent);

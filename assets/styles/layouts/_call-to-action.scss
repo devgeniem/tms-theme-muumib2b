@@ -20,6 +20,12 @@
                 mask-image: url('../images/vector-image-vertical-reverse.svg');
             }
         }
+
+        @include until($tablet) {
+            .image {
+                padding-top: 100%;
+            }
+        }
     }
 }
 
@@ -31,6 +37,8 @@
     padding-top: 0 !important;
 
     .shape-slot--top {
+        margin-top: $theme-spacing-two;
+
         &::before,
         &::after {
             top: 1px;

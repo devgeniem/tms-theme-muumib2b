@@ -67,6 +67,10 @@ class ContentColumnsFields extends Field\Group {
                 'label'        => 'Otsikko',
                 'instructions' => '',
             ],
+            'title_font'     => [
+                'label'        => 'Otsikon fontti',
+                'instructions' => 'Käytetäänkö otsikossa normaalia fonttia vai Tove Sans-fonttia?',
+            ],
             'description'    => [
                 'label'        => 'Teksti',
                 'instructions' => '',
@@ -110,9 +114,19 @@ class ContentColumnsFields extends Field\Group {
         $title_field = ( new Field\Text( $strings['title']['label'] ) )
             ->set_key( "{$key}_title" )
             ->set_name( 'title' )
-            ->set_wrapper_width( 100 )
+            ->set_wrapper_width( 50 )
             ->redipress_include_search()
             ->set_instructions( $strings['title']['instructions'] );
+
+        $title_font_field = ( new Field\TrueFalse( $strings['title_font']['label'] ) )
+            ->set_key( "{$key}_title_font" )
+            ->set_name( 'title_font' )
+            ->set_wrapper_width( 50 )
+            ->set_default_value( false )
+            ->use_ui()
+            ->set_ui_off_text( 'Normaali' )
+            ->set_ui_on_text( 'Tove Sans' )
+            ->set_instructions( $strings['title_font']['instructions'] );
 
         $image_field = ( new Field\Image( $strings['image']['label'] ) )
             ->set_key( "{$key}_image" )
@@ -128,7 +142,7 @@ class ContentColumnsFields extends Field\Group {
                 'image-shape--wavy'         => 'Aaltoileva',
                 'image-shape--wavy-reverse' => 'Aaltoileva käännettynä',
                 'image-shape--rounded'      => 'Pyöristetyt kulmat',
-                'image-shape--gentle'       => 'Kuvaputki TV-muodossa',
+                'image-shape--gentle'       => 'Kuvaputki TV-muoto',
             ] )
             ->set_default_value( 'image-shape--none' )
             ->set_wrapper_width( 50 )
@@ -143,7 +157,7 @@ class ContentColumnsFields extends Field\Group {
         $description_field = ( new Field\Wysiwyg( $strings['description']['label'] ) )
             ->set_key( "{$key}_description" )
             ->set_name( 'description' )
-            ->set_toolbar( [ 'bold', 'italic' ] )
+            ->set_toolbar( 'tms' )
             ->disable_media_upload()
             ->set_wrapper_width( 100 )
             ->redipress_include_search()
@@ -159,8 +173,8 @@ class ContentColumnsFields extends Field\Group {
             ->set_key( "{$key}_layout" )
             ->set_name( 'layout' )
             ->set_choices( [
-                'is-image-first' => 'Kuva ensin',
                 'is-text-first'  => 'Teksti ensin',
+                'is-image-first' => 'Kuva ensin',
             ] )
             ->set_wrapper_width( 25 )
             ->set_instructions( $strings['layout']['instructions'] );
@@ -197,6 +211,7 @@ class ContentColumnsFields extends Field\Group {
         $rows_field->add_fields( [
             $quotation_mark_field,
             $title_field,
+            $title_font_field,
             $image_field,
             $image_shape_field,
             $description_field,

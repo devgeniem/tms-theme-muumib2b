@@ -50,6 +50,10 @@ a {
     }
 }
 
+strong {
+    color: inherit;
+}
+
 .has-text-paragraph {
     color: $text !important; // sass-lint:disable-line no-important
 }

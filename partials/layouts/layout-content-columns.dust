@@ -25,7 +25,7 @@
                     {/quotation_mark}
 
                     {?title}
-                        <h2 class="content-columns__title h4 font-tove-sans mt-0-desktop">
+                        <h2 class="content-columns__title h4 {?title_font}font-tove-sans{/title_font} mt-0-desktop">
                             {title|html}
                         </h2>
                     {/title}

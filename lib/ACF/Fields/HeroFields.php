@@ -100,8 +100,8 @@ class HeroFields extends \Geniem\ACF\Field\Group {
                 'instructions' => '',
             ],
             'hero_img_shape'     => [
-                'label'        => 'Hero kuvan pyöristetyt reunat',
-                'instructions' => 'Käytä heron kuvalle pyöristettyjä reunoja',
+                'label'        => 'Hero kuvan muodot',
+                'instructions' => 'Valitse heron kuvalle käytettävä muoto',
             ],
             'next_background_color' => [
                 'label'        => 'Seuraavan komponentin taustaväri',
@@ -220,11 +220,14 @@ class HeroFields extends \Geniem\ACF\Field\Group {
             ->set_default_value( 'has-text-centered-desktop' )
             ->set_instructions( $strings['hero_img_position']['instructions'] );
 
-        $hero_img_shape_field = ( new Field\TrueFalse( $strings['hero_img_shape']['label'] ) )
+        $hero_img_shape_field = ( new Field\Select( $strings['hero_img_shape']['label'] ) )
             ->set_key( "{$key}_hero_img_shape" )
             ->set_name( 'hero_img_shape' )
-            ->use_ui()
-            ->set_wrapper_width( 30 )
+            ->set_choices( [
+                'hero-image--default' => 'Ei muotoa',
+                'hero-image--rounded' => 'Pyöristetyt reunat',
+                'hero-image--wavy'    => 'Aaltoilevat reunat',
+            ] )
             ->set_instructions( $strings['hero_img_shape']['instructions'] );;
 
         $background_color = ( new Field\Select( $strings['background_color']['label'] ) )

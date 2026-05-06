@@ -95,7 +95,7 @@ class LinkedPagesFields extends Field\Group {
         $image_field = ( new Field\Image( $strings['image']['label'] ) )
             ->set_key( "{$key}_image" )
             ->set_name( 'image' )
-            ->set_wrapper_width( 50 )
+            ->set_wrapper_width( 100 )
             ->set_instructions( $strings['image']['instructions'] );
 
         $subtitle_field = ( new Field\Text( $strings['subtitle']['label'] ) )

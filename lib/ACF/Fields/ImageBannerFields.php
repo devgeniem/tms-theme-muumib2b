@@ -40,12 +40,20 @@ class ImageBannerFields extends \Geniem\ACF\Field\Group {
     protected function sub_fields() : array {
         $strings = [
             'image' => [
-                'label'        => 'Kuva',
+                'label'             => 'Kuva',
                 'instructions' => '',
             ],
             'width' => [
-                'label'        => 'Leveys',
+                'label'             => 'Leveys',
                 'instructions' => '',
+            ],
+            'next_background_color' => [
+                'label'        => 'Seuraavan komponentin taustaväri',
+                'instructions' => 'Tätä väriä käytetään yhdistämään komponenttien välisien muotojen taustat.',
+            ],
+            'shape_bottom'         => [
+                'label'        => 'Muoto alareunaan',
+                'instructions' => 'Valitse muoto käytettäväksi komponentille',
             ],
         ];
 
@@ -69,9 +77,43 @@ class ImageBannerFields extends \Geniem\ACF\Field\Group {
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['width']['instructions'] );
 
+        $shape_bottom_field = ( new Field\Select( $strings['shape_bottom']['label'] ) )
+            ->set_key( "{$key}_common_shape_bottom" )
+            ->set_name( 'common_shape_bottom' )
+            ->set_instructions( $strings['shape_bottom']['instructions'] )
+            ->set_choices( [
+                'shape-none'                                          => 'Ei muotoa',
+                'border-shape border-shape--wave-bottom'              => 'Leveä aalto',
+                'border-shape border-shape--wave-bottom-reverse'      => 'Leveä aalto käännettynä',
+                'border-shape border-shape--sea-waves-bottom'         => 'Aallokko',
+                'border-shape border-shape--sea-waves-bottom-reverse' => 'Aallokko käännettynä',
+            ] )
+            ->set_default_value( 'shape-none' );
+
+        $next_background_color = ( new Field\Select( $strings['next_background_color']['label'] ) )
+            ->set_key( "{$key}_common_next_background_color" )
+            ->set_name( 'common_next_background_color' )
+            ->set_instructions( $strings['next_background_color']['instructions'] )
+            ->set_choices( [
+                'next-has-background-white'      => 'Valkoinen',
+                'next-has-background-yellow'     => 'Keltainen',
+                'next-has-background-green'      => 'Vihreä',
+                'next-has-background-lightgreen' => 'Vaaleanvihreä',
+                'next-has-background-magenta'    => 'Magenta',
+                'next-has-background-pink'       => 'Pinkki',
+                'next-has-background-light-pink' => 'Vaaleanpunainen',
+                'next-has-background-orange'     => 'Oranssi',
+                'next-has-background-blue'       => 'Sininen',
+                'next-has-background-bluegray'   => 'Siniharmaa',
+                'next-has-background-gray'       => 'Harmaa',
+            ] )
+            ->set_default_value( 'next-has-background-white' );
+
         return [
             $image_field,
             $width_field,
+            $shape_bottom_field,
+            $next_background_color,
         ];
     }
 }

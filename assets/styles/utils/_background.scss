@@ -64,8 +64,8 @@
         &,
         &:hover,
         &:focus {
-            background-color: $color-muumi-black !important;
-            border-color: $color-muumi-black !important;
+            background-color: $color-muumi-blue !important;
+            border-color: $color-muumi-blue !important;
             color: $color-white !important;
         }
     }
@@ -145,6 +145,34 @@
     }
 }
 
+.has-background-green {
+    background-color: $color-muumi-green;
+
+    .button {
+        &,
+        &:hover,
+        &:focus {
+            background-color: $color-muumi-black !important;
+            border-color: $color-muumi-black !important;
+            color: $color-white !important;
+        }
+    }
+}
+
+.has-background-lightgreen {
+    background-color: $color-muumi-lightgreen;
+
+    .button {
+        &,
+        &:hover,
+        &:focus {
+            background-color: $color-muumi-black !important;
+            border-color: $color-muumi-black !important;
+            color: $color-white !important;
+        }
+    }
+}
+
 .has-background-orange {
     background-color: $color-muumi-orange;
 
@@ -184,6 +212,14 @@
             border-color: $color-muumi-black !important;
             color: $color-white !important;
         }
+    }
+}
+
+$shape-background-variants: "white", "yellow", "green", "lightgreen", "magenta", "pink", "light-pink", "orange", "blue", "bluegray", "gray";
+
+@each $name in $shape-background-variants {
+    .has-background-#{$name}:has(+ .has-background-#{$name}) {
+        padding-bottom: 0;
     }
 }
 

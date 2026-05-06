@@ -16,8 +16,16 @@
     align-items: center;
 
     .h1 {
-        font-size: 5rem !important;
+        font-size: 3rem !important;
         margin-bottom: 2rem !important;
+
+        @include from($tablet) {
+            font-size: 4rem !important;
+        }
+
+        @include from($desktop) {
+            font-size: 5rem !important;
+        }
     }
 
     p {
@@ -58,6 +66,7 @@
     }
 
     &__inner {
+        --hero-wavy-mask-ratio: 885 / 721;
         width: 100%;
 
         img {
@@ -67,11 +76,28 @@
         }
 
         .hero-image--rounded img {
-            mask-image: url('../images/vector-image-gentle.svg');
+            mask-image: url('../images/vector-gentle-hero.svg');
             mask-repeat: no-repeat;
-            mask-size: 150%;
-            mask-position: 100% 150%;
+            mask-size: contain;
+            mask-position: top left;
             width: 100%;
+        }
+
+        .hero-image--wavy img {
+            width: 100%;
+            height: auto;
+            max-height: none;
+            aspect-ratio: var(--hero-wavy-mask-ratio);
+            object-fit: cover;
+            object-position: center;
+            -webkit-mask-image: url('../images/vector-wavy-hero.svg');
+            mask-image: url('../images/vector-wavy-hero.svg');
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+            -webkit-mask-position: top right;
+            mask-position: top right;
         }
     }
 
@@ -81,7 +107,7 @@
 
     &.has-full-bg {
         position: relative;
-        color: $color-white;
+        color: $color-white !important;
         padding: 10rem 4rem;
 
         @include until($tablet) {
@@ -90,6 +116,12 @@
 
         @media (max-width: 400px) {
             padding: 6rem 2rem !important;
+        }
+
+        .shape-slot--bottom {
+            &::before {
+                background-color: transparent;
+            }
         }
 
         &::before {
@@ -125,12 +157,18 @@
             z-index: 1;
         }
     }
+
+    &:not(.shape-none) {
+        padding-bottom: 8rem !important;
+    }
 }
 
 .page-template-page-front-page {
     .hero {
         .h1 {
-            font-size: 7rem !important;
+            @include from($desktop) {
+                font-size: 7rem !important;
+            }
         }
     }
 }

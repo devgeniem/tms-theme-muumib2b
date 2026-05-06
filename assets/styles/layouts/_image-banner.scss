@@ -14,4 +14,14 @@
             }
         }
     }
+
+    .shape-slot {
+        &::before {
+            background-color: transparent;
+        }
+    }
+}
+
+.image-banner {
+    padding: 0 !important;
 }
