@@ -1,13 +1,22 @@
 .image-carousel {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    .columns {
+        margin-left: 0;
+        margin-right: 0;
+    }
 
     &__inner {
         position: relative;
         width: 100%;
+        box-sizing: border-box;
+        padding-left: 2rem;
+        padding-right: 2rem;
         margin-left: auto;
         margin-right: auto;
+
+        @include from($desktop) {
+            padding-left: 5rem;
+            padding-right: 5rem;
+        }
     }
 
     &__item {
@@ -15,6 +24,8 @@
     }
 
     &__items {
+        --image-carousel-height: clamp(20rem, 52vw, 50rem);
+
         .image-block__meta {
             max-width: 100vw;
 
@@ -23,7 +34,16 @@
             }
         }
 
+        .image-carousel__item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             height: 100%;
             width: 100%;
         }
@@ -35,31 +55,26 @@
             height: 100%;
         }
 
-        .slick-track {
-            display: flex;
-            align-items: center;
-        }
-
         .slick-list {
-            height: auto;
-            min-height: 500px;
-            max-height: 800px;
-            mask-image: url('../images/vector-image-gentle.svg');
-            mask-repeat: no-repeat;
-            mask-size: contain;
-            mask-position: center;
+            height: var(--image-carousel-height);
+            min-height: 0;
+            max-height: none;
             overflow: hidden;
         }
 
         .slick-slide img {
             height: 100% !important;
-            min-height: 500px !important;
-            max-height: 800px !important;
+            min-height: 0 !important;
+            max-height: none !important;
             width: 100% !important;
             max-width: 100% !important;
             object-fit: cover;
             object-position: center;
             display: block;
+            mask-image: url('../images/vector-image-gentle.svg');
+            mask-repeat: no-repeat;
+            mask-size: contain;
+            mask-position: center;
         }
     }
 
@@ -93,6 +108,16 @@
         padding: .6rem;
     }
 
+    .slick-next {
+        right: .5rem;
+        transform: translateY(-50%);
+    }
+
+    .slick-prev {
+        left: .5rem;
+        transform: translateY(-50%);
+    }
+
     @include from($desktop) {
         .slick-next {
             right: 2rem;
@@ -100,18 +125,8 @@
         }
 
         .slick-prev {
-            left: 4rem;
+            left: 2rem;
             transform: none;
         }
-    }
-
-    .slick-next {
-        right: .5rem;
-        transform: translateX(100%) translateY(-50%);
-    }
-
-    .slick-prev {
-        left: .5rem;
-        transform: translateX(-100%) translateY(-50%);
     }
 }

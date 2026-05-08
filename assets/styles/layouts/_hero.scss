@@ -30,7 +30,7 @@
 
     p {
         font-weight: $weight-semibold;
-        font-size: 1.165rem;
+        // font-size: 1.165rem;
     }
 
     .button {
@@ -71,6 +71,7 @@
 
         img {
             max-height: 900px;
+            height: 100%;
             object-fit: cover;
             object-position: bottom center;
         }
@@ -78,7 +79,7 @@
         .hero-image--rounded img {
             mask-image: url('../images/vector-gentle-hero.svg');
             mask-repeat: no-repeat;
-            mask-size: contain;
+            mask-size: 100% 100%;
             mask-position: top left;
             width: 100%;
         }
@@ -90,13 +91,9 @@
             aspect-ratio: var(--hero-wavy-mask-ratio);
             object-fit: cover;
             object-position: center;
-            -webkit-mask-image: url('../images/vector-wavy-hero.svg');
             mask-image: url('../images/vector-wavy-hero.svg');
-            -webkit-mask-repeat: no-repeat;
             mask-repeat: no-repeat;
-            -webkit-mask-size: 100% 100%;
             mask-size: 100% 100%;
-            -webkit-mask-position: top right;
             mask-position: top right;
         }
     }

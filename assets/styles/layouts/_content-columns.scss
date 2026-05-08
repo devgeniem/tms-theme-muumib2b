@@ -4,4 +4,13 @@
             color: $color-white;
         }
     }
+
+    &__item {
+        .column {
+            @include from($desktop) {
+                padding-right: $theme-spacing-two !important;
+                padding-left: $theme-spacing-two !important;
+            }
+        }
+    }
 }

@@ -6,11 +6,13 @@
     }
 
     &.is-content-center {
-        display: flex;
-        justify-content: center;
+        .container {
+            display: flex;
+            justify-content: center;
 
-        .textblock__inner {
-            text-align: center;
+            .textblock__inner {
+                text-align: center;
+            }
         }
     }
 

@@ -5,6 +5,14 @@
 .image-gallery {
     gap: 0;
 
+    @include until($tablet) {
+        flex-direction: column;
+
+        &__image {
+            padding-top: 20vh !important;
+        }
+    }
+
     &__image {
         overflow: hidden;
         flex: 1 1 auto;

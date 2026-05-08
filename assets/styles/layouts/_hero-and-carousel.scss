@@ -161,7 +161,9 @@
         }
 
         .container {
-            max-width: 80% !important;
+            @include from($tablet) {
+                max-width: 80% !important;
+            }
         }
 
         .image-carousel__inner {
@@ -187,7 +189,7 @@
             }
         }
 
-        .slick-list {
+        .slick-slide img {
             mask-image: url('../images/vector-image-horizontal-reverse.svg') !important;
         }
 
