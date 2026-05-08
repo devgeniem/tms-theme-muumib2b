@@ -219,7 +219,7 @@ $shape-background-variants: "white", "yellow", "green", "lightgreen", "magenta",
 
 @each $name in $shape-background-variants {
     .has-background-#{$name}:has(+ .has-background-#{$name}) {
-        padding-bottom: 0;
+        padding-bottom: $theme-spacing;
     }
 }
 

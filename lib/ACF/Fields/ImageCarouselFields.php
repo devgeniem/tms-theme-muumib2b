@@ -40,25 +40,29 @@ class ImageCarouselFields extends Field\Group {
      */
     protected function sub_fields() : array {
         $strings = [
-            'title'       => [
+            'title'            => [
                 'label'        => 'Otsikko',
                 'instructions' => '',
             ],
-            'description' => [
+            'description'      => [
                 'label'        => 'Kuvaus',
                 'instructions' => '',
             ],
-            'rows'        => [
+            'rows'             => [
                 'label'        => 'Kuvakaruselli',
                 'instructions' => 'Kuvakaruselli, jossa näytetään yksi kuva kerrallaan.',
                 'button'       => 'Lisää rivi',
             ],
-            'image'       => [
+            'image'            => [
                 'label'        => 'Kuva',
                 'instructions' => '',
             ],
-            'caption'     => [
+            'caption'          => [
                 'label'        => 'Vapaaehtoinen kuvateksti',
+                'instructions' => '',
+            ],
+            'background_color' => [
+                'label'        => 'Taustaväri',
                 'instructions' => '',
             ],
         ];
@@ -114,15 +118,34 @@ class ImageCarouselFields extends Field\Group {
             ->disable_media_upload()
             ->set_instructions( $strings['caption']['instructions'] );
 
+        $background_color = ( new Field\Select( $strings['background_color']['label'] ) )
+            ->set_key( "{$key}_common_background_color" )
+            ->set_name( 'common_background_color' )
+            ->set_instructions( $strings['background_color']['instructions'] )
+            ->set_choices( [
+                'has-background-white'      => 'Valkoinen',
+                'has-background-yellow'     => 'Keltainen',
+                'has-background-green'      => 'Vihreä',
+                'has-background-lightgreen' => 'Vaaleanvihreä',
+                'has-background-magenta'    => 'Magenta',
+                'has-background-pink'       => 'Pinkki',
+                'has-background-light-pink' => 'Vaaleanpunainen',
+                'has-background-orange'     => 'Oranssi',
+                'has-background-blue'       => 'Sininen',
+                'has-background-bluegray'   => 'Siniharmaa',
+                'has-background-gray'       => 'Harmaa',
+            ] )
+            ->set_default_value( 'has-background-white' );
+
         $rows_field->add_fields( [
             $image_field,
-            $caption_field,
         ] );
 
         return [
             $title_field,
             $description_field,
             $rows_field,
+            $background_color,
         ];
     }
 }

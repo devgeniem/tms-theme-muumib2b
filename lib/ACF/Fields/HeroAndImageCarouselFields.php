@@ -66,6 +66,7 @@ class HeroAndImageCarouselFields extends Field\Group {
 
         unset( $image_carousel_field->sub_fields['title'] );
         unset( $image_carousel_field->sub_fields['description'] );
+        unset( $image_carousel_field->sub_fields['common_background_color'] );
 
         return [
             $hero_field,

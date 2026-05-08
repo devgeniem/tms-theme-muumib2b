@@ -84,7 +84,7 @@ class ImageBannerFields extends \Geniem\ACF\Field\Group {
             ->set_choices( [
                 'shape-none'                                          => 'Ei muotoa',
                 'border-shape border-shape--wave-bottom'              => 'Leveä aalto',
-                'border-shape border-shape--wave-bottom-reverse'      => 'Leveä aalto käännettynä',
+                'border-shape border-shape--wave-bottom-reverse'      => 'Leveä aalto käännettynä (korkea puoli vasemmalla)',
                 'border-shape border-shape--sea-waves-bottom'         => 'Aallokko',
                 'border-shape border-shape--sea-waves-bottom-reverse' => 'Aallokko käännettynä',
             ] )

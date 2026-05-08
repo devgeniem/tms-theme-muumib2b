@@ -94,6 +94,7 @@ class PageFrontPageGroup {
         $components_field = ( new Field\FlexibleContent( $strings['components']['title'] ) )
             ->set_key( "{$key}_components" )
             ->set_name( 'components' )
+            ->set_button_label( 'Lisää komponentti' )
             ->set_instructions( $strings['components']['instructions'] );
 
         $component_layouts = apply_filters(

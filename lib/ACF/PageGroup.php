@@ -64,17 +64,17 @@ class PageGroup {
                     [
                         'param'    => 'page_template',
                         'operator' => '!=',
-                        'value'    => \PageOnepager::TEMPLATE,
-                    ],
-                    [
-                        'param'    => 'page_template',
-                        'operator' => '!=',
                         'value'    => \PageExhibitionOne::TEMPLATE,
                     ],
                     [
                         'param'    => 'page_template',
                         'operator' => '!=',
                         'value'    => \PageExhibitionTwo::TEMPLATE,
+                    ],
+                    [
+                        'param'    => 'page_template',
+                        'operator' => '!=',
+                        'value'    => \PageExhibitionThree::TEMPLATE,
                     ],
                     [
                         'param'    => 'page_type',
@@ -154,17 +154,17 @@ class PageGroup {
                     [
                         'param'    => 'page_template',
                         'operator' => '!=',
-                        'value'    => \PageOnepager::TEMPLATE,
-                    ],
-                    [
-                        'param'    => 'page_template',
-                        'operator' => '!=',
                         'value'    => \PageExhibitionOne::TEMPLATE,
                     ],
                     [
                         'param'    => 'page_template',
                         'operator' => '!=',
                         'value'    => \PageExhibitionTwo::TEMPLATE,
+                    ],
+                    [
+                        'param'    => 'page_template',
+                        'operator' => '!=',
+                        'value'    => \PageExhibitionThree::TEMPLATE,
                     ],
                     [
                         'param'    => 'page_type',
@@ -219,6 +219,7 @@ class PageGroup {
         $components_field = ( new Field\FlexibleContent( $strings['components']['title'] ) )
             ->set_key( "{$key}_components" )
             ->set_name( 'components' )
+            ->set_button_label( 'Lisää komponentti' )
             ->set_instructions( $strings['components']['instructions'] );
 
         $component_layouts = \apply_filters(
@@ -230,15 +231,15 @@ class PageGroup {
                 Layouts\LinkedPagesLayout::class,
                 Layouts\ContentColumnsLayout::class,
                 Layouts\SmallColumnsLayout::class,
-                Layouts\FancyColumnsLayout::class,
+                Layouts\FancyColumnsLayout::class, // Only frontpage
                 Layouts\ImageCarouselLayout::class,
                 Layouts\ImageGalleryLayout::class,
                 Layouts\TextBlockLayout::class,
                 Layouts\GravityFormLayout::class,
                 Layouts\VideoLayout::class,
                 Layouts\ModularityLayout::class,
-                Layouts\RollingTextLayout::class,
-                // Layouts\LogoWallLayout::class,
+                Layouts\RollingTextLayout::class, // Only frontpage
+                Layouts\LogoWallLayout::class,
                 // Layouts\MapLayout::class,
                 // Layouts\IconLinksLayout::class,
                 // Layouts\SocialMediaLayout::class,

@@ -91,6 +91,7 @@ class ComponentCommonFields {
             ->set_key( "{$key}_common_before_background_color" )
             ->set_name( 'common_before_background_color' )
             ->set_instructions( $strings['before_background_color']['instructions'] )
+            ->set_wrapper_width( 50 )
             ->set_choices( [
                 'before-has-background-white'      => 'Valkoinen',
                 'before-has-background-yellow'     => 'Keltainen',
@@ -110,6 +111,7 @@ class ComponentCommonFields {
             ->set_key( "{$key}_common_next_background_color" )
             ->set_name( 'common_next_background_color' )
             ->set_instructions( $strings['next_background_color']['instructions'] )
+            ->set_wrapper_width( 50 )
             ->set_choices( [
                 'next-has-background-white'      => 'Valkoinen',
                 'next-has-background-yellow'     => 'Keltainen',
@@ -129,10 +131,11 @@ class ComponentCommonFields {
             ->set_key( "{$key}_common_shape_top" )
             ->set_name( 'common_shape_top' )
             ->set_instructions( $strings['shape_top']['instructions'] )
+            ->set_wrapper_width( 50 )
             ->set_choices( [
                 'shape-none'                                             => 'Ei muotoa',
                 'border-shape border-shape--wave-top'                    => 'Leveä aalto',
-                'border-shape border-shape--wave-top-reverse'            => 'Leveä aalto käännettynä',
+                'border-shape border-shape--wave-top-reverse'            => 'Leveä aalto käännettynä (korkea puoli vasemmalla)',
                 'border-shape border-shape--wave-top-character-reverse'  => 'Leveä aalto käännettynä ja Hahmo',
             ] )
             ->set_default_value( 'shape-none' );
@@ -141,10 +144,11 @@ class ComponentCommonFields {
             ->set_key( "{$key}_common_shape_bottom" )
             ->set_name( 'common_shape_bottom' )
             ->set_instructions( $strings['shape_bottom']['instructions'] )
+            ->set_wrapper_width( 50 )
             ->set_choices( [
                 'shape-none'                                          => 'Ei muotoa',
                 'border-shape border-shape--wave-bottom'              => 'Leveä aalto',
-                'border-shape border-shape--wave-bottom-reverse'      => 'Leveä aalto käännettynä',
+                'border-shape border-shape--wave-bottom-reverse'      => 'Leveä aalto käännettynä (korkea puoli vasemmalla)',
                 'border-shape border-shape--sea-waves-bottom'         => 'Aallokko',
                 'border-shape border-shape--sea-waves-bottom-reverse' => 'Aallokko käännettynä',
             ] )

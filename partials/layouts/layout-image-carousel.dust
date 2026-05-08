@@ -1,5 +1,5 @@
 {?rows}
-<div {?anchor}id="{anchor|attr}"{/anchor} class="image-carousel">
+<div {?anchor}id="{anchor|attr}"{/anchor} class="image-carousel {common_background_color|attr}">
     <div class="container keep-vertical-spacing">
         <div class="columns is-multiline">
 

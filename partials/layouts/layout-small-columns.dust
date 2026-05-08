@@ -2,10 +2,10 @@
     <div class="container is-flex-widescreen">
         {>"shared/layout-before-main-content" /}
 
-        <div class="small-columns__items pt-0 pb-6 columns is-variable is-flex-wrap-wrap is-align-items-start">
+        <div class="small-columns__items pt-0 pb-6 columns is-variable is-flex-wrap-wrap is-align-items-end">
             <div class="column is-6-tablet is-4-widescreen">
                 {?layout_title}
-                    <h2 class="small-columns__layout-title h1 has-text-weight-bold mt-5 mb-5">
+                    <h2 class="small-columns__layout-title h1 font-tove-sans mt-5 mb-5">
                         {layout_title|html}
                     </h2>
                 {/layout_title}
@@ -26,7 +26,7 @@
                     {/image}
 
                     {?title}
-                        <h2 class="small-columns__title h3 mt-0 mb-4 has-text-centered">
+                        <h2 class="small-columns__title h4 mt-0 mb-4 has-text-centered">
                             {title|html}
                         </h2>
                     {/title}

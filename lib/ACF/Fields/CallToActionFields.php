@@ -100,7 +100,7 @@ class CallToActionFields extends Field\Group {
         $title_field = ( new Field\Text( $strings['title']['label'] ) )
             ->set_key( "{$key}_title" )
             ->set_name( 'title' )
-            ->set_wrapper_width( 50 )
+            ->set_wrapper_width( 100 )
             ->redipress_include_search()
             ->set_instructions( $strings['title']['instructions'] );
 

@@ -14,14 +14,6 @@
                 {@menu menu_name="secondary" depth="1" ul_classes="secondary-menu is-unstyled" menuitem_partial="ui/menu/menuitem-secondary" /}
             {/Header.hide_flyout_secondary}
 
-            {?PageOnepager.component_nav}
-                <ul class="bulmally-navbar fly-out-nav__primary fly-out-nav__onepager is-family-secondary js-scroll-children">
-                    {#PageOnepager.component_nav}
-                        {>"ui/menu/menu-item" url="#{anchor}" title="{menu_text}" data=Header.strings /}
-                    {/PageOnepager.component_nav}
-                </ul>
-            {/PageOnepager.component_nav}
-
             {^Header.hide_search}
                 <div class="search-form-wrapper pl-6">
                     <div id="fly-out-nav-search-title" class="h4 mt-9 mb-4 {Header.colors.fly_out_nav.search_title|attr}">

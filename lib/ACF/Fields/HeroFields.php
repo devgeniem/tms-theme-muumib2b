@@ -217,6 +217,7 @@ class HeroFields extends \Geniem\ACF\Field\Group {
                 'has-text-right'    => 'Oikea',
                 'has-text-centered' => 'Keskitetty',
             ] )
+            ->set_wrapper_width( 50 )
             ->set_default_value( 'has-text-centered-desktop' )
             ->set_instructions( $strings['hero_img_position']['instructions'] );
 
@@ -228,6 +229,7 @@ class HeroFields extends \Geniem\ACF\Field\Group {
                 'hero-image--rounded' => 'Pyöristetyt reunat',
                 'hero-image--wavy'    => 'Aaltoilevat reunat',
             ] )
+            ->set_wrapper_width( 50 )
             ->set_instructions( $strings['hero_img_shape']['instructions'] );;
 
         $background_color = ( new Field\Select( $strings['background_color']['label'] ) )
@@ -271,7 +273,7 @@ class HeroFields extends \Geniem\ACF\Field\Group {
             ->set_choices( [
                 'shape-none'                                          => 'Ei muotoa',
                 'border-shape border-shape--wave-bottom'              => 'Leveä aalto',
-                'border-shape border-shape--wave-bottom-reverse'      => 'Leveä aalto käännettynä',
+                'border-shape border-shape--wave-bottom-reverse'      => 'Leveä aalto käännettynä (korkea puoli vasemmalla)',
                 'border-shape border-shape--sea-waves-bottom'         => 'Aallokko',
                 'border-shape border-shape--sea-waves-bottom-reverse' => 'Aallokko käännettynä',
             ] )

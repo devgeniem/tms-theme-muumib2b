@@ -7,7 +7,7 @@
 {/full_size_image}
 
     <div class="hero__inner pb-5 mr-auto ml-auto">
-        <div class="columns">
+        <div class="columns mr-0 ml-0">
             {^full_size_image}
                 <div class="column pl-0 {hero_img_position|attr} {hero_img_shape|attr}">
                     {?image}

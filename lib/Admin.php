@@ -258,7 +258,7 @@ window.onload = function() {
             [
                 \PageExhibitionOne::TEMPLATE,
                 \PageExhibitionTwo::TEMPLATE,
-                \PageOnepager::TEMPLATE,
+                \PageExhibitionThree::TEMPLATE,
                 \PageFrontPage::TEMPLATE,
             ]
         );
