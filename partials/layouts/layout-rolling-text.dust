@@ -18,4 +18,9 @@
             {/rows_left}
         </div>
     {/rows_left}
+
+    <button class="rolling-text__toggle" aria-label="{Strings.s.rolling_text.pause|html}" data-label-pause="{Strings.s.rolling_text.pause|html}" data-label-play="{Strings.s.rolling_text.play|html}">
+        {>"ui/icon" icon="pause" class="is-secondary rolling-text__toggle-icon rolling-text__toggle-icon--pause" /}
+        {>"ui/icon" icon="play" class="is-secondary rolling-text__toggle-icon rolling-text__toggle-icon--play" /}
+    </button>
 </div>

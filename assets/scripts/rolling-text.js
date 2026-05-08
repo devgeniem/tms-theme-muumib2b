@@ -10,13 +10,16 @@ export default class RollingText {
         this.rows = [];
         this.raf = null;
         this.isAnimating = false;
+        this.isPaused = false;
         this.lastFrameTime = null;
         this.defaultSpeed = 40;
         this.visibilityObserver = null;
+        this.toggleButtons = [];
 
         this.animate = this.animate.bind( this );
         this.rebuildRows = this.rebuildRows.bind( this );
         this.onIntersection = this.onIntersection.bind( this );
+        this.togglePause = this.togglePause.bind( this );
     }
 
     /**
@@ -113,6 +116,37 @@ export default class RollingText {
     }
 
     /**
+     * Toggle the paused state of the animation.
+     *
+     * @return {void}
+     */
+    togglePause() {
+        this.isPaused = ! this.isPaused;
+
+        this.rows.forEach( ( rowState ) => {
+            rowState.container.classList.toggle( 'is-paused', this.isPaused );
+        } );
+
+        this.toggleButtons.forEach( ( button ) => {
+            const label = this.isPaused
+                ? button.dataset.labelPlay
+                : button.dataset.labelPause;
+            button.setAttribute( 'aria-label', label );
+        } );
+
+        if ( this.isPaused ) {
+            this.stopAnimation();
+        }
+        else {
+            const anyVisible = this.rows.some( ( rowState ) => rowState.isVisible );
+
+            if ( anyVisible ) {
+                this.startAnimation();
+            }
+        }
+    }
+
+    /**
      * Recalculate rolling rows. Used on init and resize.
      *
      * @return {void}
@@ -132,7 +166,7 @@ export default class RollingText {
 
         const anyVisible = this.rows.some( ( rowState ) => rowState.isVisible );
 
-        if ( anyVisible ) {
+        if ( anyVisible && ! this.isPaused ) {
             this.startAnimation();
         }
         else {
@@ -157,7 +191,7 @@ export default class RollingText {
 
         const anyVisible = this.rows.some( ( rowState ) => rowState.isVisible );
 
-        if ( anyVisible ) {
+        if ( anyVisible && ! this.isPaused ) {
             this.startAnimation();
         }
         else {
@@ -268,6 +302,11 @@ export default class RollingText {
             } );
             this.startAnimation();
         }
+
+        this.toggleButtons = Array.from( document.querySelectorAll( '.rolling-text__toggle' ) );
+        this.toggleButtons.forEach( ( button ) => {
+            button.addEventListener( 'click', this.togglePause );
+        } );
 
         window.addEventListener( 'resize', this.rebuildRows );
     }

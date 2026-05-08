@@ -1,5 +1,7 @@
 .rolling-text {
 	overflow: hidden;
+	position: relative;
+    padding-bottom: $theme-spacing-six !important;
 
     &__row {
         overflow: visible;
@@ -37,6 +39,38 @@
             @include from($fullhd) {
                 font-size: $size-3;
             }
+        }
+    }
+
+    &__toggle {
+        position: absolute;
+        bottom: $theme-spacing;
+        right: $theme-spacing-two;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+
+        .rolling-text__toggle-icon {
+            width: $theme-spacing-three;
+            height: $theme-spacing-three;
+        }
+
+        .rolling-text__toggle-icon--play {
+            display: none;
+        }
+    }
+
+    &.is-paused {
+        .rolling-text__toggle-icon--pause {
+            display: none;
+        }
+
+        .rolling-text__toggle-icon--play {
+            display: inline;
         }
     }
 }

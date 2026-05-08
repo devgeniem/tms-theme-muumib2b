@@ -76,6 +76,10 @@ class Strings extends \DustPress\Model {
             'social_media'       => [
                 'skip_embed' => _x( 'Skip social media embed', 'theme-frontend', 'tms-theme-muumib2b' ),
             ],
+            'rolling_text'       => [
+                'pause' => _x( 'Pause animation', 'theme-frontend', 'tms-theme-muumib2b' ),
+                'play'  => _x( 'Play animation', 'theme-frontend', 'tms-theme-muumib2b' ),
+            ],
             'share'              => [
                 'share_article'         => _x( 'Share Article', 'theme-frontend', 'tms-theme-muumib2b' ),
                 'share_event'           => _x( 'Share Event', 'theme-frontend', 'tms-theme-muumib2b' ),
