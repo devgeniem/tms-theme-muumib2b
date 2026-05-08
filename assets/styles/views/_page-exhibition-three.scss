@@ -1,0 +1,25 @@
+.page-template-page-exhibition-three {
+    .hero + .content-columns {
+        overflow-x: clip;
+
+        .image {
+            @media (min-width: 768px) {
+                position: absolute;
+                right: -25%;
+                top: 0;
+                height: 100%;
+                max-width: 70%;
+
+                .image-shape--gentle {
+                    mask-size: 100% 100%;
+                }
+            }
+
+            // @include from($widescreen) {
+            //     position: relative;
+            //     max-width: 100%;
+            //     right: 0;
+            // }
+        }
+    }
+}

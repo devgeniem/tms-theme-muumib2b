@@ -7,26 +7,26 @@ use Geniem\ACF\Exception;
 use Geniem\ACF\Group;
 use Geniem\ACF\RuleGroup;
 use Geniem\ACF\Field;
-use PageExhibitionTwo;
+use PageExhibitionThree;
 use TMS\Theme\MuumiB2B\ACF\Layouts;
 use TMS\Theme\MuumiB2B\Logger;
 
 /**
- * Class ExhibitionTwoGroup
+ * Class ExhibitionThreeGroup
  *
  * @package TMS\Theme\MuumiB2B\ACF
  */
-class ExhibitionTwoGroup {
+class ExhibitionThreeGroup {
     /**
      * Available components in key-value (component key => component class) format.
-     * Filled in the construct, overridable with 'tms/acf/exhibition_two_layouts' filter.
+     * Filled in the construct, overridable with 'tms/acf/exhibition_three_layouts' filter.
      *
      * @var array
      */
     public array $components = [];
 
     /**
-     * ExhibitionTwoGroup constructor.
+     * ExhibitionThreeGroup constructor.
      */
     public function __construct() {
         \add_action(
@@ -35,14 +35,21 @@ class ExhibitionTwoGroup {
         );
 
         $this->components = \apply_filters(
-            'tms/acf/exhibition_two_layouts',
+            'tms/acf/exhibition_three_layouts',
             [
-                'hero'            => Layouts\HeroAndImageCarouselLayout::class,
+                'hero'            => Layouts\HeroLayout::class,
+                'image_banner'    => Layouts\ImageBannerLayout::class,
                 'call_to_action'  => Layouts\CallToActionLayout::class,
-                'content_columns' => Layouts\ContentColumnsLayout::class,
-                'logo_wall'       => Layouts\LogoWallLayout::class,
-                'text_block'      => Layouts\TextBlockLayout::class,
                 'linked_pages'    => Layouts\LinkedPagesLayout::class,
+                'content_columns' => Layouts\ContentColumnsLayout::class,
+                'small_columns'   => Layouts\SmallColumnsLayout::class,
+                'image_carousel'  => Layouts\ImageCarouselLayout::class,
+                'image_gallery'   => Layouts\ImageGalleryLayout::class,
+                'text_block'      => Layouts\TextBlockLayout::class,
+                'gravity_form'    => Layouts\GravityFormLayout::class,
+                'video'           => Layouts\VideoLayout::class,
+                'modularity'      => Layouts\ModularityLayout::class,
+                'logo_wall'       => Layouts\LogoWallLayout::class,
             ]
         );
     }
@@ -56,10 +63,10 @@ class ExhibitionTwoGroup {
             $group_title = _x( 'Page Components', 'theme ACF', 'tms-theme-muumib2b' );
 
             $field_group = ( new Group( $group_title ) )
-                ->set_key( 'fg_exhibition_two_components' );
+                ->set_key( 'fg_exhibition_three_components' );
 
             $rule_group = ( new RuleGroup() )
-                ->add_rule( 'page_template', '==', PageExhibitionTwo::TEMPLATE );
+                ->add_rule( 'page_template', '==', PageExhibitionThree::TEMPLATE );
 
             $field_group
                 ->add_rule_group( $rule_group )
@@ -133,4 +140,4 @@ class ExhibitionTwoGroup {
     }
 }
 
-( new ExhibitionTwoGroup() );
+( new ExhibitionThreeGroup() );

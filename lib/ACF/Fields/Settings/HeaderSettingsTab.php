@@ -33,6 +33,10 @@ class HeaderSettingsTab extends Tab {
             'title'        => 'Logo',
             'instructions' => '',
         ],
+        'mobile_logo'      => [
+            'title'        => 'Mobiililaitteiden Logo',
+            'instructions' => '',
+        ],
         'brand_logo'       => [
             'title'        => 'Tampere.Finland-logo',
             'instructions' => '',
@@ -104,12 +108,12 @@ class HeaderSettingsTab extends Tab {
                 ->set_wrapper_width( 50 )
                 ->set_instructions( $strings['logo']['instructions'] );
 
-            $mobile_logo_field = ( new Field\Image( $strings['logo']['title'] ) )
+            $mobile_logo_field = ( new Field\Image( $strings['mobile_logo']['title'] ) )
                 ->set_key( "{$key}_mobile_logo" )
                 ->set_name( 'mobile_logo' )
                 ->set_return_format( 'id' )
                 ->set_wrapper_width( 50 )
-                ->set_instructions( $strings['logo']['instructions'] );
+                ->set_instructions( $strings['mobile_logo']['instructions'] );
 
             $brand_logo_field = ( new Field\Image( $strings['brand_logo']['title'] ) )
                 ->set_key( "{$key}_brand_logo" )
