@@ -42,11 +42,17 @@ $wave-svg-with-bottom-fill: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.
         }
     }
 
-    .border-shape {
+    .shape-slot--top {
+        &::before {
+            background-color: $color-white;
+        }
+    }
+
+    .shape-slot--bottom {
         bottom: 0;
         height: 100%;
 
-        &--wave-bottom {
+        &.border-shape--wave-bottom {
             &::after {
                 bottom: 0;
                 inset: 1px;
