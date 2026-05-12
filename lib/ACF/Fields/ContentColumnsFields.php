@@ -63,6 +63,10 @@ class ContentColumnsFields extends Field\Group {
                 'label'        => 'Lisää lainausmerkki',
                 'instructions' => 'Lisää otsikon ylle lainausmerkki.',
             ],
+            'subtitle'       => [
+                'label'        => 'Apuotsikko',
+                'instructions' => '',
+            ],
             'title'          => [
                 'label'        => 'Otsikko',
                 'instructions' => '',
@@ -111,6 +115,13 @@ class ContentColumnsFields extends Field\Group {
             ->use_ui()
             ->set_instructions( $strings['quotation_mark']['instructions'] );
 
+        $subtitle_field = ( new Field\Text( $strings['subtitle']['label'] ) )
+            ->set_key( "{$key}_subtitle" )
+            ->set_name( 'subtitle' )
+            ->set_wrapper_width( 50 )
+            ->redipress_include_search()
+            ->set_instructions( $strings['subtitle']['instructions'] );
+
         $title_field = ( new Field\Text( $strings['title']['label'] ) )
             ->set_key( "{$key}_title" )
             ->set_name( 'title' )
@@ -121,7 +132,7 @@ class ContentColumnsFields extends Field\Group {
         $title_font_field = ( new Field\TrueFalse( $strings['title_font']['label'] ) )
             ->set_key( "{$key}_title_font" )
             ->set_name( 'title_font' )
-            ->set_wrapper_width( 50 )
+            ->set_wrapper_width( 100 )
             ->set_default_value( false )
             ->use_ui()
             ->set_ui_off_text( 'Normaali' )
@@ -210,6 +221,7 @@ class ContentColumnsFields extends Field\Group {
 
         $rows_field->add_fields( [
             $quotation_mark_field,
+            $subtitle_field,
             $title_field,
             $title_font_field,
             $image_field,

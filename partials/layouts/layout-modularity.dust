@@ -1,7 +1,7 @@
 <section {?anchor}id="{anchor|attr}"{/anchor}
-    class="section layout-modularity border-shape border-shape--wave-bottom {common_next_background_color|attr}">
+    class="section layout-modularity shape-section {common_next_background_color|attr}">
     <div class="container">
-        <div class="layout-modularity__inner">
+        <div class="layout-modularity__inner column is-8-desktop p-0">
             {?title}
                 <h2 class="layout-modularity__title font-tove-sans h1 has-text-weight-bold mt-0 mb-6">
                     {title|html}
@@ -40,4 +40,5 @@
             </div>
         {/repeater}
     </div>
+    <div class="shape-slot shape-slot--bottom border-shape border-shape--wave-bottom" aria-hidden="true"></div>
 </section>

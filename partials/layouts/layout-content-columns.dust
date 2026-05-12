@@ -24,6 +24,12 @@
                         <span class="h1 quotation-mark" aria-hidden="true">”</span>
                     {/quotation_mark}
 
+                    {?subtitle}
+                        <p class="content-columns__subtitle h6 has-text-weight-bold mb-4 is-uppercase">
+                            {subtitle|html}
+                        </p>
+                    {/subtitle}
+
                     {?title}
                         <h2 class="content-columns__title h4 {?title_font}font-tove-sans{/title_font} mt-0-desktop">
                             {title|html}

@@ -19,9 +19,9 @@
                     {/image}
 
                     {?subtitle}
-                        <h2 class="call-to-action__subtitle h5 has-text-weight-bold mb-4 is-uppercase">
+                        <p class="call-to-action__subtitle h6 has-text-weight-bold mb-4 is-uppercase">
                             {subtitle|html}
-                        </h2>
+                        </p>
                     {/subtitle}
 
                     {?title}
