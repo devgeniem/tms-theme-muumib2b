@@ -36,22 +36,7 @@ class HeroFormatter implements \TMS\Theme\MuumiB2B\Interfaces\Formatter {
      */
     public function format( array $layout ) : array {
         $button_classes = [ 'mt-4' ];
-        $box_classes    = [
-            'is-' . $layout['align'],
-        ];
-
-        if ( $layout['use_box'] && $this->has_filled_text_fields( $layout ) ) {
-            $layout['container_class'] = 'hero--box';
-            $box_classes[]             = 'hero__box--background';
-            $box_classes[]             = 'has-background-primary';
-            $box_classes[]             = 'has-text-primary-invert';
-            $button_classes[]          = 'is-primary-invert';
-            $button_classes[]          = 'is-outlined';
-        }
-        else {
-            $box_classes[]         = '';
-            $button_classes[]      = '';
-        }
+        $box_classes    = [];
 
         $layout['button_classes'] = implode( ' ', $button_classes );
         $layout['box_classes']    = implode( ' ', $box_classes );

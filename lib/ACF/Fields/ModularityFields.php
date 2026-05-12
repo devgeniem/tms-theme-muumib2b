@@ -39,32 +39,40 @@ class ModularityFields extends \Geniem\ACF\Field\Group {
      */
     protected function sub_fields() : array {
         $strings = [
-            'instructions' => [
+            'instructions'            => [
                 'label'        => 'Komponentin tiedot',
                 'instructions' => 'Komponentin yläosassa on aina valkoinen taustaväri, ja keskiosasta alkaa automaattisesti leveä aaltomuoto.
                 Voit asettaa aaltomuodon alaosan värin "Seuraavan komponentin taustaväri"-kentässä.',
             ],
-            'title'        => [
+            'title'                   => [
                 'label'        => 'Otsikko',
                 'instructions' => '',
             ],
-            'text'         => [
+            'text'                    => [
                 'label'        => 'Teksti',
                 'instructions' => '',
             ],
-            'repeater'     => [
+            'repeater'                => [
                 'label'        => 'Modulaarikuvitukset',
                 'instructions' => '',
             ],
-            'button_text'  => [
+            'button_text'             => [
                 'label'        => 'Painikkeen teksti',
                 'instructions' => '',
             ],
-            'image'        => [
+            'image'                   => [
                 'label'        => 'Kuvitus',
                 'instructions' => '',
             ],
-            'next_background_color' => [
+            'before_background_color' => [
+                'label'        => 'Edellisen komponentin taustaväri',
+                'instructions' => 'Tätä väriä käytetään yhdistämään komponenttien välisien muotojen taustat.',
+            ],
+            'shape_top'               => [
+                'label'        => 'Muoto yläreunaan',
+                'instructions' => 'Valitse muoto käytettäväksi komponentille',
+            ],
+            'next_background_color'   => [
                 'label'        => 'Seuraavan komponentin taustaväri',
                 'instructions' => 'Tätä väriä käytetään yhdistämään komponenttien välisien muotojen taustat.',
             ],

@@ -40,16 +40,6 @@ class TextBlockFormatter implements \TMS\Theme\MuumiB2B\Interfaces\Formatter {
         $layout['text_color_class'] = '';
         $layout['bg_color_class']   = '';
 
-        $bg_color = $layout['background_color'] ?: '';
-
-        if ( empty( $bg_color ) ) {
-            return $layout;
-        }
-
-        $layout['link_class']       = "is-{$bg_color}-invert";
-        $layout['text_color_class'] = " has-text-{$bg_color}-invert";
-        $layout['bg_color_class']   = " has-background-{$bg_color}";
-
         return $layout;
     }
 }
