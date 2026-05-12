@@ -37,12 +37,20 @@ class ExhibitionTwoGroup {
         $this->components = \apply_filters(
             'tms/acf/exhibition_two_layouts',
             [
-                'hero'            => Layouts\HeroAndImageCarouselLayout::class,
-                'call_to_action'  => Layouts\CallToActionLayout::class,
-                'content_columns' => Layouts\ContentColumnsLayout::class,
-                'logo_wall'       => Layouts\LogoWallLayout::class,
-                'text_block'      => Layouts\TextBlockLayout::class,
-                'linked_pages'    => Layouts\LinkedPagesLayout::class,
+                'hero'                => Layouts\HeroLayout::class,
+                'image_banner'        => Layouts\ImageBannerLayout::class,
+                'call_to_action'      => Layouts\CallToActionLayout::class,
+                'linked_pages'        => Layouts\LinkedPagesLayout::class,
+                'content_columns'     => Layouts\ContentColumnsLayout::class,
+                'small_columns'       => Layouts\SmallColumnsLayout::class,
+                'image_carousel'      => Layouts\ImageCarouselLayout::class,
+                'image_gallery'       => Layouts\ImageGalleryLayout::class,
+                'image_gallery_small' => Layouts\ImageGallerySmallLayout::class,
+                'text_block'          => Layouts\TextBlockLayout::class,
+                'gravity_form'        => Layouts\GravityFormLayout::class,
+                'video'               => Layouts\VideoLayout::class,
+                'modularity'          => Layouts\ModularityLayout::class,
+                'logo_wall'           => Layouts\LogoWallLayout::class,
             ]
         );
     }

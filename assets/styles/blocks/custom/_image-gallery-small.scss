@@ -1,0 +1,21 @@
+.image-gallery-small {
+    &__image {
+        img {
+            mask-repeat: no-repeat;
+            mask-size: contain;
+            mask-position: center;
+        }
+
+        &:nth-child(odd) {
+            img {
+                mask-image: url('../images/vector-image-vertical-reverse.svg');
+            }
+        }
+
+        &:nth-child(even) {
+            img {
+                mask-image: url('../images/vector-image-vertical-reverse-flipped.svg');
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+<div {?anchor}id="{anchor|attr}"{/anchor} class="section layout-image-gallery-small shape-section {common_background_color|attr} {common_before_background_color|attr} {common_next_background_color|attr}">
+    <div class="shape-slot shape-slot--top {common_shape_top|attr}" aria-hidden="true"></div>
+    <div class="container">
+        <div class="image-gallery-small columns is-flex is-flex-wrap-wrap">
+            {#rows}
+                <div class="column is-4 image-gallery-small__image p-0">
+                    {@image id=image.id size="large" alt=image.alt class="objectfit-image" /}
+                </div>
+            {/rows}
+        </div>
+    </div>
+    <div class="shape-slot shape-slot--bottom {common_shape_bottom|attr}" aria-hidden="true"></div>
+</div>

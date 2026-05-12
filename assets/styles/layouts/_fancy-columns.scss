@@ -22,6 +22,7 @@
     }
 
     @include until($desktop) {
+        padding-top: 6rem;
         padding-bottom: 0;
     }
 
@@ -257,7 +258,7 @@
         @include until($desktop) {
             width: 45%;
             height: 25%;
-            top: -6rem;
+            top: -2rem;
         }
     }
 }

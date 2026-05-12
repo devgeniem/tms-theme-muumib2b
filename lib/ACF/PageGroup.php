@@ -234,6 +234,7 @@ class PageGroup {
                 Layouts\FancyColumnsLayout::class, // Only frontpage
                 Layouts\ImageCarouselLayout::class,
                 Layouts\ImageGalleryLayout::class,
+                Layouts\ImageGallerySmallLayout::class,
                 Layouts\TextBlockLayout::class,
                 Layouts\GravityFormLayout::class,
                 Layouts\VideoLayout::class,
