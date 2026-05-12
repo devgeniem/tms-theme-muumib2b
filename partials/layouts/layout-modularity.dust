@@ -1,5 +1,6 @@
 <section {?anchor}id="{anchor|attr}"{/anchor}
-    class="section layout-modularity shape-section {common_next_background_color|attr}">
+    class="section layout-modularity shape-section {common_before_background_color|attr} {common_next_background_color|attr}">
+    <div class="shape-slot shape-slot--top {common_shape_top|attr}" aria-hidden="true"></div>
     <div class="container">
         <div class="layout-modularity__inner column is-8-desktop p-0">
             {?title}
