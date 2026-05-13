@@ -58,7 +58,7 @@
         .slick-list {
             height: var(--image-carousel-height);
             min-height: 0;
-            max-height: none;
+            max-height: 80vh;
             overflow: hidden;
         }
 

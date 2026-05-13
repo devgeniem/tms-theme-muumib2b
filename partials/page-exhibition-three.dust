@@ -2,6 +2,10 @@
 
 {<content}
     <main class="main-content" id="main-content">
-        {>"ui/components" components=PageExhibitionThree.components /}
+        {?PageExhibitionThree.is_password_protected_page}
+            {>"views/page/page-password-hero" Page=PageExhibitionThree /}
+        {:else}
+            {>"ui/components" components=PageExhibitionThree.components /}
+        {/PageExhibitionThree.is_password_protected_page}
     </main>
 {/content}

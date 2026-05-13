@@ -2,6 +2,10 @@
     .hero + .content-columns {
         overflow-x: clip;
 
+        &__item {
+            min-height: 600px;
+        }
+
         .image {
             @media (min-width: 768px) {
                 position: absolute;
@@ -14,12 +18,6 @@
                     mask-size: 100% 100%;
                 }
             }
-
-            // @include from($widescreen) {
-            //     position: relative;
-            //     max-width: 100%;
-            //     right: 0;
-            // }
         }
     }
 }

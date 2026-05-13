@@ -79,6 +79,15 @@ class PageExtend extends BaseModel {
     }
 
     /**
+     * Get post password form action URL.
+     *
+     * @return string
+     */
+    public function password_form_action() : string {
+        return \esc_url( \site_url( 'wp-login.php?action=postpass', 'login_post' ) );
+    }
+
+    /**
      * Get Password protected page hero image
      *
      * @return mixed|null
