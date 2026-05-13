@@ -122,19 +122,7 @@ class ImageCarouselFields extends Field\Group {
             ->set_key( "{$key}_common_background_color" )
             ->set_name( 'common_background_color' )
             ->set_instructions( $strings['background_color']['instructions'] )
-            ->set_choices( [
-                'has-background-white'      => 'Valkoinen',
-                'has-background-yellow'     => 'Keltainen',
-                'has-background-green'      => 'Vihreä',
-                'has-background-lightgreen' => 'Vaaleanvihreä',
-                'has-background-magenta'    => 'Magenta',
-                'has-background-pink'       => 'Pinkki',
-                'has-background-light-pink' => 'Vaaleanpunainen',
-                'has-background-orange'     => 'Oranssi',
-                'has-background-blue'       => 'Sininen',
-                'has-background-bluegray'   => 'Siniharmaa',
-                'has-background-gray'       => 'Harmaa',
-            ] )
+            ->set_choices( \apply_filters( 'tms/acf/choices/background/has', [] ) )
             ->set_default_value( 'has-background-white' );
 
         $rows_field->add_fields( [

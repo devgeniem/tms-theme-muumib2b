@@ -24,7 +24,7 @@
 {/hero.full_size_image}
 
 {?image_carousel.rows}
-    <div class="hero-and-image-carousel__carousel image-carousel has-background-green shape-section">
+    <div class="hero-and-image-carousel__carousel image-carousel has-background-teal shape-section">
         <div class="shape-slot shape-slot--top border-shape--wave-top-reverse" aria-hidden="true"></div>
         <div class="container keep-vertical-spacing">
             <div class="columns is-multiline">

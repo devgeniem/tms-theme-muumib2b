@@ -18,6 +18,10 @@ $sea-waves: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vi
 	--shape-next-bg: #{$color-muumi-yellow};
 }
 
+.next-has-background-teal {
+	--shape-next-bg: #{$color-muumi-teal};
+}
+
 .next-has-background-green {
 	--shape-next-bg: #{$color-muumi-green};
 }
@@ -60,6 +64,10 @@ $sea-waves: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vi
 
 .before-has-background-yellow {
 	--shape-before-bg: #{$color-muumi-yellow};
+}
+
+.before-has-background-teal {
+	--shape-before-bg: #{$color-muumi-teal};
 }
 
 .before-has-background-green {
@@ -110,6 +118,10 @@ $sea-waves: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vi
 
 	&.has-background-yellow {
 		--shape-current-bg: #{$color-muumi-yellow};
+	}
+
+	&.has-background-teal {
+		--shape-current-bg: #{$color-muumi-teal};
 	}
 
 	&.has-background-green {
@@ -218,10 +230,17 @@ $sea-waves: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vi
 		&::after {
 			content: '';
 			position: absolute;
-			inset: -1px;
 			mask-size: 100% 100%;
 			mask-repeat: no-repeat;
 			pointer-events: none;
+		}
+
+		&::before {
+			inset: 0;
+		}
+
+		&::after {
+			inset: -1px;
 		}
 	}
 

@@ -26,7 +26,7 @@ class ImageGalleryLayout extends BaseLayout {
      */
     public function __construct( string $key ) {
         parent::__construct(
-            'Kuvagalleria',
+            'Kuvagalleria pystykuvilla',
             $key . self::KEY,
             'image_gallery'
         );

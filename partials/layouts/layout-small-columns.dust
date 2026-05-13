@@ -1,4 +1,4 @@
-<div {?anchor}id="{anchor|attr}"{/anchor} class="section page-component small-columns {common_background_color|attr} {common_before_background_color|attr} {common_next_background_color|attr}">
+<div {?anchor}id="{anchor|attr}"{/anchor} class="section page-component small-columns shape-section {common_background_color|attr} {common_before_background_color|attr} {common_next_background_color|attr}">
     <div class="shape-slot shape-slot--top {common_shape_top|attr}" aria-hidden="true"></div>
     <div class="container is-flex-widescreen">
         {>"shared/layout-before-main-content" /}

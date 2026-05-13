@@ -146,8 +146,8 @@
             to bottom,
             transparent 0%,
             transparent 8rem,
-            $color-muumi-green 8rem,
-            $color-muumi-green 100%
+            $color-muumi-teal 8rem,
+            $color-muumi-teal 100%
         );
 
         @include from($tablet) {
@@ -155,8 +155,8 @@
                 to bottom,
                 transparent 0%,
                 transparent 8rem,
-                $color-muumi-green 8rem,
-                $color-muumi-green 100%
+                $color-muumi-teal 8rem,
+                $color-muumi-teal 100%
             );
         }
 

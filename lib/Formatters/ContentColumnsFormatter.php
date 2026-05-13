@@ -21,8 +21,13 @@ class ContentColumnsFormatter implements \TMS\Theme\MuumiB2B\Interfaces\Formatte
      * Hooks
      */
     public function hooks() : void {
-        add_filter(
+        \add_filter(
             'tms/acf/layout/content_columns/data',
+            [ $this, 'format' ]
+        );
+
+        \add_filter(
+            'tms/acf/layout/content_columns_exhibition_one/data',
             [ $this, 'format' ]
         );
     }

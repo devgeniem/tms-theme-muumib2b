@@ -72,19 +72,7 @@ class ComponentCommonFields {
             ->set_key( "{$key}_common_background_color" )
             ->set_name( 'common_background_color' )
             ->set_instructions( $strings['background_color']['instructions'] )
-            ->set_choices( [
-                'has-background-white'      => 'Valkoinen',
-                'has-background-yellow'     => 'Keltainen',
-                'has-background-green'      => 'Vihreä',
-                'has-background-lightgreen' => 'Vaaleanvihreä',
-                'has-background-magenta'    => 'Magenta',
-                'has-background-pink'       => 'Pinkki',
-                'has-background-light-pink' => 'Vaaleanpunainen',
-                'has-background-orange'     => 'Oranssi',
-                'has-background-blue'       => 'Sininen',
-                'has-background-bluegray'   => 'Siniharmaa',
-                'has-background-gray'       => 'Harmaa',
-            ] )
+            ->set_choices( \apply_filters( 'tms/acf/choices/background/has', [] ) )
             ->set_default_value( 'has-background-white' );
 
         $before_background_color = ( new Field\Select( $strings['before_background_color']['label'] ) )
@@ -92,19 +80,7 @@ class ComponentCommonFields {
             ->set_name( 'common_before_background_color' )
             ->set_instructions( $strings['before_background_color']['instructions'] )
             ->set_wrapper_width( 50 )
-            ->set_choices( [
-                'before-has-background-white'      => 'Valkoinen',
-                'before-has-background-yellow'     => 'Keltainen',
-                'before-has-background-green'      => 'Vihreä',
-                'before-has-background-lightgreen' => 'Vaaleanvihreä',
-                'before-has-background-magenta'    => 'Magenta',
-                'before-has-background-pink'       => 'Pinkki',
-                'before-has-background-light-pink' => 'Vaaleanpunainen',
-                'before-has-background-orange'     => 'Oranssi',
-                'before-has-background-blue'       => 'Sininen',
-                'before-has-background-bluegray'   => 'Siniharmaa',
-                'before-has-background-gray'       => 'Harmaa',
-            ] )
+            ->set_choices( \apply_filters( 'tms/acf/choices/background/before', [] ) )
             ->set_default_value( 'before-has-background-white' );
 
         $next_background_color = ( new Field\Select( $strings['next_background_color']['label'] ) )
@@ -112,19 +88,7 @@ class ComponentCommonFields {
             ->set_name( 'common_next_background_color' )
             ->set_instructions( $strings['next_background_color']['instructions'] )
             ->set_wrapper_width( 50 )
-            ->set_choices( [
-                'next-has-background-white'      => 'Valkoinen',
-                'next-has-background-yellow'     => 'Keltainen',
-                'next-has-background-green'      => 'Vihreä',
-                'next-has-background-lightgreen' => 'Vaaleanvihreä',
-                'next-has-background-magenta'    => 'Magenta',
-                'next-has-background-pink'       => 'Pinkki',
-                'next-has-background-light-pink' => 'Vaaleanpunainen',
-                'next-has-background-orange'     => 'Oranssi',
-                'next-has-background-blue'       => 'Sininen',
-                'next-has-background-bluegray'   => 'Siniharmaa',
-                'next-has-background-gray'       => 'Harmaa',
-            ] )
+            ->set_choices( \apply_filters( 'tms/acf/choices/background/next', [] ) )
             ->set_default_value( 'next-has-background-white' );
 
         $shape_top_field = ( new Field\Select( $strings['shape_top']['label'] ) )

@@ -94,19 +94,7 @@ class ImageBannerFields extends \Geniem\ACF\Field\Group {
             ->set_key( "{$key}_common_next_background_color" )
             ->set_name( 'common_next_background_color' )
             ->set_instructions( $strings['next_background_color']['instructions'] )
-            ->set_choices( [
-                'next-has-background-white'      => 'Valkoinen',
-                'next-has-background-yellow'     => 'Keltainen',
-                'next-has-background-green'      => 'Vihreä',
-                'next-has-background-lightgreen' => 'Vaaleanvihreä',
-                'next-has-background-magenta'    => 'Magenta',
-                'next-has-background-pink'       => 'Pinkki',
-                'next-has-background-light-pink' => 'Vaaleanpunainen',
-                'next-has-background-orange'     => 'Oranssi',
-                'next-has-background-blue'       => 'Sininen',
-                'next-has-background-bluegray'   => 'Siniharmaa',
-                'next-has-background-gray'       => 'Harmaa',
-            ] )
+            ->set_choices( \apply_filters( 'tms/acf/choices/background/next', [] ) )
             ->set_default_value( 'next-has-background-white' );
 
         return [

@@ -103,7 +103,7 @@
 
 .has-background-pink {
     background-color: $color-muumi-pink;
-    color: $color-black;
+    color: $color-muumi-black;
 
     .button {
         &,
@@ -118,7 +118,7 @@
 
 .has-background-light-pink {
     background-color: $color-muumi-light-pink;
-    color: $color-black;
+    color: $color-muumi-black;
 
     .button {
         &,
@@ -145,8 +145,24 @@
     }
 }
 
+.has-background-teal {
+    background-color: $color-muumi-teal;
+    color: $color-white;
+
+    .button {
+        &,
+        &:hover,
+        &:focus {
+            background-color: $color-muumi-black !important;
+            border-color: $color-muumi-black !important;
+            color: $color-white !important;
+        }
+    }
+}
+
 .has-background-green {
     background-color: $color-muumi-green;
+    color: $color-white;
 
     .button {
         &,

@@ -85,14 +85,7 @@ class RollingTextFields extends Field\Group {
             ->set_key( "{$key}_common_background_color" )
             ->set_name( 'common_background_color' )
             ->set_instructions( $strings['background_color']['instructions'] )
-            ->set_choices( [
-                'has-background-white'    => 'Valkoinen',
-                'has-background-yellow'   => 'Keltainen',
-                'has-background-magenta'  => 'Magenta',
-                'has-background-orange'   => 'Oranssi',
-                'has-background-blue'     => 'Sininen',
-                'has-background-bluegray' => 'Siniharmaa',
-            ] )
+            ->set_choices( \apply_filters( 'tms/acf/choices/background/has', [] ) )
             ->set_default_value( 'has-background-white' );
 
         $rows_right_field->add_fields( [
