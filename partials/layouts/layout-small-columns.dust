@@ -1,9 +1,10 @@
-<div {?anchor}id="{anchor|attr}"{/anchor} class="section page-component small-columns {common_background_color|attr}">
+<div {?anchor}id="{anchor|attr}"{/anchor} class="section page-component small-columns {common_background_color|attr} {common_before_background_color|attr} {common_next_background_color|attr}">
+    <div class="shape-slot shape-slot--top {common_shape_top|attr}" aria-hidden="true"></div>
     <div class="container is-flex-widescreen">
         {>"shared/layout-before-main-content" /}
 
-        <div class="small-columns__items pt-0 pb-6 columns is-variable is-flex-wrap-wrap is-align-items-end">
-            <div class="column is-6-tablet is-4-widescreen">
+        <div class="small-columns__items pt-0 pb-6 columns is-variable is-flex-wrap-wrap is-align-items-stretch">
+            <div class="column is-6-tablet is-4-widescreen is-align-self-flex-end">
                 {?layout_title}
                     <h2 class="small-columns__layout-title h1 font-tove-sans mt-5 mb-5">
                         {layout_title|html}
@@ -42,4 +43,5 @@
 
         {>"shared/layout-after-main-content" /}
     </div>
+    <div class="shape-slot shape-slot--bottom {common_shape_bottom|attr}" aria-hidden="true"></div>
 </div>

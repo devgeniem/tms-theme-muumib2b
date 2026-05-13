@@ -20,4 +20,18 @@
             }
         }
     }
+
+    .content-columns {
+        &.has-background-white {
+            .button {
+                &,
+                &:hover,
+                &:focus {
+                    background-color: $color-muumi-yellow !important;
+                    border-color: $color-muumi-yellow !important;
+                    color: $color-muumi-black !important;
+                }
+            }
+        }
+    }
 }
