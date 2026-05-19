@@ -47,6 +47,10 @@ class ImageBannerFields extends \Geniem\ACF\Field\Group {
                 'label'             => 'Leveys',
                 'instructions' => '',
             ],
+            'background_color'      => [
+                'label'        => 'Taustaväri',
+                'instructions' => '',
+            ],
             'next_background_color' => [
                 'label'        => 'Seuraavan komponentin taustaväri',
                 'instructions' => 'Tätä väriä käytetään yhdistämään komponenttien välisien muotojen taustat.',
@@ -77,6 +81,13 @@ class ImageBannerFields extends \Geniem\ACF\Field\Group {
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['width']['instructions'] );
 
+        $background_color = ( new Field\Select( $strings['background_color']['label'] ) )
+            ->set_key( "{$key}_common_background_color" )
+            ->set_name( 'common_background_color' )
+            ->set_instructions( $strings['background_color']['instructions'] )
+            ->set_choices( \apply_filters( 'tms/acf/choices/background/has', [] ) )
+            ->set_default_value( 'has-background-white' );
+
         $shape_bottom_field = ( new Field\Select( $strings['shape_bottom']['label'] ) )
             ->set_key( "{$key}_common_shape_bottom" )
             ->set_name( 'common_shape_bottom' )
@@ -88,6 +99,7 @@ class ImageBannerFields extends \Geniem\ACF\Field\Group {
                 'border-shape border-shape--sea-waves-bottom'         => 'Aallokko',
                 'border-shape border-shape--sea-waves-bottom-reverse' => 'Aallokko käännettynä',
             ] )
+            ->set_wrapper_width( 50 )
             ->set_default_value( 'shape-none' );
 
         $next_background_color = ( new Field\Select( $strings['next_background_color']['label'] ) )
@@ -95,11 +107,13 @@ class ImageBannerFields extends \Geniem\ACF\Field\Group {
             ->set_name( 'common_next_background_color' )
             ->set_instructions( $strings['next_background_color']['instructions'] )
             ->set_choices( \apply_filters( 'tms/acf/choices/background/next', [] ) )
+            ->set_wrapper_width( 50 )
             ->set_default_value( 'next-has-background-white' );
 
         return [
             $image_field,
             $width_field,
+            $background_color,
             $shape_bottom_field,
             $next_background_color,
         ];
