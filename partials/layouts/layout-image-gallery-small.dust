@@ -1,5 +1,5 @@
-<div {?anchor}id="{anchor|attr}"{/anchor} class="section layout-image-gallery-small shape-section {common_background_color|attr} {common_before_background_color|attr} {common_next_background_color|attr}">
-    <div class="shape-slot shape-slot--top {common_shape_top|attr}" aria-hidden="true"></div>
+<div {?anchor}id="{anchor|attr}"{/anchor} class="section layout-image-gallery-small shape-section {common.background_color|attr} {common.before_background_color|attr} {common.next_background_color|attr}">
+    <div class="shape-slot shape-slot--top {common.shape_top|attr}" aria-hidden="true"></div>
     <div class="container">
         <div class="image-gallery-small columns is-flex is-flex-wrap-wrap">
             {#rows}
@@ -9,5 +9,5 @@
             {/rows}
         </div>
     </div>
-    <div class="shape-slot shape-slot--bottom {common_shape_bottom|attr}" aria-hidden="true"></div>
+    <div class="shape-slot shape-slot--bottom {common.shape_bottom|attr}" aria-hidden="true"></div>
 </div>

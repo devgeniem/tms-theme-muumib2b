@@ -1,5 +1,5 @@
-<div {?anchor}id="{anchor|attr}"{/anchor} class="section content-columns content-columns-exhibition-one shape-section {common_background_color|attr} {common_before_background_color|attr} {common_next_background_color|attr}">
-    <div class="shape-slot shape-slot--top {common_shape_top|attr}" aria-hidden="true"></div>
+<div {?anchor}id="{anchor|attr}"{/anchor} class="section content-columns content-columns-exhibition-one shape-section {common.background_color|attr} {common.before_background_color|attr} {common.next_background_color|attr}">
+    <div class="shape-slot shape-slot--top {common.shape_top|attr}" aria-hidden="true"></div>
     <div class="container keep-vertical-spacing">
         {#rows}
             <div class="content-columns__item mt-6 mb-6 columns is-vcentered {item_class|attr}">
@@ -49,5 +49,5 @@
             </div>
         {/rows}
     </div>
-    <div class="shape-slot shape-slot--bottom {common_shape_bottom|attr}" aria-hidden="true"></div>
+    <div class="shape-slot shape-slot--bottom {common.shape_bottom|attr}" aria-hidden="true"></div>
 </div>

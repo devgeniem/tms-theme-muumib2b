@@ -1,5 +1,5 @@
 {?rows}
-<div {?anchor}id="{anchor|attr}"{/anchor} class="section logo-wall layout-logo-wall p-8 shape-section {common_background_color|attr} {common_before_background_color|attr} {common_next_background_color|attr}">
+<div {?anchor}id="{anchor|attr}"{/anchor} class="section logo-wall layout-logo-wall p-8 shape-section {common.background_color|attr} {common.before_background_color|attr} {common.next_background_color|attr}">
     <div class="container keep-vertical-spacing">
 
         {?header}

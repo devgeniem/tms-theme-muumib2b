@@ -46,6 +46,13 @@ class ComponentCommonFields {
      */
     public static function add_common_fields( array $fields, string $key, string $base_key = '' ) : array {
         $strings = [
+            'toggle'                  => [
+                'show' => 'Näytä lohkon asetukset',
+                'hide' => 'Piilota lohkon asetukset',
+            ],
+            'settings'                => [
+                'label' => 'Kentät',
+            ],
             'background_color'        => [
                 'label'        => 'Taustaväri',
                 'instructions' => '',
@@ -69,31 +76,31 @@ class ComponentCommonFields {
         ];
 
         $background_color = ( new Field\Select( $strings['background_color']['label'] ) )
-            ->set_key( "{$key}_common_background_color" )
-            ->set_name( 'common_background_color' )
+            ->set_key( "{$key}_background_color" )
+            ->set_name( 'background_color' )
             ->set_instructions( $strings['background_color']['instructions'] )
             ->set_choices( \apply_filters( 'tms/acf/choices/background/has', [] ) )
             ->set_default_value( 'has-background-white' );
 
         $before_background_color = ( new Field\Select( $strings['before_background_color']['label'] ) )
-            ->set_key( "{$key}_common_before_background_color" )
-            ->set_name( 'common_before_background_color' )
+            ->set_key( "{$key}_before_background_color" )
+            ->set_name( 'before_background_color' )
             ->set_instructions( $strings['before_background_color']['instructions'] )
             ->set_wrapper_width( 50 )
             ->set_choices( \apply_filters( 'tms/acf/choices/background/before', [] ) )
             ->set_default_value( 'before-has-background-white' );
 
         $next_background_color = ( new Field\Select( $strings['next_background_color']['label'] ) )
-            ->set_key( "{$key}_common_next_background_color" )
-            ->set_name( 'common_next_background_color' )
+            ->set_key( "{$key}_next_background_color" )
+            ->set_name( 'next_background_color' )
             ->set_instructions( $strings['next_background_color']['instructions'] )
             ->set_wrapper_width( 50 )
             ->set_choices( \apply_filters( 'tms/acf/choices/background/next', [] ) )
             ->set_default_value( 'next-has-background-white' );
 
         $shape_top_field = ( new Field\Select( $strings['shape_top']['label'] ) )
-            ->set_key( "{$key}_common_shape_top" )
-            ->set_name( 'common_shape_top' )
+            ->set_key( "{$key}_shape_top" )
+            ->set_name( 'shape_top' )
             ->set_instructions( $strings['shape_top']['instructions'] )
             ->set_wrapper_width( 50 )
             ->set_choices( [
@@ -105,8 +112,8 @@ class ComponentCommonFields {
             ->set_default_value( 'shape-none' );
 
         $shape_bottom_field = ( new Field\Select( $strings['shape_bottom']['label'] ) )
-            ->set_key( "{$key}_common_shape_bottom" )
-            ->set_name( 'common_shape_bottom' )
+            ->set_key( "{$key}_shape_bottom" )
+            ->set_name( 'shape_bottom' )
             ->set_instructions( $strings['shape_bottom']['instructions'] )
             ->set_wrapper_width( 50 )
             ->set_choices( [
@@ -118,12 +125,37 @@ class ComponentCommonFields {
             ] )
             ->set_default_value( 'shape-none' );
 
+        $toggle = ( new Field\PHP( $strings['toggle']['show'] ) )
+            ->set_key( "{$key}_toggle" )
+            ->set_name( 'toggle' )
+            ->set_wrapper_classes( 'no-label block-settings-toggle' )
+            ->hide_label()
+            ->run(
+                function() {
+
+                    echo '<button class="show-block-settings"><span class="text-show">Näytä komponentin asetukset</span><span class="text-hide">Piilota komponentin asetukset</span> <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></button>';
+                }
+            );
+
+        $field_group = ( new Field\Group( $strings['settings']['label'] ) )
+            ->set_key( "{$key}_common" )
+            ->set_name( 'common' )
+            ->set_wrapper_classes( 'toggleable-block-settings hidden seamless no-label has-background-light' )
+            ->hide_label();
+
+        $field_group->add_fields(
+            [
+                $background_color,
+                $before_background_color,
+                $shape_top_field,
+                $next_background_color,
+                $shape_bottom_field,
+            ]
+        );
+
         return array_merge( $fields, [
-            $background_color,
-            $before_background_color,
-            $shape_top_field,
-            $next_background_color,
-            $shape_bottom_field,
+            $toggle,
+            $field_group,
         ] );
     }
 }

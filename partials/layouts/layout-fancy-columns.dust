@@ -1,4 +1,4 @@
-<div {?anchor}id="{anchor|attr}"{/anchor} class="section fancy-columns is-relative pr-0 pl-0 {common_before_background_color|attr}">
+<div {?anchor}id="{anchor|attr}"{/anchor} class="section fancy-columns is-relative pr-0 pl-0 {common.before_background_color|attr}">
     <div class="keep-vertical-spacing">
         <div class="fancy-columns__item mt-6 mb-6 columns is-vcentered {item_class|attr}">
             <div class="fancy-columns__decorative-column-shape-left"></div>

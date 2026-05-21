@@ -1,0 +1,29 @@
+.block-settings-toggle,
+.show-block-settings {
+    &:hover,
+    &:focus {
+        cursor: pointer;
+    }
+}
+
+.show-block-settings {
+    padding: 8px 16px;
+    color: #2271b1;
+
+    & > .arrow-up,
+    & > .text-hide {
+        display: none;
+    }
+}
+
+.show-block-settings.clicked {
+    & > .arrow-down,
+    & > .text-show {
+        display: none;
+    }
+
+    & > .arrow-up,
+    & > .text-hide {
+        display: inline;
+    }
+}
