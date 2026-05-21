@@ -96,6 +96,12 @@
             mask-size: 100% 100%;
             mask-position: top right;
         }
+
+        @media (max-width: 920px) {
+            .columns {
+                display: block;
+            }
+        }
     }
 
     &__box {
