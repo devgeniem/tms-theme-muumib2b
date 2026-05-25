@@ -231,7 +231,6 @@ class PageGroup {
                 Layouts\LinkedPagesLayout::class,
                 Layouts\ContentColumnsLayout::class,
                 Layouts\SmallColumnsLayout::class,
-                Layouts\FancyColumnsLayout::class, // Only frontpage
                 Layouts\ImageCarouselLayout::class,
                 Layouts\ImageGalleryLayout::class,
                 Layouts\ImageGallerySmallLayout::class,
@@ -239,20 +238,7 @@ class PageGroup {
                 Layouts\GravityFormLayout::class,
                 Layouts\VideoLayout::class,
                 Layouts\ModularityLayout::class,
-                Layouts\RollingTextLayout::class, // Only frontpage
                 Layouts\LogoWallLayout::class,
-                // Layouts\MapLayout::class,
-                // Layouts\IconLinksLayout::class,
-                // Layouts\SocialMediaLayout::class,
-                // Layouts\SomeLinkListLayout::class,
-                // Layouts\AccessibilityIconLinksLayout::class,
-                // Layouts\ShareLinksLayout::class,
-                // Layouts\CountdownLayout::class,
-                // Layouts\GridLayout::class,
-                // Layouts\ArticlesLayout::class,
-                // Layouts\SitemapLayout::class,
-                // Layouts\NoticeBannerLayout::class,
-                // Layouts\SubpageLayout::class,
 
             ],
             $key

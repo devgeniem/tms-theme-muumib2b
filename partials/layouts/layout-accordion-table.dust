@@ -1,5 +1,0 @@
-{?table_markup}
-    <div class="table-container mt-4 mb-4 mt-8-tablet mb-8-tablet">
-        {table_markup|s}
-    </div>
-{/table_markup}

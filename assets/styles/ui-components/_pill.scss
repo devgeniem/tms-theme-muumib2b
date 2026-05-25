@@ -1,15 +1,15 @@
-$pill-background-color: $secondary !default;
+$pill-background-color: $color-muumi-orange !default;
 $pill-color: $secondary-invert !default;
 $pill-color-active: $primary-invert !default;
 $pill-color-active-hover: $primary-invert !default;
-$pill-color-hover: $secondary-invert !default;
-$pill-background-active: $primary !default;
+$pill-color-hover: $primary-invert !default;
+$pill-background-active: $color-muumi-orange !default;
 
-$pill-background-active-focus: $primary-dark !default;
-$pill-background-color-hover: opacify($secondary-light, .75) !default;
-$pill-background-color-focus: $secondary-light !default;
-$pill-background-color-active: $dark !default;
-$pill-background-color-focus: $dark !default;
+$pill-background-active-focus: $color-muumi-orange !default;
+$pill-background-color-hover: $color-muumi-orange !default;
+$pill-background-color-focus: $color-muumi-orange !default;
+$pill-background-color-active: $color-muumi-orange !default;
+$pill-background-color-focus: $color-muumi-orange !default;
 $pill-border-color: transparent !default;
 $pill-border-color-hover: transparent !default;
 $pill-border-radius: $theme-spacing-quarter !default;
