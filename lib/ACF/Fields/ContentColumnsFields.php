@@ -38,6 +38,11 @@ class ContentColumnsFields extends Field\Group {
      */
     protected function sub_fields() : array {
         $strings = [
+            'instructions'            => [
+                'label'        => 'Komponentin tiedot',
+                'instructions' => 'Komponentissa on kaksi palstaa vierekkäin, jossa toisesta sisältönä on kuva ja toisessa tekstiä.
+                Voit vaihtaa palstojen paikkaa "Asettelu"-kentässä, ja määrittää palstoille eri leveydet "Mittasuhteet"-kentässä.',
+            ],
             'rows'           => [
                 'label'        => 'Nostot',
                 'instructions' => '',
@@ -98,6 +103,11 @@ class ContentColumnsFields extends Field\Group {
         ];
 
         $key = $this->get_key();
+
+        $instructions_field = ( new Field\Message( $strings['instructions']['label'] ) )
+            ->set_key( "{$key}_content_columns_instructions" )
+            ->set_name( 'content_columns_instructions' )
+            ->set_message( $strings['instructions']['instructions'] );
 
         $rows_field = ( new Field\Repeater( $strings['rows']['label'] ) )
             ->set_key( "{$key}_rows" )
@@ -235,6 +245,7 @@ class ContentColumnsFields extends Field\Group {
         ] );
 
         return [
+            $instructions_field,
             $rows_field,
         ];
     }

@@ -39,12 +39,16 @@ class ImageBannerFields extends \Geniem\ACF\Field\Group {
      */
     protected function sub_fields() : array {
         $strings = [
-            'image' => [
-                'label'             => 'Kuva',
+            'instructions'          => [
+                'label'        => 'Komponentin tiedot',
+                'instructions' => 'Koko sivun levyinen kuva. Kuvan leveyttä voi rajoittaa "Leveys"-kentällä.',
+            ],
+            'image'                 => [
+                'label'        => 'Kuva',
                 'instructions' => '',
             ],
-            'width' => [
-                'label'             => 'Leveys',
+            'width'                 => [
+                'label'        => 'Leveys',
                 'instructions' => '',
             ],
             'background_color'      => [
@@ -55,13 +59,18 @@ class ImageBannerFields extends \Geniem\ACF\Field\Group {
                 'label'        => 'Seuraavan komponentin taustaväri',
                 'instructions' => 'Tätä väriä käytetään yhdistämään komponenttien välisien muotojen taustat.',
             ],
-            'shape_bottom'         => [
+            'shape_bottom'          => [
                 'label'        => 'Muoto alareunaan',
                 'instructions' => 'Valitse muoto käytettäväksi komponentille',
             ],
         ];
 
         $key = $this->get_key();
+
+        $instructions_field = ( new Field\Message( $strings['instructions']['label'] ) )
+            ->set_key( "{$key}_image_banner_instructions" )
+            ->set_name( 'image_banner_instructions' )
+            ->set_message( $strings['instructions']['instructions'] );
 
         $image_field = ( new Field\Image( $strings['image']['label'] ) )
             ->set_key( "{$key}_image" )
@@ -111,6 +120,7 @@ class ImageBannerFields extends \Geniem\ACF\Field\Group {
             ->set_default_value( 'next-has-background-white' );
 
         return [
+            $instructions_field,
             $image_field,
             $width_field,
             $background_color,

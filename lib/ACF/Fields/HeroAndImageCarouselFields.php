@@ -39,7 +39,21 @@ class HeroAndImageCarouselFields extends Field\Group {
      * @throws Exception In case of invalid ACF option.
      */
     protected function sub_fields() : array {
+        $strings = [
+            'instructions'            => [
+                'label'        => 'Komponentin tiedot',
+                'instructions' => 'Hero, johon on yhdistettynä kuvakaruselli.
+                Käytössä vain The door is always open-näyttelyn sivupohjalla.
+                Komponentin taustavärin yhteyteen tulee automaattisesti taustakuvitukset.',
+            ],
+        ];
+
         $key = $this->get_key();
+
+        $instructions_field = ( new Field\Message( $strings['instructions']['label'] ) )
+            ->set_key( "{$key}_hero_and_image_carousel_instructions" )
+            ->set_name( 'hero_and_image_carousel_instructions' )
+            ->set_message( $strings['instructions']['instructions'] );
 
         $hero_field = new HeroFields(
             'Hero',
@@ -69,6 +83,7 @@ class HeroAndImageCarouselFields extends Field\Group {
         unset( $image_carousel_field->sub_fields['common_background_color'] );
 
         return [
+            $instructions_field,
             $hero_field,
             $image_carousel_field,
         ];

@@ -39,6 +39,8 @@ export default class FlyOutNav {
 
         $triggerItem.on( 'click', this.dropdownLinkClick.bind( this ) );
         $( '.menu-item', $triggerItem ).on( 'click', this.dropdownChildLinkClick.bind( this ) );
+
+        $( this.navbarMenu ).find( '.dropdown-trigger' ).on( 'click', this.dropdownLinkClick.bind( this ) );
     }
 
     /**

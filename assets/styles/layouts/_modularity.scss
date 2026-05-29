@@ -28,9 +28,14 @@ $wave-svg-with-bottom-fill: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.
             flex-direction: row !important;
             flex-wrap: wrap;
             gap: $theme-spacing-half;
+            padding: 0;
 
             .modularity-button-container {
                 width: calc(50% - $theme-spacing-quarter);
+
+                .modularity-button {
+                    font-size: $theme-spacing;
+                }
             }
         }
 

@@ -40,6 +40,11 @@ class CallToActionFields extends Field\Group {
      */
     protected function sub_fields() : array {
         $strings = [
+            'instructions'   => [
+                'label'        => 'Komponentin tiedot',
+                'instructions' => 'Nostoja tulee sivulle 3kpl vierekkäin, jossa on kuva, otsikko, teksti ja linkki päällekkäin.
+                Nostojen kuville asetetaan automaattisesti aaltoileva reunus.',
+            ],
             'rows'           => [
                 'label'        => 'Nostot',
                 'instructions' => '',
@@ -68,6 +73,11 @@ class CallToActionFields extends Field\Group {
         ];
 
         $key = $this->get_key();
+
+        $instructions_field = ( new Field\Message( $strings['instructions']['label'] ) )
+            ->set_key( "{$key}_call_to_action_instructions" )
+            ->set_name( 'call_to_action_instructions' )
+            ->set_message( $strings['instructions']['instructions'] );
 
         $rows_field = ( new Field\Repeater( $strings['rows']['label'] ) )
             ->set_key( "{$key}_rows" )
@@ -127,6 +137,7 @@ class CallToActionFields extends Field\Group {
         ] );
 
         return [
+            $instructions_field,
             $layout_title_field,
             $rows_field,
         ];

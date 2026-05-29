@@ -40,6 +40,12 @@ class LinkedPagesFields extends Field\Group {
      */
     protected function sub_fields() : array {
         $strings = [
+            'instructions'            => [
+                'label'        => 'Komponentin tiedot',
+                'instructions' => 'Tätä komponenttia käytetään näyttämään ehdotettuja sivuja.
+                Sivujen nostot määritetään manuaalisesti, ja niitä näytetään 2kpl vierekkäin.
+                Komponentin otsikko näytetään sivu-nostojen vasemmalla puolella.',
+            ],
             'rows'             => [
                 'label'        => 'Linkitettyjen sivujen nostot',
                 'instructions' => '',
@@ -77,6 +83,11 @@ class LinkedPagesFields extends Field\Group {
 
         $key = $this->get_key();
 
+        $instructions_field = ( new Field\Message( $strings['instructions']['label'] ) )
+            ->set_key( "{$key}_linked_pages_instructions" )
+            ->set_name( 'linked_pages_instructions' )
+            ->set_message( $strings['instructions']['instructions'] );
+
         $rows_field = ( new Field\Repeater( $strings['rows']['label'] ) )
             ->set_key( "{$key}_rows" )
             ->set_name( 'rows' )
@@ -89,6 +100,7 @@ class LinkedPagesFields extends Field\Group {
         $layout_title_field = ( new Field\Text( $strings['layout_title']['label'] ) )
             ->set_key( "{$key}_layout_title" )
             ->set_name( 'layout_title' )
+            ->set_required()
             ->redipress_include_search()
             ->set_instructions( $strings['layout_title']['instructions'] );
 
@@ -142,6 +154,7 @@ class LinkedPagesFields extends Field\Group {
         ] );
 
         return [
+            $instructions_field,
             $layout_title_field,
             $rows_field,
             $background_color,

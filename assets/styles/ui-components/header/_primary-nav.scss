@@ -53,10 +53,10 @@ $navbar-item-navbar-active-bg-color: $primary !default;
 
     > .navbar-item,
     > .has-dropdown > div > .navbar-link {
-        font-size: 1.058rem;
-        font-weight: 800;
-        padding-right: 1.1764rem;
-        padding-left: 1.1764rem;
+        font-size: 1rem;
+        font-weight: 600;
+        padding-right: 1rem;
+        padding-left: 1rem;
         color: $navbar-item-navbar-link-color !important; // sass-lint:disable-line no-important
         background-color: transparent !important; // sass-lint:disable-line no-important
 
@@ -82,7 +82,7 @@ $navbar-item-navbar-active-bg-color: $primary !default;
         }
 
         .has-dropdown {
-            position: static;
+            position: relative;
         }
 
         .dropdown-toggler {
@@ -91,18 +91,31 @@ $navbar-item-navbar-active-bg-color: $primary !default;
         }
 
         .navbar-dropdown {
+            width: 220px !important;
+            margin-top: $theme-spacing-half !important;
+            min-width: auto !important;
+            border-top: none !important;
+            background-color: $white !important;
+            border-radius: .75rem;
             padding: 3rem 0 2rem;
-            border-radius: 0;
             box-shadow: 0 .0588rem .5rem rgba($black, .1); // sass-lint:disable-line no-color-literals
 
+            @include from($desktop) {
+                padding: $theme-spacing !important;
+            }
+
             &__parent-link {
-                font-weight: 600;
-                color: $navbar-item-dropdown-accent-color !important; // sass-lint:disable-line no-important
-                text-transform: none;
+                display: none !important;
             }
 
             .icon {
                 fill: $navbar-item-dropdown-accent-color;
+            }
+
+            .navbar-dropdown-items {
+                .navbar-item {
+                    padding: $theme-spacing-half !important;
+                }
             }
         }
 
