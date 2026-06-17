@@ -11,15 +11,44 @@
         margin-bottom: 1.25rem !important;
         padding: 1rem;
         line-height: 1;
-        max-width: 800px;
+        max-width: 100%;
+
+        @include from($tablet) {
+            padding: 0;
+        }
+    }
+
+    .subtitle {
+        font-family: $font-family-header;
+        text-align: left;
+        font-size: 1rem;
+        padding: 0 1rem;
+
+        @include from($desktop) {
+            font-size: 1.35rem !important;
+            padding: 0;
+        }
+    }
+
+    .top-description {
+        padding: 0 1rem;
+
+        @include from($tablet) {
+            padding: 0;
+        }
+    }
+
+    .description-heading {
+        @media (max-width: 1280px) {
+            font-size: 2.5rem !important;
+        }
     }
 
     p {
         font-weight: $weight-semibold;
         text-align: center;
-        font-size: 1rem;
 
-        @include from($tablet) {
+        @include from($desktop) {
             font-size: 1.165rem;
         }
 
@@ -82,25 +111,93 @@
         --hero-hotspot-title-y: 0%;
         --hero-hotspot-title-width: 100%;
         --hero-hotspot-description-x: 0%;
-        --hero-hotspot-description-y: 52%;
+        --hero-hotspot-description-y: 38%;
         --hero-hotspot-description-width: 100%;
+
+        @media (min-width: 500px) {
+            --hero-hotspot-title-y: 0%;
+            --hero-hotspot-title-width: 100%;
+            --hero-hotspot-description-x: 0%;
+            --hero-hotspot-description-y: 52%;
+            --hero-hotspot-description-width: 100%;
+        }
 
         @include from($tablet) {
             --hero-hotspot-title-x: 0%;
             --hero-hotspot-title-y: 5%;
             --hero-hotspot-title-width: 38%;
             --hero-hotspot-description-x: 7.5%;
-            --hero-hotspot-description-y: 50%;
+            --hero-hotspot-description-y: 48%;
             --hero-hotspot-description-width: 85%;
         }
 
         @include from($desktop) {
-            --hero-hotspot-title-x: 5%;
+            --hero-hotspot-title-x: 2%;
             --hero-hotspot-title-y: 5%;
-            --hero-hotspot-title-width: 35%;
-            --hero-hotspot-description-x: 11.5%;
+            --hero-hotspot-title-width: 38%;
+            --hero-hotspot-description-x: 11%;
             --hero-hotspot-description-y: 50%;
-            --hero-hotspot-description-width: 77%;
+            --hero-hotspot-description-width: 78%;
+        }
+    }
+
+    &.layout-wide {
+        margin-top: 15rem;
+
+        @media (min-width: 550px) {
+            margin-top: 6rem;
+        }
+
+        @include from($fullhd) {
+            margin-top: 0 !important;
+        }
+
+        .hero-and-image-carousel__overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+
+            // Hotspot defaults for mobile layout.
+            --hero-hotspot-title-x: auto;
+            --hero-hotspot-title-y: -15rem;
+            --hero-hotspot-title-width: 100%;
+            --hero-hotspot-description-x: 0%;
+            --hero-hotspot-description-y: 40%;
+            --hero-hotspot-description-width: 100%;
+
+            @media (min-width: 550px) {
+                --hero-hotspot-title-y: -6rem;
+                --hero-hotspot-description-x: 0%;
+                --hero-hotspot-description-y: 43%;
+                --hero-hotspot-description-width: 100%;
+            }
+
+            @include from($tablet) {
+                --hero-hotspot-title-x: 2%;
+                --hero-hotspot-title-y: -6rem;
+                --hero-hotspot-title-width: 60%;
+                --hero-hotspot-description-x: 2.5%;
+                --hero-hotspot-description-y: 30%;
+                --hero-hotspot-description-width: 95%;
+            }
+
+            @include from($desktop) {
+                --hero-hotspot-title-x: 2%;
+                --hero-hotspot-title-y: -6rem;
+                --hero-hotspot-title-width: 55%;
+                --hero-hotspot-description-x: 11%;
+                --hero-hotspot-description-y: 40%;
+                --hero-hotspot-description-width: 78%;
+            }
+
+            @include from($fullhd) {
+                --hero-hotspot-title-x: 2%;
+                --hero-hotspot-title-y: 1%;
+                --hero-hotspot-title-width: 55%;
+                --hero-hotspot-description-x: 12%;
+                --hero-hotspot-description-y: 45%;
+                --hero-hotspot-description-width: 77%;
+            }
         }
     }
 
@@ -120,6 +217,14 @@
             width: var(--hero-hotspot-description-width);
             background-color: $color-white;
             padding: $theme-spacing;
+
+            @media (max-width: 400px) {
+                padding: $theme-spacing-quarter;
+
+                p {
+                    font-size: 1rem;
+                }
+            }
         }
     }
 
@@ -220,6 +325,12 @@
 
             @include until($tablet) {
                 bottom: 1rem;
+            }
+        }
+
+        &.layout-wide {
+            @media (max-width: 400px) {
+                padding-top: 15rem !important;
             }
         }
     }

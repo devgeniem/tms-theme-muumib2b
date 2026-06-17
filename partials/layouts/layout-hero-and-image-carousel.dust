@@ -1,6 +1,6 @@
 {?hero.full_size_image}
     <section {?hero.anchor}id="{hero.anchor|attr}"{/hero.anchor}
-            class="hero-and-image-carousel page-component is-relative has-full-bg">
+            class="hero-and-image-carousel page-component is-relative has-full-bg {heading_style|attr}">
         <div class="hero-and-image-carousel__canvas">
             <div class="hero-and-image-carousel__media" aria-hidden="true">
                 {@image id=hero.full_size_image alt="" size="fullhd" class="hero-and-image-carousel__media-image" loading="eager" /}
@@ -8,15 +8,38 @@
 
             <div class="hero-and-image-carousel__overlay">
                 <div class="hero-and-image-carousel__hotspot hero-and-image-carousel__hotspot--title">
+                    {@eq key=heading_style value="layout-wide"}
+                        {?hero.subtitle}
+                            <p class="subtitle mt-0 mb-2 has-text-weight-bold no-hyphens is-uppercase">
+                                {hero.subtitle|html}
+                            </p>
+                        {/hero.subtitle}
+                    {/eq}
                     {?hero.title}
                         <h1 class="h1 font-tove-sans mt-0 no-hyphens">
                             {hero.title|html}
                         </h1>
                     {/hero.title}
+                    {@eq key=heading_style value="layout-wide"}
+                        {?hero.top_description}
+                            <p class="top-description mt-2 has-text-left">
+                                {hero.top_description|kses}
+                            </p>
+                        {/hero.top_description}
+                    {/eq}
                 </div>
 
                 <div class="hero-and-image-carousel__hotspot hero-and-image-carousel__hotspot--description {hero.box_classes|attr}">
-                    {hero.description|kses}
+                    {@eq key=heading_style value="layout-wide"}
+                        {?hero.description_heading}
+                            <h2 class="description-heading mt-0 font-tove-sans has-text-centered">
+                                {hero.description_heading|html}
+                            </h2>
+                        {/hero.description_heading}
+                    {/eq}
+                    {?hero.description}
+                        {hero.description|kses}
+                    {/hero.description}
                 </div>
             </div>
         </div>
@@ -24,7 +47,7 @@
 {/hero.full_size_image}
 
 {?image_carousel.rows}
-    <div class="hero-and-image-carousel__carousel image-carousel has-background-teal shape-section">
+    <div class="hero-and-image-carousel__carousel image-carousel has-background-teal shape-section {heading_style|attr}">
         <div class="shape-slot shape-slot--top border-shape--wave-top-reverse" aria-hidden="true"></div>
         <div class="container keep-vertical-spacing">
             <div class="columns is-multiline">
@@ -88,6 +111,6 @@
             </div>
         </div>
         <div class="vector-flowers" aria-hidden="true"></div>
-        <!--<div class="shape-slot shape-slot--bottom border-shape--wave-bottom-reverse" aria-hidden="true"></div>-->
+        <div class="shape-slot shape-slot--bottom border-shape--wave-bottom-reverse" aria-hidden="true"></div>
     </div>
 {/image_carousel.rows}
