@@ -1,12 +1,14 @@
 .block-settings-toggle,
-.show-block-settings {
+.show-block-settings,
+.show-preview-image {
     &:hover,
     &:focus {
         cursor: pointer;
     }
 }
 
-.show-block-settings {
+.show-block-settings,
+.show-preview-image {
     padding: 8px 16px;
     color: #2271b1;
 
@@ -17,6 +19,18 @@
 }
 
 .show-block-settings.clicked {
+    & > .arrow-down,
+    & > .text-show {
+        display: none;
+    }
+
+    & > .arrow-up,
+    & > .text-hide {
+        display: inline;
+    }
+}
+
+.show-preview-image.clicked {
     & > .arrow-down,
     & > .text-show {
         display: none;

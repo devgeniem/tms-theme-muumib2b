@@ -65,8 +65,14 @@ class ACFController implements Interfaces\Controller {
 
         $field['message'] = (string) ( $field['message'] ?? '' );
         $field['message'] .= sprintf(
-            '<div><strong>%1$s<br></strong><img src="%2$s" alt="%3$s" style="max-width: 50%%;" /></div>',
-            \esc_html( 'Komponentin esikatselu' ),
+            '<div class="preview-image-toggle">
+                <button class="show-preview-image"><span class="text-show">%1$s</span><span class="text-hide">%2$s</span> <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></button>
+                <div class="toggleable-preview-image hidden">
+                    <img src="%3$s" alt="%4$s" style="max-width: 50%%;" />
+                </div>
+            </div>',
+            \esc_html( 'Näytä esikatselu' ),
+            \esc_html( 'Piilota esikatselu' ),
             \esc_url( $preview_url ),
             \esc_attr( 'Komponentin esikatselu' )
         );

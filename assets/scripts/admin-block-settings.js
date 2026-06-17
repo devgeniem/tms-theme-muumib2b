@@ -11,6 +11,22 @@
     app.init = () => {
 
         app.handleBlockSettingsToggles();
+        app.handlePreviewImageToggles();
+    };
+
+    app.handlePreviewImageToggles = () => {
+
+        $( '.acf-field-flexible-content' ).on(
+            'click',
+            '.preview-image-toggle',
+            function( e ) {
+
+                e.preventDefault();
+
+                $( this ).find( '.toggleable-preview-image' ).toggleClass( 'hidden' );
+                $( this ).find( '.show-preview-image' ).toggleClass( 'clicked' );
+            }
+        );
     };
 
     app.handleBlockSettingsToggles = () => {
