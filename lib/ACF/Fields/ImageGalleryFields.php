@@ -40,11 +40,6 @@ class ImageGalleryFields extends Field\Group {
      */
     protected function sub_fields() : array {
         $strings = [
-            'instructions'            => [
-                'label'        => 'Komponentin tiedot',
-                'instructions' => 'Kuvagalleria, jossa kuvat näytetään pienempinä, ja kuvilla on pyöristetyt reunat.
-                Kuville ei voi asettaa suuremmaksi klikattavaa ominaisuutta, vaikka kyseinen kenttä löytyykin.',
-            ],
             'rows' => [
                 'label'        => 'Kuvagalleria',
                 'instructions' => '',
@@ -57,11 +52,6 @@ class ImageGalleryFields extends Field\Group {
         ];
 
         $key = $this->get_key();
-
-        $instructions_field = ( new Field\Message( $strings['instructions']['label'] ) )
-            ->set_key( "{$key}_image_gallery_small_instructions" )
-            ->set_name( 'image_gallery_small_instructions' )
-            ->set_message( $strings['instructions']['instructions'] );
 
         $rows_field = ( new Field\Repeater( $strings['rows']['label'] ) )
             ->set_key( "{$key}_rows" )
@@ -76,7 +66,6 @@ class ImageGalleryFields extends Field\Group {
         $rows_field->add_fields( $image_field->get_fields() );
 
         return [
-            $instructions_field,
             $rows_field,
         ];
     }
