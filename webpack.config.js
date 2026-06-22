@@ -45,7 +45,7 @@ const allModules = {
         },
         {
             test: /\.js$/,
-            exclude: /node_modules/,
+            exclude: /node_modules\/(?!@wordpress\/)/,
             use: {
                 loader: 'babel-loader',
                 options: {
