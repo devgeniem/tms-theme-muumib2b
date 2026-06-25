@@ -6,8 +6,8 @@
             min-height: 600px;
         }
 
-        .image {
-            @media (min-width: 768px) {
+        .column.is-6-desktop > .image {
+            @media (min-width: 768px) and (max-width: 2000px) {
                 position: absolute;
                 right: -25%;
                 top: 0;

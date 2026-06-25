@@ -32,6 +32,45 @@ class PageExtend extends BaseModel {
     }
 
     /**
+     * Check if the page has any Gutenberg block content.
+     *
+     * @return bool
+     */
+    public function has_content() : bool {
+        return \has_blocks( \get_the_ID() );
+    }
+
+    /**
+     * Check if page has a hero flexible content layout.
+     *
+     * @return bool
+     */
+    public function has_hero_layout() : bool {
+        $content = \get_field( 'components' ) ?? [];
+
+        if ( empty( $content ) || ! \is_array( $content ) ) {
+            return false;
+        }
+
+        $hero_layouts = [
+            'hero',
+            'hero_and_image_carousel',
+        ];
+
+        foreach ( $content as $layout ) {
+            if ( empty( $layout['acf_fc_layout'] ) ) {
+                continue;
+            }
+
+            if ( \in_array( $layout['acf_fc_layout'], $hero_layouts, true ) ) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
      * Get post siblings.
      *
      * @return array|array[]|false
