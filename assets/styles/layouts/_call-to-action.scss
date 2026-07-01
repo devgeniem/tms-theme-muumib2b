@@ -32,7 +32,7 @@
 /*
  * Specific styles if CTA is below hero
  */
-.hero + .call-to-action {
+body.page-template-page-front-page .hero + .call-to-action.before-has-background-white:has(.shape-slot--top.border-shape--wave-top-reverse) {
     margin-top: $theme-spacing-two;
     padding-top: 0 !important;
 
@@ -71,7 +71,7 @@ $_hero-bleed-colors: (
 );
 
 @each $name, $color in $_hero-bleed-colors {
-    .hero.has-background-#{$name} + .call-to-action {
+    body.page-template-page-front-page .hero.has-background-#{$name} + .call-to-action.before-has-background-white:has(.shape-slot--top.border-shape--wave-top-reverse) {
         background-image: linear-gradient(
             to bottom,
             #{$color} 16rem,
