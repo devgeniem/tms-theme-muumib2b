@@ -74,6 +74,10 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
+
+            &.objectfit-image-contain {
+                object-fit: contain !important;
+            }
         }
 
         .hero-image--rounded img {
