@@ -30,7 +30,6 @@
 
     p {
         font-weight: $weight-semibold;
-        // font-size: 1.165rem;
     }
 
     .button {
@@ -104,6 +103,10 @@
         @media (max-width: 920px) {
             .columns {
                 display: block;
+
+                > .column:first-child {
+                    text-align: center !important;
+                }
             }
         }
     }
