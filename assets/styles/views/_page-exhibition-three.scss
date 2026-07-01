@@ -2,7 +2,7 @@
     .hero + .content-columns {
         overflow-x: clip;
 
-        &__item {
+        .content-columns__item {
             min-height: 600px;
         }
 

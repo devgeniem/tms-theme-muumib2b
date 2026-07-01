@@ -104,9 +104,13 @@ class HeroFields extends \Geniem\ACF\Field\Group {
                 'label'        => 'Hero taustakuvan sijainti',
                 'instructions' => '',
             ],
+            'hero_img_object_fit'     => [
+                'label'        => 'Kuvan sovitus alueeseen',
+                'instructions' => '',
+            ],
             'hero_img_shape'     => [
                 'label'        => 'Hero kuvan muodot',
-                'instructions' => 'Valitse heron kuvalle käytettävä muoto',
+                'instructions' => '',
             ],
             'next_background_color' => [
                 'label'        => 'Seuraavan komponentin taustaväri',
@@ -192,6 +196,17 @@ class HeroFields extends \Geniem\ACF\Field\Group {
             ->set_default_value( 'has-text-centered-desktop' )
             ->set_instructions( $strings['hero_img_position']['instructions'] );
 
+        $hero_img_object_fit_field = ( new Field\Select( $strings['hero_img_object_fit']['label'] ) )
+            ->set_key( "{$key}_hero_img_object_fit" )
+            ->set_name( 'hero_img_object_fit' )
+            ->set_choices( [
+                'objectfit-image-cover'   => 'Täytä alue',
+                'objectfit-image-contain' => 'Näytä koko kuva',
+            ] )
+            ->set_wrapper_width( 50 )
+            ->set_default_value( 'objectfit-image-cover' )
+            ->set_instructions( $strings['hero_img_object_fit']['instructions'] );
+
         $hero_img_shape_field = ( new Field\Select( $strings['hero_img_shape']['label'] ) )
             ->set_key( "{$key}_hero_img_shape" )
             ->set_name( 'hero_img_shape' )
@@ -201,7 +216,7 @@ class HeroFields extends \Geniem\ACF\Field\Group {
                 'hero-image--wavy'    => 'Aaltoilevat reunat',
             ] )
             ->set_wrapper_width( 50 )
-            ->set_instructions( $strings['hero_img_shape']['instructions'] );;
+            ->set_instructions( $strings['hero_img_shape']['instructions'] );
 
         $background_color = ( new Field\Select( $strings['background_color']['label'] ) )
             ->set_key( "{$key}_common_background_color" )
@@ -240,7 +255,8 @@ class HeroFields extends \Geniem\ACF\Field\Group {
             $link_field,
             $use_button_icon_field,
             $button_icon_field,
-            $hero_img_position_field,
+            // $hero_img_position_field,
+            $hero_img_object_fit_field,
             $hero_img_shape_field,
             $background_color,
             $next_background_color,
