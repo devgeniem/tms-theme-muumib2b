@@ -103,6 +103,7 @@ class HeroAndImageCarouselFields extends Field\Group {
         unset( $hero_field->sub_fields['use_button_icon'] );
         unset( $hero_field->sub_fields['button_icon'] );
         unset( $hero_field->sub_fields['hero_img_position'] );
+        unset( $hero_field->sub_fields['hero_img_object_fit'] );
         unset( $hero_field->sub_fields['hero_img_shape'] );
         unset( $hero_field->sub_fields['common_background_color'] );
         unset( $hero_field->sub_fields['common_next_background_color'] );

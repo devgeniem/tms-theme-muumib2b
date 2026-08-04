@@ -105,8 +105,12 @@
                 <div class="column is-12 is-4-desktop mt-6 mt-0-desktop has-text-centered has-text-right-desktop">
                     <a href="{brand_logo_url|url}" class="site-footer__tampere-vaakuna is-flex">
                         <span class="is-sr-only">{Strings.s.footer.to_main_site|html}</span>
-                        {@image id=bottom_logo class="brand-logo" size="large" /}
-                        {@image id=bottom_second_logo class="brand-logo" size="large" /}
+                        {?bottom_logo}
+                            {@image id=bottom_logo class="brand-logo" size="large" /}
+                        {/bottom_logo}
+                        {?bottom_second_logo}
+                            {@image id=bottom_second_logo class="brand-logo" size="large" /}
+                        {/bottom_second_logo}
                     </a>
                 </div>
             </div>

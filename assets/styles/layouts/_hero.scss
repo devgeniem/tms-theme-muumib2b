@@ -30,7 +30,6 @@
 
     p {
         font-weight: $weight-semibold;
-        // font-size: 1.165rem;
     }
 
     .button {
@@ -73,7 +72,11 @@
             max-height: 900px;
             height: 100%;
             object-fit: cover;
-            object-position: bottom center;
+            object-position: center;
+
+            &.objectfit-image-contain {
+                object-fit: contain !important;
+            }
         }
 
         .hero-image--rounded img {
@@ -100,6 +103,10 @@
         @media (max-width: 920px) {
             .columns {
                 display: block;
+
+                > .column:first-child {
+                    text-align: center !important;
+                }
             }
         }
     }

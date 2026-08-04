@@ -11,7 +11,7 @@
             {^full_size_image}
                 <div class="column pl-0 {hero_img_position|attr} {hero_img_shape|attr}">
                     {?image}
-                        {@image id=image size="fullhd" /}
+                        {@image id=image size="fullhd" class="{hero_img_object_fit|attr}" /}
                     {/image}
                 </div>
             {/full_size_image}

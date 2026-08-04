@@ -3,7 +3,7 @@
     <div class="container">
         <div class="image-gallery-small columns is-flex is-flex-wrap-wrap">
             {#rows}
-                <div class="column is-4 image-gallery-small__image p-0">
+                <div class="column is-4 image-gallery-small__image">
                     {@image id=image.id size="large" alt=image.alt class="objectfit-image" /}
                 </div>
             {/rows}

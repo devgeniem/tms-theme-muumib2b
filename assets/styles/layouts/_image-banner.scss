@@ -24,4 +24,8 @@
 
 .image-banner {
     padding: 0 !important;
+
+    &.is-align-full {
+        width: 100%;
+    }
 }
