@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- Upgrade node-version with packages
+
 ## [1.1.0] - 2026-08-04
 
 - Allow gutenberg block usage
