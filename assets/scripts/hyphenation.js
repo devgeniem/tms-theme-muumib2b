@@ -66,7 +66,7 @@ export default class Hyphenation {
      * the language defined for the HTML document.
      *
      * @param {string} selector A selector for jQuery.
-     * @return {boolean} True on success, false on failure.
+     * @return {boolean|undefined} False if Hyphenopoly is missing.
      */
     hyphenate( selector ) {
         if ( typeof hyphenopoly === 'undefined' ) {
